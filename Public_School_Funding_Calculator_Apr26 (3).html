@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Could Public Schools Get If We Made Different Choices?</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --paper: #faf5ec;
+    --red: #eb6b50;
+    --gold: #e8b84a;
+    --pale: #f0e8d8;
+    --rule: #5a5a5a;
+    --white: #fdfaf3;
+    --blue: #2e9b9b;
+    --olive: #1f6f6f;
+    --coral-dark: #d4543a;
+    --teal-dark: #1f6f6f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding: 0 48px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .header-left {
+    flex: 1;
+    padding: 32px 0;
+    border-right: 2px solid var(--ink);
+    padding-right: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 5.2vw, 68px);
+    line-height: 0.95;
+    letter-spacing: 0.005em;
+  }
+  h1 span { color: var(--red); }
+
+  .header-right {
+    padding: 32px 0 32px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 420px;
+    gap: 18px;
+  }
+  .header-logo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+  }
+  .header-logo img {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .header-right p.subhead {
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink);
+    font-weight: 700;
+  }
+  .header-subhead-wrap.coral    p.subhead strong { color: var(--red); }
+  .header-subhead-wrap.teal     p.subhead strong { color: var(--blue); }
+  .header-subhead-wrap.darkteal p.subhead strong { color: var(--teal-dark); }
+  .header-subhead-wrap { transition: opacity 0.2s; }
+  .sanders-note {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #444;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .sanders-note a {
+    color: var(--blue);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .sanders-note a:hover { color: var(--teal-dark); }
+  .source-tag {
+    margin-top: 6px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: var(--rule);
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    header { flex-direction: column; padding: 0 24px; }
+    .header-left { border-right: none; border-bottom: 2px solid var(--ink); padding-right: 0; }
+    .header-right { padding: 24px 0; max-width: 100%; }
+    .header-logo { justify-content: flex-start; }
+  }
+
+  main { padding: 0 48px 80px; }
+
+  /* ── MODE TABS ── */
+  .mode-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .mode-tab {
+    padding: 18px 30px;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #3a3a3a;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mode-tab:hover { color: var(--ink); }
+  .mode-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 700; }
+  .mode-tab .tab-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  /* External-link mode tab */
+  .mode-tab-link {
+    text-decoration: none;
+    margin-left: auto;
+    color: var(--ink);
+  }
+  .mode-tab-link:hover {
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .mode-tab-external {
+    opacity: 0.55;
+    transition: opacity 0.15s, transform 0.15s;
+    flex-shrink: 0;
+  }
+  .mode-tab-link:hover .mode-tab-external {
+    opacity: 1;
+    transform: translate(1px, -1px);
+  }
+
+  @media (max-width: 780px) {
+    .mode-tabs { flex-wrap: wrap; }
+    .mode-tab-link { margin-left: 0; }
+  }
+
+  /* ── SELECTOR STRIP ── */
+  .selector-strip {
+    border-bottom: 2px solid var(--ink);
+    padding: 22px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    min-height: 76px;
+  }
+
+  .selector-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rule);
+    white-space: nowrap;
+  }
+
+  .pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+
+  .pill-wrap { position: relative; display: inline-block; }
+
+  .pill {
+    background: none;
+    border: 1.5px solid var(--rule);
+    padding: 8px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0;
+    color: #555;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+    display: block;
+  }
+  .pill:hover { border-color: var(--ink); color: var(--ink); }
+  .pill.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  /* budget pills get their own accent colors */
+  .pill.budget-pill { border-color: #888; }
+  .pill.budget-pill:hover { border-color: var(--blue); color: var(--blue); }
+  .pill.budget-pill.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .pill.war-pill:hover { border-color: var(--olive); color: var(--olive); }
+  .pill.war-pill.active { background: var(--olive); border-color: var(--olive); color: #fff; }
+
+  /* ── AUDIT THUMBNAIL POPOVER ── */
+  .audit-popover {
+    position: absolute;
+    bottom: calc(100% + 14px);
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: 230px;
+    background: #111;
+    border: 1.5px solid #2e2e2e;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    z-index: 200;
+  }
+  .pill-wrap:hover .audit-popover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    pointer-events: auto;
+  }
+  .audit-popover::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 7px solid transparent;
+    border-top-color: #2e2e2e;
+  }
+
+  .pop-thumb {
+    width: 100%;
+    height: 128px;
+    overflow: hidden;
+    position: relative;
+    background: #0d1117;
+  }
+  .pop-thumb iframe {
+    width: 920px;
+    height: 600px;
+    border: none;
+    transform: scale(0.25);
+    transform-origin: top left;
+    pointer-events: none;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  .pop-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: linear-gradient(160deg, #12172b 0%, #1a1035 100%);
+  }
+  .pop-fallback-icon { font-size: 26px; }
+  .pop-fallback-domain {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #666;
+  }
+  .pop-body { padding: 11px 14px 13px; }
+  .pop-name { font-family: 'Bebas Neue', sans-serif; font-size: 17px; color: #f0ece4; line-height: 1.1; }
+  .pop-sublabel {
+    font-family: 'DM Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #555;
+    margin-top: 2px;
+    margin-bottom: 9px;
+  }
+  .pop-link {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    padding-top: 8px;
+    border-top: 1px solid #232323;
+    transition: color 0.15s;
+  }
+  .pop-link:hover { color: #fff; }
+
+  /* budget popovers use a different color scheme */
+  .pop-body.budget-body .pop-name { color: #b8e2e2; }
+  .pop-body.budget-body .pop-link { color: #7fd1d1; }
+
+  /* ── BILLBOARD ── */
+  .billboard {
+    padding: 36px 0 28px;
+    border-bottom: 1.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    animation: fadeUp 0.35s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .stat-block { padding-right: 40px; border-right: 1.5px solid var(--rule); margin-right: 40px; }
+  .stat-block:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 4.5vw, 60px);
+    line-height: 1;
+  }
+  .stat-value.red  { color: var(--red); }
+  .stat-value.gold { color: var(--gold); }
+  .stat-value.blue { color: var(--blue); }
+  .stat-value.olive { color: var(--olive); }
+
+  .stat-sub { font-size: 11px; color: #888; margin-top: 4px; font-weight: 300; }
+  .stat-sub a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Billionaire photo(s) shown under net worth */
+  .bill-photo-wrap { margin-top: 14px; }
+  .bill-photo-wrap:empty { display: none; }
+  .bill-photo-single {
+    display: block;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--ink);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    background: var(--white);
+  }
+  .bill-photo-single:hover { transform: scale(1.04); }
+  .bill-photo-single img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bill-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 64px);
+    gap: 10px;
+  }
+  .bill-photo-grid-item {
+    width: 64px; height: 64px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--ink);
+    background: var(--white);
+    transition: transform 0.2s;
+  }
+  .bill-photo-grid-item:hover { transform: scale(1.08); }
+  .bill-photo-grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bill-photo-fallback {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 38px;
+    letter-spacing: 0.03em;
+  }
+  .bill-photo-grid-item .bill-photo-fallback { font-size: 22px; }
+
+  .bill-audit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .bill-audit-link:hover { border-bottom-color: currentColor; }
+  .bill-audit-link.blue-link  { color: var(--blue); }
+  .bill-audit-link.olive-link { color: var(--olive); }
+
+  /* ── CONTEXT BAND (shows for budget/war modes) ── */
+  .context-band {
+    padding: 14px 20px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #fff;
+    display: none;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .context-band.show { display: flex; }
+  .context-band.blue-band  { background: var(--blue); }
+  .context-band.olive-band { background: var(--teal-dark); }
+  .context-band-icon { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .context-band p { opacity: 0.9; }
+  .context-band strong { opacity: 1; font-weight: 600; }
+  .context-band a { color: #fff; opacity: 0.75; font-size: 10px; }
+
+  /* ── RESOURCE CARDS ── */
+  .grid-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 28px 0 20px;
+  }
+
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+
+  .card {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    padding: 28px 28px 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card:nth-child(1){animation-delay:.05s} .card:nth-child(2){animation-delay:.10s}
+  .card:nth-child(3){animation-delay:.15s} .card:nth-child(4){animation-delay:.20s}
+  .card:nth-child(5){animation-delay:.25s} .card:nth-child(6){animation-delay:.30s}
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-color: var(--ink); z-index: 2; }
+
+  .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .card-icon   { font-size: 36px; margin-bottom: 14px; display: block; line-height: 1; }
+  .card-resource { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .card-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px,4vw,56px); line-height: 1; margin-bottom: 4px; }
+  .card-unit   { font-size: 12px; color: #999; font-weight: 300; margin-bottom: 16px; }
+
+  .bar-track { height: 4px; background: var(--pale); overflow: hidden; margin-top: 6px; }
+  .bar-fill  { height: 100%; transition: width 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .card-cost { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.08em; margin-top: 10px; }
+
+  /* ── TOTAL BANNER ── */
+  .total-banner {
+    margin-top: 3px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 36px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    animation: fadeUp 0.4s ease 0.35s both;
+  }
+  .banner-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa; }
+  .banner-value { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,3.5vw,44px); color: var(--gold); line-height: 1; }
+  .banner-text  { font-size: 13px; color: #ccc; font-weight: 300; max-width: 420px; line-height: 1.6; }
+
+  .toggle-btn {
+    background: none;
+    border: 1.5px solid var(--rule);
+    padding: 8px 20px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.15s;
+  }
+  .toggle-btn:hover, .toggle-btn.active { background: var(--red); border-color: var(--red); color: #fff; }
+  .toggle-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rule); }
+
+  @media (max-width: 900px) {
+    header, main { padding-left: 24px; padding-right: 24px; }
+    .billboard { grid-template-columns: 1fr 1fr; }
+    .billboard .stat-block:nth-child(3) { border-right: none; margin-right: 0; padding-right: 0; margin-top: 24px; grid-column: span 2; }
+    .cards-grid { grid-template-columns: repeat(2,1fr); }
+    header { flex-direction: column; }
+    .header-left { border-right: none; border-bottom: 2px solid var(--ink); padding-right: 0; padding-bottom: 20px; }
+    .header-right { padding-left: 0; max-width: 100%; }
+    .audit-popover { display: none; }
+    .mode-tab { padding: 12px 16px; font-size: 9px; }
+  }
+  @media (max-width: 580px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .billboard { grid-template-columns: 1fr; }
+    .billboard .stat-block { border-right: none; margin-right: 0; padding-right: 0; border-bottom: 1px solid var(--rule); padding-bottom: 16px; margin-bottom: 16px; }
+    .billboard .stat-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .total-banner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ── METHODOLOGY MODAL ── */
+  .meth-btn {
+    background: none;
+    border: 1.5px solid var(--rule);
+    padding: 7px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #888;
+    transition: all 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .meth-btn:hover { border-color: var(--ink); color: var(--ink); }
+
+  .meth-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(13,13,13,0.72);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .meth-overlay.open { display: flex; }
+
+  .meth-modal {
+    background: var(--white);
+    border: 2px solid var(--ink);
+    max-width: 680px;
+    width: 100%;
+    max-height: 88vh;
+    overflow-y: auto;
+    position: relative;
+    animation: fadeUp 0.25s ease both;
+  }
+
+  .meth-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 28px 18px;
+    border-bottom: 2px solid var(--ink);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 1;
+  }
+
+  .meth-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }
+
+  .meth-close {
+    background: none;
+    border: 1.5px solid var(--rule);
+    width: 32px; height: 32px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #888;
+    transition: all 0.15s;
+    flex-shrink: 0;
+  }
+  .meth-close:hover { border-color: var(--ink); color: var(--ink); }
+
+  .meth-body { padding: 24px 28px 32px; }
+
+  .meth-intro {
+    font-size: 13px;
+    line-height: 1.7;
+    color: #444;
+    margin-bottom: 24px;
+    font-weight: 300;
+  }
+
+  .meth-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+
+  .meth-table th {
+    font-family: 'DM Mono', monospace;
+    font-size: 8.5px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rule);
+    text-align: left;
+    padding: 0 12px 10px 0;
+    border-bottom: 1.5px solid var(--ink);
+  }
+  .meth-table th:last-child { padding-right: 0; }
+
+  .meth-table td {
+    font-size: 12px;
+    line-height: 1.55;
+    padding: 12px 12px 12px 0;
+    border-bottom: 1px solid var(--pale);
+    vertical-align: top;
+    color: #333;
+  }
+  .meth-table td:last-child { padding-right: 0; }
+  .meth-table tr:last-child td { border-bottom: none; }
+
+  .meth-table td:first-child {
+    font-weight: 600;
+    color: var(--ink);
+    white-space: nowrap;
+  }
+
+  .meth-table td .cost {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    color: var(--red);
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 2px;
+  }
+
+  .meth-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    color: var(--rule);
+    display: block;
+    margin-top: 4px;
+  }
+  .meth-source a { color: var(--rule); text-decoration: underline; text-underline-offset: 2px; }
+  .meth-source a:hover { color: var(--ink); }
+
+  .meth-note {
+    font-size: 11px;
+    color: #888;
+    font-weight: 300;
+    line-height: 1.65;
+    padding-top: 16px;
+    border-top: 1px solid var(--pale);
+  }
+
+
+  /* ── CTA ACTION BUTTON ── */
+  .cta-bar {
+    background: var(--red);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 3px solid var(--ink);
+  }
+
+  .cta-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.45;
+    padding: 18px 0;
+    max-width: 780px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .cta-text .cta-email-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    color: #fff;
+  }
+
+  .cta-btn {
+    background: #fff;
+    color: var(--red);
+    border: none;
+    padding: 13px 26px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+  .cta-btn:hover { background: var(--ink); color: #fff; }
+  .cta-btn svg { flex-shrink: 0; }
+
+  @media (max-width: 900px) {
+    .cta-bar { padding-left: 24px; padding-right: 24px; flex-direction: column; align-items: flex-start; gap: 10px; padding-top: 14px; padding-bottom: 14px; }
+    .cta-text { padding: 0; font-size: 15px; }
+  }
+
+  /* ── FOOTER STATEMENT BOX ── */
+  .footer-statement {
+    background: var(--ink);
+    color: #fff;
+    padding: 48px 48px 56px;
+    border-top: 4px solid var(--red);
+  }
+  .footer-statement-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 18px 14px;
+    text-align: center;
+  }
+  .footer-statement-left,
+  .footer-statement-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .footer-pill {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    letter-spacing: 0.02em;
+    padding: 6px 18px 2px;
+    border-radius: 999px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .footer-pill-coral    { background: var(--red);       color: #fff; }
+  .footer-pill-teal     { background: var(--blue);      color: #fff; }
+  .footer-pill-darkteal { background: var(--teal-dark); color: #fff; }
+  .footer-pill-yellow   { background: var(--gold);      color: var(--ink); }
+  .footer-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 34px);
+    color: rgba(255,255,255,0.35);
+    line-height: 1.1;
+  }
+  .footer-vs {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 4.5vw, 54px);
+    color: var(--red);
+    letter-spacing: 0.04em;
+    font-style: italic;
+    padding: 0 8px;
+  }
+  .footer-statement-tag {
+    flex-basis: 100%;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 4vw, 46px);
+    letter-spacing: 0.05em;
+    color: var(--gold);
+    margin-top: 10px;
+  }
+
+  @media (max-width: 780px) {
+    .footer-statement { padding: 36px 24px 40px; }
+    .footer-vs { flex-basis: 100%; }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-left">
+    <div class="eyebrow">Public School Funding Calculator</div>
+    <h1>WHAT COULD <span>PUBLIC SCHOOLS</span><br>GET IF WE MADE<br>DIFFERENT CHOICES?</h1>
+  </div>
+  <div class="header-right">
+    <div class="header-logo">
+      <img src="data:image/webp;base64,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OkV4dElkPgogICAgIDxBdHRyaWI6RmJJZD41MjUyNjU5MTQxNzk1ODA8L0F0dHJpYjpGYklkPgogICAgIDxBdHRyaWI6VG91Y2hUeXBlPjI8L0F0dHJpYjpUb3VjaFR5cGU+CiAgICA8L3JkZjpsaT4KICAgPC9yZGY6U2VxPgogIDwvQXR0cmliOkFkcz4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6ZGM9J2h0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvJz4KICA8ZGM6dGl0bGU+CiAgIDxyZGY6QWx0PgogICAgPHJkZjpsaSB4bWw6bGFuZz0neC1kZWZhdWx0Jz5mcmVlIHRoZSBmdXR1cmUgbWVudSBsb2dvIC0gNTwvcmRmOmxpPgogICA8L3JkZjpBbHQ+CiAgPC9kYzp0aXRsZT4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6cGRmPSdodHRwOi8vbnMuYWRvYmUuY29tL3BkZi8xLjMvJz4KICA8cGRmOkF1dGhvcj5Lbm93Tk9XIEhlYWx0aDwvcGRmOkF1dGhvcj4KIDwvcmRmOkRlc2NyaXB0aW9uPgoKIDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PScnCiAgeG1sbnM6eG1wPSdodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvJz4KICA8eG1wOkNyZWF0b3JUb29sPkNhbnZhIChSZW5kZXJlcikgZG9jPURBRzBmLVBsYkh3IHVzZXI9VUFGRjJKYXY5SWcgYnJhbmQ9S25vd05PVyBNYXJrZXRpbmcgdGVtcGxhdGU9PC94bXA6Q3JlYXRvclRvb2w+CiA8L3JkZjpEZXNjcmlwdGlvbj4KPC9yZGY6UkRGPgo8L3g6eG1wbWV0YT4KPD94cGFja2V0IGVuZD0ncic/PgA=" alt="Free The Future logo">
+    </div>
+    <div id="headerSubhead" class="header-subhead-wrap coral">
+      <p class="subhead">A wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon and Lonsdale of just <strong>5%</strong> would generate an additional <strong>$6.9 billion</strong> for public education.</p>
+      <p class="sanders-note">Based on the <a href="https://www.sanders.senate.gov/wp-content/uploads/Wealth-Tax-Bill-Summary.pdf" target="_blank" rel="noopener">Sanders-Khanna proposed federal wealth tax bill ↗</a>.</p>
+    </div>
+    <div class="source-tag">Sources: classsolidarity.org · ICE FY2026 Appropriations · Pentagon / Brown Univ. / Harvard Kennedy School 2026</div>
+  </div>
+</header>
+
+<div class="cta-bar">
+  <p class="cta-text">
+    <svg class="cta-email-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <rect x="2.5" y="5" width="19" height="14" rx="1.8" stroke="currentColor" stroke-width="1.8"/>
+      <path d="M3 6.5l9 7 9-7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>Tell your congressperson you want your tax dollars to go to public schools — not billionaires, ICE, and war.</span>
+  </p>
+  <a class="cta-btn" href="https://actionnetwork.org/letters/mayday-mayday-urgent-we-want-fully-funded-public-schools/?hash=81bd73ecc6d14526eb384096fd769263" target="_blank" rel="noopener">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+      <path d="M1 6h10M6 1l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    Email your rep →
+  </a>
+</div>
+
+<main>
+  <!-- Mode selector tabs -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" data-mode="billionaires" onclick="switchMode('billionaires')">
+      <span class="tab-dot" style="background:var(--red)"></span>
+      5% Billionaire Tax
+    </button>
+    <button class="mode-tab" data-mode="dhs" onclick="switchMode('dhs')">
+      <span class="tab-dot" style="background:var(--blue)"></span>
+      ICE Budget
+    </button>
+    <button class="mode-tab" data-mode="iran" onclick="switchMode('iran')">
+      <span class="tab-dot" style="background:var(--olive)"></span>
+      Iran War Cost
+    </button>
+    <a class="mode-tab mode-tab-link" href="https://www.freethefuture.net/whats-at-stake" target="_blank" rel="noopener">
+      <span class="tab-dot" style="background:var(--gold)"></span>
+      Stop 2027 Fed Budget Cuts
+      <svg class="mode-tab-external" width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+        <path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Billionaires selector -->
+  <div class="selector-strip" id="strip-billionaires">
+    <span class="selector-label">Select →</span>
+    <div class="pill-group" id="pillGroup"></div>
+    <div style="display:flex;align-items:center;gap:12px;margin-left:auto;">
+      <button class="meth-btn" onclick="document.getElementById('methOverlay').classList.add('open')">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="5" stroke="currentColor" stroke-width="1.4"/><path d="M6 5.5v3M6 3.8v.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+        Methodology
+      </button>
+      <span class="toggle-label">View:</span>
+      <button class="toggle-btn" id="combinedBtn" onclick="toggleCombined()">All 6 Combined</button>
+    </div>
+  </div>
+
+  <!-- ICE selector -->
+  <div class="selector-strip" id="strip-dhs" style="display:none;">
+    <span class="selector-label">Budget →</span>
+    <div class="pill-group" id="icePillGroup">
+      <div class="pill-wrap">
+        <button class="pill budget-pill active" data-icekey="annual" onclick="selectICE('annual')">Annual Appropriation — $11B</button>
+        <div class="audit-popover">
+          <div class="pop-thumb">
+            <div class="pop-fallback">
+              <div class="pop-fallback-icon">🏛️</div>
+              <div class="pop-fallback-domain">appropriations.house.gov</div>
+            </div>
+          </div>
+          <div class="pop-body budget-body">
+            <div class="pop-name">ICE FY2026 Appropriation</div>
+            <div class="pop-sublabel">House Homeland Security Bill, FY2026</div>
+            <a href="https://appropriations.house.gov/sites/evo-subsites/republicans-appropriations.house.gov/files/evo-media-document/fy26-homeland-security-bill-summary.pdf" target="_blank" class="pop-link">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              View bill summary (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Iran war selector (two options) -->
+  <div class="selector-strip" id="strip-iran" style="display:none;">
+    <span class="selector-label">Estimate →</span>
+    <div class="pill-group" id="iranPillGroup">
+      <div class="pill-wrap">
+        <button class="pill war-pill active" data-irankey="first6" onclick="selectIran('first6')">First 6 Days — $11.3B</button>
+        <div class="audit-popover">
+          <div class="pop-thumb">
+            <div class="pop-fallback">
+              <div class="pop-fallback-icon">📰</div>
+              <div class="pop-fallback-domain">nbcnews.com</div>
+            </div>
+          </div>
+          <div class="pop-body budget-body">
+            <div class="pop-name">Pentagon Briefing to Congress</div>
+            <div class="pop-sublabel">NBC News, March 2026</div>
+            <a href="https://www.nbcnews.com/politics/congress/first-6-days-iran-war-cost-11-billion-pentagon-tells-senators-rcna263060" target="_blank" class="pop-link">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Read source
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="pill-wrap">
+        <button class="pill war-pill" data-irankey="projected" onclick="selectIran('projected')">30-Day Projection — ~$58B</button>
+        <div class="audit-popover">
+          <div class="pop-thumb">
+            <div class="pop-fallback">
+              <div class="pop-fallback-icon">📈</div>
+              <div class="pop-fallback-domain">cnbc.com</div>
+            </div>
+          </div>
+          <div class="pop-body budget-body">
+            <div class="pop-name">Bilmes / Harvard Kennedy School</div>
+            <div class="pop-sublabel">~$2B/day during live conflict</div>
+            <a href="https://www.cnbc.com/amp/2026/04/14/iran-war-cost-us-taxpayer-trillion-harvard.html" target="_blank" class="pop-link">
+              <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+              Read Bilmes analysis
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Context info band -->
+  <div class="context-band blue-band" id="contextBand">
+    <div class="context-band-icon">ℹ️</div>
+    <p id="contextText"></p>
+  </div>
+
+  <!-- Billboard -->
+  <div class="billboard" id="billboard">
+    <div class="stat-block">
+      <div class="stat-label" id="billLabel">Billionaire</div>
+      <div class="stat-value" id="billName" style="font-size:clamp(22px,2.8vw,38px)">Jeff Yass</div>
+      <div class="stat-sub" id="billAffil">Susquehanna Foundation / TikTok</div>
+      <a id="billAuditLink" href="https://classsolidarity.org/audits/jeffrey-yass" target="_blank" class="bill-audit-link">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        <span id="billLinkLabel">View wealth audit →</span>
+      </a>
+      <div class="bill-photo-wrap" id="billPhotoWrap"></div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label" id="worthLabel">Estimated Net Worth</div>
+      <div class="stat-value red" id="billWorth">$67.4B</div>
+      <div class="stat-sub" id="worthSub">classsolidarity.org audit</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-label" id="revenueLabel">5% Tax Revenue</div>
+      <div class="stat-value gold" id="billTax">$3.37B</div>
+      <div class="stat-sub" id="billTaxM">$3,370M available</div>
+    </div>
+  </div>
+
+  <div class="grid-label">What $<span id="gridLabel">3,370M</span> could fund for public schools — <span style="color:var(--red);font-style:italic;letter-spacing:0.05em">for 1 year</span></div>
+  <div class="cards-grid" id="cardsGrid"></div>
+
+  <div class="total-banner" id="totalBanner">
+    <div>
+      <div class="banner-label" id="bannerLabel1">All 6 billionaires combined</div>
+      <div class="banner-value" id="bannerVal1">$6.90B</div>
+    </div>
+    <div class="banner-text" id="bannerText">A 5% wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale combined would generate $6.90 billion — enough for 148,304 first-year teachers.</div>
+    <div>
+      <div class="banner-label" id="bannerLabel2">Equivalent to</div>
+      <div class="banner-value" id="bannerVal2" style="color:#fff">148,304<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span></div>
+    </div>
+  </div>
+
+  <!-- Methodology Modal -->
+  <div class="meth-overlay" id="methOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="meth-modal">
+      <div class="meth-header">
+        <div class="meth-title">Methodology & Sources</div>
+        <button class="meth-close" onclick="document.getElementById('methOverlay').classList.remove('open')">✕</button>
+      </div>
+      <div class="meth-body">
+        <p class="meth-intro">All unit costs are national averages drawn from government data, peer-reviewed research, and industry sources. Figures represent what a single unit costs to fund for one school year, unless otherwise noted. Dollar amounts are rounded to the nearest whole number for display.</p>
+
+        <table class="meth-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Resource</th>
+              <th style="width:16%">Unit Cost</th>
+              <th>Rationale & Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🍎 First-Year Teacher Salary</td>
+              <td><span class="cost">$46,526</span></td>
+              <td>
+                National average beginning teacher salary for FY2023–24, per the National Education Association (NEA) 2025 Teacher Salary Benchmark Report. This represents the largest year-over-year increase (+4.4%) in 15 years of NEA tracking, though real inflation-adjusted salaries remain below 2008–09 levels.
+                <span class="meth-source">NEA 2025 Educator Pay & Student Spending Report · <a href="https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank" target="_blank">nea.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🏫 Afterschool Program</td>
+              <td><span class="cost">$100,000</span></td>
+              <td>
+                Annual operating cost for a full school-based afterschool program serving approximately 65 students. The Afterschool Alliance estimates ~$1,500 per child per year for a high-quality program; at 65 students that yields ~$97,500, rounded to $100,000. The Wallace Foundation's landmark OST cost study documented $7/hr per slot on average across six major cities. Program costs include staff salaries (the primary driver), materials, snacks, and overhead.
+                <span class="meth-source">Afterschool Alliance FAQ · <a href="https://www.afterschoolalliance.org/fundingForum1.cfm" target="_blank">afterschoolalliance.org ↗</a> · Wallace Foundation, "The Cost of Quality Out-of-School-Time Programs" (updated 2021) · <a href="https://wallacefoundation.org/cost-calculator" target="_blank">wallacefoundation.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>💻 Computer Lab</td>
+              <td><span class="cost">$25,000</span></td>
+              <td>
+                Fully equipped 30-computer lab for a public school, including devices, networking, furniture, and basic software licensing. Lenovo's school lab guide estimates $10,000–$20,000 for a basic 20–30 computer setup and $50,000+ for advanced configurations; $25,000 represents a mid-range lab with education-grade laptops or desktops at ~$350 each plus infrastructure. Individual device costs typically run $250–$500 in district bulk purchases.
+                <span class="meth-source">Lenovo, "How to Set Up Computer Labs for Schools" · <a href="https://www.lenovo.com/us/en/knowledgebase/how-to-set-up-computer-labs-for-schools/" target="_blank">lenovo.com ↗</a> · EdWeek, "Chromebooks' Short Lifespan Costs Schools Billions" (Apr 2023) · <a href="https://www.edweek.org/technology/chromebooks-short-lifespan-costs-schools-billions-of-dollars-report-finds/2023/04" target="_blank">edweek.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🎺 Marching Band Uniform Set</td>
+              <td><span class="cost">$50,000</span></td>
+              <td>
+                Full uniform set for a 100-student high school marching band, including jacket, bibbers, shako hat, plume, gloves, and gauntlets. Per-uniform cost ranges from $150 (basic) to $450+ (premium); the midpoint of $300–$500 per uniform × 100 students yields $30,000–$50,000. North Olmsted City Schools (OH) documented $450/uniform × 150 units = $67,500 in a recent purchase.
+                <span class="meth-source">Industry pricing: Sonusgear/Alibaba Buyer's Guide (2024) · North Olmsted Instrumental Music FAQ · <a href="https://www.eaglemusic.org/new-uniforms-frequently-asked-questions/" target="_blank">eaglemusic.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🎨 School Arts Program</td>
+              <td><span class="cost">$40,000</span></td>
+              <td>
+                Estimated annual operating budget for a single-school visual or performing arts program. Per-pupil arts allocations documented by the National Art Education Association (NAEA) range from as low as $2/student (elementary) to $125+/student at well-funded schools. For a 500-student school at $2–$80/student, total budgets range from $1,000 to $40,000. We use $40,000 as the midpoint for a functional, sustained program.
+                <span class="meth-source">NAEA Monthly Mentor, "Art Budgets" (2013) · <a href="https://naea.typepad.com/naea/2013/02/art-budgets.html" target="_blank">naea.typepad.com ↗</a> · District budget comparisons</span>
+              </td>
+            </tr>
+            <tr>
+              <td>🤝 Paraprofessional / Behavioral Aide</td>
+              <td><span class="cost">$40,000</span></td>
+              <td>
+                Midpoint between the NEA-reported average K–12 Educational Support Professional (ESP) salary of $37,097 (FY2023–24) and Salary.com's March 2026 figure of $56,123 for Special Education Paraprofessionals. General paraprofessional salaries average $33,000–$35,000 nationally; behavioral therapists and special education paras typically earn more. $40,000 reflects a blended rate for a school-based support position.
+                <span class="meth-source">NEA 2025 ESP Earnings Report · <a href="https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank" target="_blank">nea.org ↗</a> · Salary.com Special Ed Para (Mar 2026) · <a href="https://www.salary.com/research/salary/posting/special-education-paraprofessional-salary" target="_blank">salary.com ↗</a></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="meth-note"><strong>Net worth figures</strong> are drawn from <a href="https://classsolidarity.org/packages/school-privatizers/" target="_blank">classsolidarity.org wealth audits</a> of the six billionaires identified as leading the movement to privatize public education: Jeff Yass, Ken Griffin, Marc Rowan, Richard & Elizabeth Uihlein, Linda McMahon, and Joe Lonsdale. Combined net worth totals $138.0B; a 5% tax would generate $6.90B. Budget comparisons use the ICE FY2026 House Appropriations bill ($11B annual). Iran war costs use Pentagon figures briefed to Congress ($11.3B through day 6), Al Jazeera's synthesis of Brown University's Costs of War project ($31.3–$33.8B total US spending since Oct. 2023 on Israel military aid plus Yemen/Iran/Middle East operations), and Harvard Kennedy School economist Linda Bilmes's estimate of ~$2B/day during live conflict. All figures are estimates and subject to revision as new data becomes available.</p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="footer-statement">
+  <div class="footer-statement-inner">
+    <div class="footer-statement-left">
+      <span class="footer-pill footer-pill-coral">Billionaires</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill footer-pill-teal">Deportations</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill footer-pill-darkteal">War</span>
+    </div>
+    <div class="footer-vs">vs.</div>
+    <div class="footer-statement-right">
+      <span class="footer-pill footer-pill-yellow">Kids</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill footer-pill-yellow">Teachers</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill footer-pill-yellow">Books</span>
+    </div>
+    <div class="footer-statement-tag">Do the Math.</div>
+  </div>
+</div>
+
+<script>
+/* ── DATA ─────────────────────────────────────────────────────────────────── */
+const BILLIONAIRES = {
+  yass:     { name:"Jeff Yass",              affil:"Susquehanna Foundation / TikTok",     worth:67.4,  url:"https://classsolidarity.org/audits/jeffrey-yass",   photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/d4f944bc65d0b478dfb5f168e9c52b215f1832f0-1200x1200.jpg&w=400&h=400&fit=cover&a=attention" },
+  griffin:  { name:"Ken Griffin",            affil:"Citadel",                             worth:50.8,  url:"https://classsolidarity.org/audits/ken-griffin",    photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/c8921f97a62474977a32490f656dd3c174ed0e52-2000x2000.png&w=400&h=400&fit=cover&a=attention" },
+  rowan:    { name:"Marc Rowan",             affil:"Apollo Global Management",            worth:7.5,   url:"https://classsolidarity.org/audits/marc-rowan",     photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/15de798227ffd157fe7bf86d7521138c9d0e244b-1200x1200.jpg&w=400&h=400&fit=cover&a=attention" },
+  uihlein:  { name:"Richard & Liz Uihlein",  affil:"Uline (shipping & packaging)",        worth:6.1,   url:"https://classsolidarity.org/audits/richard-uihlein", photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/f5b849f0759b2e5ef48b5a746f58c7ceeb932da6-2000x2000.png&w=400&h=400&fit=cover&a=attention" },
+  mcmahon:  { name:"Linda McMahon",          affil:"Secretary of Education",              worth:3.2,   url:"https://classsolidarity.org/audits/linda-mcmahon",  photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/0f7ce41c836a04a76c9ed6e263dcaa0d89b151a3-2000x2000.png&w=400&h=400&fit=cover&a=attention" },
+  lonsdale: { name:"Joe Lonsdale",           affil:"8VC / Palantir co-founder",           worth:3.0,   url:"https://classsolidarity.org/audits/joe-lonsdale",   photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/64d71acdab16082129dee7e732906367ecd77f0e-2000x2000.png&w=400&h=400&fit=cover&a=attention" },
+};
+const COMBINED = { name:"All 6 Combined", affil:"Yass · Griffin · Rowan · Uihlein · McMahon · Lonsdale", worth:138.0, url:"https://classsolidarity.org/packages/school-privatizers/", photos: [
+  { url:"https://classsolidarity.org/audits/jeffrey-yass",    photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/d4f944bc65d0b478dfb5f168e9c52b215f1832f0-1200x1200.jpg&w=200&h=200&fit=cover&a=attention", name:"Jeff Yass" },
+  { url:"https://classsolidarity.org/audits/ken-griffin",     photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/c8921f97a62474977a32490f656dd3c174ed0e52-2000x2000.png&w=200&h=200&fit=cover&a=attention", name:"Ken Griffin" },
+  { url:"https://classsolidarity.org/audits/marc-rowan",      photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/15de798227ffd157fe7bf86d7521138c9d0e244b-1200x1200.jpg&w=200&h=200&fit=cover&a=attention", name:"Marc Rowan" },
+  { url:"https://classsolidarity.org/audits/richard-uihlein", photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/f5b849f0759b2e5ef48b5a746f58c7ceeb932da6-2000x2000.png&w=200&h=200&fit=cover&a=attention", name:"Richard & Liz Uihlein" },
+  { url:"https://classsolidarity.org/audits/linda-mcmahon",   photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/0f7ce41c836a04a76c9ed6e263dcaa0d89b151a3-2000x2000.png&w=200&h=200&fit=cover&a=attention", name:"Linda McMahon" },
+  { url:"https://classsolidarity.org/audits/joe-lonsdale",    photo:"https://images.weserv.nl/?url=cdn.sanity.io/images/xzlksv3o/production/64d71acdab16082129dee7e732906367ecd77f0e-2000x2000.png&w=200&h=200&fit=cover&a=attention", name:"Joe Lonsdale" },
+] };
+const TAX_RATE  = 0.05;
+
+const ICE_DATA = {
+  annual: {
+    name:  "ICE FY2026 Annual Appropriation",
+    affil: "U.S. Immigration & Customs Enforcement — House Homeland Security Bill",
+    amountB: 11,
+    worthSub: "House FY2026 Homeland Security Appropriations Bill",
+    url: "https://appropriations.house.gov/sites/evo-subsites/republicans-appropriations.house.gov/files/evo-media-document/fy26-homeland-security-bill-summary.pdf",
+    linkLabel: "View bill summary →",
+    context: "<strong>$11 billion</strong> — ICE's FY2026 annual appropriation in the House Homeland Security bill, a $959.9M increase over FY2025. Funds 50,000 detention beds, deportation operations, and 21,808 staff positions. <a href='https://appropriations.house.gov/sites/evo-subsites/republicans-appropriations.house.gov/files/evo-media-document/fy26-homeland-security-bill-summary.pdf' target='_blank'>Source: House Appropriations ↗</a>",
+    bannerVal1: "$11B",
+    bannerText: "ICE's $11B annual appropriation is roughly 60% larger than what a 5% tax on all six school privatizers ($6.90B) would raise — yet the same money could fund over 236,000 first-year teachers.",
+  },
+};
+
+const IRAN_DATA = {
+  first6:    { name:"Iran War — First 6 Days",   affil:"Operation Epic Fury · Pentagon briefing to Congress",    amountB:11.3,  worthSub:"Pentagon classified briefing to Senate Appropriations, March 2026", url:"https://www.nbcnews.com/politics/congress/first-6-days-iran-war-cost-11-billion-pentagon-tells-senators-rcna263060", context:"<strong>$11.3 billion in just 6 days</strong> — the figure Pentagon officials provided to members of Congress in a classified briefing. Experts note this understates the real cost, excluding pre-strike military buildup and long-term munitions replacement. <a href='https://www.nbcnews.com/politics/congress/first-6-days-iran-war-cost-11-billion-pentagon-tells-senators-rcna263060' target='_blank'>Source: NBC News ↗</a>" },
+  projected: { name:"Iran War — 30-Day Projection", affil:"Bilmes / Harvard Kennedy School: ~$2B/day during live conflict", amountB:58,   worthSub:"Linda Bilmes, Harvard Kennedy School, April 2026", url:"https://www.cnbc.com/amp/2026/04/14/iran-war-cost-us-taxpayer-trillion-harvard.html", context:"<strong>~$58 billion projected</strong> for 30 days of sustained combat — based on Harvard Kennedy School economist Linda Bilmes's estimate of roughly $2 billion per day during live conflict. Bilmes argues the Pentagon's $11.3B figure for the first 6 days is closer to $16B once munitions are valued at replacement cost rather than historical inventory value. She projects the total long-term cost of the Iran war could reach $1 trillion when veteran care, debt interest, and multi-year contracts are included. <a href='https://www.cnbc.com/amp/2026/04/14/iran-war-cost-us-taxpayer-trillion-harvard.html' target='_blank'>Source: CNBC / Harvard Kennedy School ↗</a>" },
+};
+
+const RESOURCES = [
+  { icon:"🍎", label:"First-Year Teachers",                 unit:"annual salaries funded",     cost:46526, color:"#eb6b50", desc:"avg. starting salary" },
+  { icon:"🏫", label:"Afterschool Programs",                unit:"full programs (≈65 students)", cost:100000, color:"#e8b84a", desc:"annual program, ~65 students" },
+  { icon:"💻", label:"Computer Labs",                       unit:"fully equipped computer labs", cost:25000, color:"#2e9b9b", desc:"30-computer lab, public school" },
+  { icon:"🎺", label:"Marching Band Uniform Sets",          unit:"full 100-student band sets", cost:50000, color:"#1f6f6f", desc:"100-student band, full kit" },
+  { icon:"🎨", label:"School Arts Programs",                unit:"annual arts programs",       cost:40000, color:"#d4543a", desc:"$40K annual program budget" },
+  { icon:"🤝", label:"Paraprofessionals / Behavioral Aides",unit:"annual staff positions",     cost:40000, color:"#c89030", desc:"avg. para/therapist salary" },
+];
+
+/* ── STATE ────────────────────────────────────────────────────────────────── */
+let currentMode   = "billionaires";
+let currentBillKey = "yass";
+let combinedMode  = false;
+let currentIranKey = "first6";
+
+/* ── BUILD BILLIONAIRE PILLS ─────────────────────────────────────────────── */
+const pillGroup = document.getElementById('pillGroup');
+Object.entries(BILLIONAIRES).forEach(([key, b]) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'pill-wrap';
+
+  const btn = document.createElement('button');
+  btn.className = 'pill' + (key === 'yass' ? ' active' : '');
+  btn.dataset.key = key;
+  btn.textContent = b.name;
+
+  const pop = document.createElement('div');
+  pop.className = 'audit-popover';
+  pop.innerHTML = `
+    <div class="pop-thumb" id="thumb-${key}">
+      <div class="pop-fallback"><div class="pop-fallback-icon">🔍</div><div class="pop-fallback-domain">classsolidarity.org</div></div>
+    </div>
+    <div class="pop-body">
+      <div class="pop-name">${b.name}</div>
+      <div class="pop-sublabel">Wealth Audit</div>
+      <a href="${b.url}" target="_blank" class="pop-link">
+        <svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2 10L10 2M10 2H4M10 2V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Open full audit
+      </a>
+    </div>`;
+
+  let iframeLoaded = false;
+  wrap.addEventListener('mouseenter', () => {
+    if (iframeLoaded) return;
+    iframeLoaded = true;
+    const thumbEl = document.getElementById('thumb-' + key);
+    const fallback = thumbEl.querySelector('.pop-fallback');
+    const ifr = document.createElement('iframe');
+    ifr.src = b.url; ifr.scrolling = 'no'; ifr.tabIndex = -1;
+    ifr.setAttribute('aria-hidden', 'true');
+    ifr.addEventListener('load', () => { if (fallback) fallback.remove(); }, { once: true });
+    ifr.addEventListener('error', () => { ifr.remove(); iframeLoaded = false; }, { once: true });
+    thumbEl.appendChild(ifr);
+  });
+
+  wrap.appendChild(btn);
+  wrap.appendChild(pop);
+  pillGroup.appendChild(wrap);
+});
+
+/* ── RENDER ───────────────────────────────────────────────────────────────── */
+function render(amountB, opts = {}) {
+  const amountM   = amountB * 1000;
+  const amountRaw = amountM * 1_000_000;
+
+  // Billboard
+  document.getElementById('billName').textContent   = opts.name   || '';
+  document.getElementById('billAffil').textContent  = opts.affil  || '';
+  document.getElementById('billLabel').textContent  = opts.worthLabel  || 'Billionaire';
+  document.getElementById('worthLabel').textContent = opts.worthLabel  || 'Net Worth';
+  document.getElementById('revenueLabel').textContent = opts.revenueLabel || '5% Tax Revenue';
+
+  const worthEl = document.getElementById('billWorth');
+  worthEl.textContent = '$' + amountB.toFixed(amountB >= 10 ? 1 : 2) + 'B';
+  worthEl.className = 'stat-value ' + (opts.worthClass || 'red');
+
+  document.getElementById('billTax').textContent  = '$' + (opts.taxAmount !== undefined ? opts.taxAmount.toFixed(2) : (amountB * TAX_RATE).toFixed(2)) + 'B';
+  document.getElementById('billTax').className    = 'stat-value gold';
+  document.getElementById('billTaxM').textContent = '$' + (opts.taxAmountM !== undefined ? opts.taxAmountM.toLocaleString() : (amountB * TAX_RATE * 1000).toFixed(0)) + 'M available';
+  document.getElementById('gridLabel').textContent = (opts.taxAmountM !== undefined ? opts.taxAmountM.toLocaleString() : (amountB * TAX_RATE * 1000).toFixed(0)) + 'M';
+  document.getElementById('worthSub').textContent = opts.worthSub || 'classsolidarity.org audit';
+
+  // Billionaire photo(s) — single portrait or combined 6-photo grid; hidden for ICE/Iran modes
+  const photoWrap = document.getElementById('billPhotoWrap');
+  photoWrap.innerHTML = '';
+  const initialsOf = (name) => name.split(/\s+/).filter(Boolean).slice(0,2).map(w => w[0]).join('').toUpperCase();
+  const attachFallback = (imgEl, name) => {
+    imgEl.addEventListener('error', () => {
+      const parent = imgEl.parentElement;
+      if (!parent) return;
+      parent.innerHTML = `<span class="bill-photo-fallback">${initialsOf(name)}</span>`;
+    }, { once: true });
+  };
+  if (opts.photo) {
+    const a = document.createElement('a');
+    a.href = opts.photo.url || '#'; a.target = '_blank'; a.rel = 'noopener';
+    a.className = 'bill-photo-single';
+    a.title = 'View wealth audit on classsolidarity.org';
+    const img = document.createElement('img');
+    img.src = opts.photo.src; img.alt = opts.photo.alt; img.loading = 'lazy';
+    img.referrerPolicy = 'no-referrer';
+    attachFallback(img, opts.photo.alt);
+    a.appendChild(img);
+    photoWrap.appendChild(a);
+  } else if (opts.photos && opts.photos.length) {
+    const grid = document.createElement('div');
+    grid.className = 'bill-photo-grid';
+    opts.photos.forEach(p => {
+      const a = document.createElement('a');
+      a.href = p.url; a.target = '_blank'; a.rel = 'noopener';
+      a.className = 'bill-photo-grid-item';
+      a.title = p.name;
+      const img = document.createElement('img');
+      img.src = p.photo; img.alt = p.name; img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer';
+      attachFallback(img, p.name);
+      a.appendChild(img);
+      grid.appendChild(a);
+    });
+    photoWrap.appendChild(grid);
+  }
+
+  // For ICE/war modes the full amount IS the spend — no tax calc
+  if (opts.fullAmount) {
+    document.getElementById('billTax').textContent  = '$' + amountB.toFixed(1) + 'B';
+    document.getElementById('billTaxM').textContent = '$' + amountM.toLocaleString() + 'M';
+    document.getElementById('gridLabel').textContent = amountM.toLocaleString() + 'M';
+  }
+
+  const link = document.getElementById('billAuditLink');
+  if (opts.url) {
+    link.href = opts.url; link.style.display = 'inline-flex';
+    link.className = 'bill-audit-link ' + (opts.linkClass || '');
+    document.getElementById('billLinkLabel').textContent = opts.linkLabel || 'View source →';
+  } else {
+    link.style.display = 'none';
+  }
+
+  // Context band
+  const band = document.getElementById('contextBand');
+  if (opts.context) {
+    band.className = 'context-band show ' + (opts.contextClass || 'blue-band');
+    document.getElementById('contextText').innerHTML = opts.context;
+  } else {
+    band.className = 'context-band';
+  }
+
+  // The spend to visualize
+  const spendRaw = opts.fullAmount ? amountRaw : (amountB * TAX_RATE * 1_000_000_000);
+  const computed = RESOURCES.map(r => ({ ...r, units: Math.floor(spendRaw / r.cost) }));
+  const maxUnits = Math.max(...computed.map(r => r.units));
+
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = '';
+  computed.forEach((r, i) => {
+    const pct = Math.min(100, (r.units / maxUnits) * 100);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = (i * 0.05) + 's';
+    card.innerHTML = `
+      <div class="card-accent" style="background:${r.color}"></div>
+      <span class="card-icon">${r.icon}</span>
+      <div class="card-resource">${r.label}</div>
+      <div class="card-number" style="color:${r.color}">${r.units.toLocaleString('en-US')}</div>
+      <div class="card-unit">${r.unit}</div>
+      <div class="bar-track"><div class="bar-fill" style="background:${r.color};width:0%" data-pct="${pct}"></div></div>
+      <div class="card-cost">Unit cost: $${r.cost.toLocaleString()} · ${r.desc}</div>`;
+    grid.appendChild(card);
+  });
+
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('.bar-fill').forEach(b => { b.style.width = b.dataset.pct + '%'; });
+  }));
+
+  // Banner
+  const teacherUnits = Math.floor(spendRaw / 46526);
+  document.getElementById('bannerLabel1').textContent = opts.bannerLabel1 || 'All 6 billionaires combined';
+  document.getElementById('bannerVal1').textContent   = opts.bannerVal1   || '$6.90B';
+  document.getElementById('bannerText').textContent   = opts.bannerText   || 'A 5% wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale combined would generate $6.90 billion.';
+  document.getElementById('bannerLabel2').textContent = opts.bannerLabel2 || 'Equivalent to';
+  if (opts.bannerVal2str) {
+    document.getElementById('bannerVal2').innerHTML = opts.bannerVal2str(teacherUnits);
+  } else {
+    document.getElementById('bannerVal2').innerHTML = `${teacherUnits.toLocaleString()}<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span>`;
+  }
+
+  const bb = document.getElementById('billboard');
+  bb.style.animation = 'none'; void bb.offsetWidth; bb.style.animation = '';
+}
+
+/* ── MODE SWITCHING ──────────────────────────────────────────────────────── */
+function switchMode(mode) {
+  currentMode = mode;
+  combinedMode = false;
+  document.getElementById('combinedBtn').classList.remove('active');
+  document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+  document.getElementById('strip-billionaires').style.display = mode === 'billionaires' ? '' : 'none';
+  document.getElementById('strip-dhs').style.display          = mode === 'dhs'          ? '' : 'none';
+  document.getElementById('strip-iran').style.display         = mode === 'iran'         ? '' : 'none';
+
+  // Header subhead swaps per mode
+  const headerSubhead = document.getElementById('headerSubhead');
+  if (mode === 'billionaires') {
+    headerSubhead.className = 'header-subhead-wrap coral';
+    headerSubhead.innerHTML = `
+      <p class="subhead">A wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon and Lonsdale of just <strong>5%</strong> would generate an additional <strong>$6.9 billion</strong> for public education.</p>
+      <p class="sanders-note">Based on the <a href="https://www.sanders.senate.gov/wp-content/uploads/Wealth-Tax-Bill-Summary.pdf" target="_blank" rel="noopener">Sanders-Khanna proposed federal wealth tax bill ↗</a>.</p>
+    `;
+  } else if (mode === 'dhs') {
+    headerSubhead.className = 'header-subhead-wrap teal';
+    headerSubhead.innerHTML = `
+      <p class="subhead">Reinvesting the ICE budget could generate an additional <strong>$11 billion</strong> for public education.</p>
+    `;
+  } else {
+    headerSubhead.className = 'header-subhead-wrap darkteal';
+    headerSubhead.innerHTML = `
+      <p class="subhead">Reinvesting 30 days of the Iran war spend could generate <strong>$58 billion</strong> for public education.</p>
+    `;
+  }
+
+  if (mode === 'billionaires') {
+    renderBillionaire(currentBillKey);
+  } else if (mode === 'dhs') {
+    renderICE(currentICEKey);
+  } else {
+    renderIran(currentIranKey);
+  }
+}
+
+const COMBINED_TEACHERS = Math.floor(138.0 * TAX_RATE * 1_000_000_000 / 46526);
+
+function renderBillionaire(key) {
+  const b = key === '__combined__' ? COMBINED : BILLIONAIRES[key];
+  const taxB = b.worth * TAX_RATE;
+  render(b.worth, {
+    name: b.name, affil: b.affil,
+    taxAmount: taxB, taxAmountM: taxB * 1000,
+    worthLabel: key === '__combined__' ? 'Combined Net Worth' : 'Estimated Net Worth',
+    worthClass: 'red',
+    revenueLabel: '5% Tax Revenue',
+    worthSub: 'classsolidarity.org audit',
+    url: b.url,
+    linkLabel: 'View wealth audit →',
+    photo:  key === '__combined__' ? null : { src: b.photo, alt: b.name, url: b.url },
+    photos: key === '__combined__' ? b.photos : null,
+    bannerLabel1: 'All 6 combined',
+    bannerVal1: '$6.90B',
+    bannerText: 'A 5% wealth tax on all six billionaires — Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale — would generate $6.90 billion total for public education.',
+    bannerLabel2: 'Equivalent to',
+    bannerVal2str: () => `${COMBINED_TEACHERS.toLocaleString()}<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span>`,
+  });
+}
+
+let currentICEKey = 'annual';
+
+function selectICE(key) {
+  currentICEKey = key;
+  document.querySelectorAll('#icePillGroup .pill').forEach(p => p.classList.toggle('active', p.dataset.icekey === key));
+  renderICE(key);
+}
+
+function renderICE(key) {
+  const d = ICE_DATA[key];
+  render(d.amountB, {
+    name: d.name, affil: d.affil,
+    fullAmount: true,
+    worthLabel: 'ICE Budget',
+    revenueLabel: 'Total Allocation',
+    worthClass: 'blue',
+    worthSub: d.worthSub,
+    url: d.url,
+    linkLabel: d.linkLabel,
+    linkClass: 'blue-link',
+    context: d.context,
+    contextClass: 'blue-band',
+    bannerLabel1: 'ICE Annual Appropriation',
+    bannerVal1: d.bannerVal1,
+    bannerText: d.bannerText,
+    bannerLabel2: 'Could fund',
+    bannerVal2str: (n) => `${n.toLocaleString()}<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span>`,
+  });
+}
+
+function renderIran(key) {
+  const d = IRAN_DATA[key];
+  render(d.amountB, {
+    name: d.name, affil: d.affil,
+    fullAmount: true,
+    worthLabel: 'War Cost Estimate',
+    revenueLabel: 'Total Spent',
+    worthClass: 'olive',
+    worthSub: d.worthSub,
+    url: d.url,
+    linkLabel: 'View source →',
+    linkClass: 'olive-link',
+    context: d.context,
+    contextClass: 'olive-band',
+    bannerLabel1: '30-day projection',
+    bannerVal1: '~$58B',
+    bannerText: 'At ~$2B/day (Bilmes, Harvard Kennedy School), a 30-day Iran campaign would cost roughly $58 billion — more than 8× what a 5% tax on all six school privatizers would raise.',
+    bannerLabel2: 'Could fund',
+    bannerVal2str: (n) => `${n.toLocaleString()}<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span>`,
+  });
+}
+
+function selectIran(key) {
+  currentIranKey = key;
+  document.querySelectorAll('#iranPillGroup .pill').forEach(p => p.classList.toggle('active', p.dataset.irankey === key));
+  renderIran(key);
+}
+
+function selectBillionaire(key) {
+  currentBillKey = key; combinedMode = false;
+  document.getElementById('combinedBtn').classList.remove('active');
+  document.querySelectorAll('#pillGroup .pill').forEach(p => p.classList.toggle('active', p.dataset.key === key));
+  renderBillionaire(key);
+}
+
+function toggleCombined() {
+  combinedMode = !combinedMode;
+  const btn = document.getElementById('combinedBtn');
+  if (combinedMode) {
+    btn.classList.add('active');
+    document.querySelectorAll('#pillGroup .pill').forEach(p => p.classList.remove('active'));
+    renderBillionaire('__combined__');
+  } else {
+    btn.classList.remove('active');
+    selectBillionaire(currentBillKey);
+  }
+}
+
+pillGroup.addEventListener('click', e => {
+  const pill = e.target.closest('.pill');
+  if (pill?.dataset.key) selectBillionaire(pill.dataset.key);
+});
+
+/* initial render */
+renderBillionaire('yass');
+</script>
+</body>
+</html>
