@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Missouri Amendment 5 — What Public Schools Stand to Lose</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Parents for MO Public Schools brand palette */
+    --mo-red:      #c8102e;   /* Missouri state red */
+    --mo-navy:     #1a2744;   /* deep navy / brand dark */
+    --mo-gold:     #f0b429;   /* warm gold accent */
+    --mo-blue:     #2b6cb0;   /* brand blue */
+    --mo-teal:     #2e9b9b;
+    --mo-green:    #276749;
+
+    --ink:         #1a1a1a;
+    --paper:       #faf5ec;
+    --pale:        #f0e8d8;
+    --rule:        #5a5a5a;
+    --white:       #fdfaf3;
+
+    /* semantic aliases */
+    --red:         var(--mo-red);
+    --gold:        var(--mo-gold);
+    --blue:        var(--mo-blue);
+    --mayday-red:  #b8091f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 999;
+    opacity: 0.4;
+  }
+
+  /* ── HEADER ── */
+  header {
+    border-bottom: 3px solid var(--ink);
+    padding: 0 48px;
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .header-left {
+    flex: 1;
+    padding: 32px 0;
+    border-right: 2px solid var(--ink);
+    padding-right: 40px;
+  }
+
+  .eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mo-red);
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(36px, 5vw, 66px);
+    line-height: 0.95;
+    letter-spacing: 0.005em;
+  }
+  h1 span.hl-red  { color: var(--mo-red); }
+  h1 span.hl-gold { color: var(--mo-gold); }
+
+  .header-right {
+    padding: 28px 0 28px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 440px;
+    gap: 18px;
+  }
+
+  /* P4MO logo — text-based, matching their actual branding */
+  .header-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .header-logo .p4mo-logo {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    text-decoration: none;
+  }
+  .p4mo-logo img {
+    width: 200px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    transition: opacity 0.2s;
+  }
+  .p4mo-logo:hover img { opacity: 0.85; }
+
+  .header-right p.subhead {
+    font-size: 16px;
+    line-height: 1.45;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .header-right p.subhead strong { color: var(--mo-red); }
+
+  .sanders-note {
+    font-size: 12px;
+    line-height: 1.5;
+    color: #555;
+    font-style: italic;
+  }
+  .sanders-note a { color: var(--mo-blue); text-decoration: underline; text-underline-offset: 2px; }
+  .sanders-note a:hover { color: var(--mo-navy); }
+
+  @media (max-width: 900px) {
+    header { flex-direction: column; padding: 0 24px; }
+    .header-left { border-right: none; border-bottom: 2px solid var(--ink); padding-right: 0; padding-bottom: 20px; }
+    .header-right { padding: 24px 0; max-width: 100%; }
+  }
+
+  /* ── CTA ACTION STRIP ── */
+  .cta-bar {
+    background: var(--mayday-red);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    border-bottom: 3px solid var(--ink);
+  }
+  .cta-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+    padding: 18px 0;
+    max-width: 820px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .cta-btn {
+    background: #fff;
+    color: var(--mayday-red);
+    border: none;
+    padding: 13px 24px;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.15s, color 0.15s;
+  }
+  .cta-btn:hover { background: var(--ink); color: #fff; }
+
+  @media (max-width: 900px) {
+    .cta-bar { padding: 14px 24px; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .cta-text { padding: 0; font-size: 17px; }
+  }
+
+  main { padding: 0 48px 80px; }
+
+  /* ── MODE TABS ── */
+  .mode-tabs {
+    display: flex;
+    border-bottom: 2px solid var(--ink);
+    flex-wrap: wrap;
+  }
+  .mode-tab {
+    padding: 18px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #3a3a3a;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .mode-tab:hover { color: var(--ink); }
+  .mode-tab.active { color: var(--ink); border-bottom-color: var(--ink); font-weight: 700; }
+  .mode-tab .tab-dot {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 780px) {
+    .mode-tab { padding: 12px 14px; font-size: 9px; }
+  }
+
+  /* ── SELECTOR STRIP ── */
+  .selector-strip {
+    border-bottom: 2px solid var(--ink);
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    min-height: 72px;
+  }
+  .selector-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rule);
+    white-space: nowrap;
+  }
+  .pill-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill-wrap { position: relative; display: inline-block; }
+  .pill {
+    background: none;
+    border: 1.5px solid var(--rule);
+    padding: 8px 16px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 0;
+    color: #555;
+    transition: all 0.15s;
+    letter-spacing: 0.01em;
+    display: block;
+  }
+  .pill:hover { border-color: var(--ink); color: var(--ink); }
+  .pill.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+  .pill.district-pill:hover { border-color: var(--mo-blue); color: var(--mo-blue); }
+  .pill.district-pill.active { background: var(--mo-blue); border-color: var(--mo-blue); color: #fff; }
+
+  .toggle-btn {
+    background: none;
+    border: 1.5px solid var(--rule);
+    padding: 8px 18px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.15s;
+  }
+  .toggle-btn:hover, .toggle-btn.active { background: var(--mo-red); border-color: var(--mo-red); color: #fff; }
+
+  /* ── BILLBOARD ── */
+  .billboard {
+    padding: 36px 0 28px;
+    border-bottom: 1.5px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    animation: fadeUp 0.35s ease both;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .stat-block { padding-right: 40px; border-right: 1.5px solid var(--rule); margin-right: 40px; }
+  .stat-block:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-bottom: 8px;
+  }
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 5vw, 68px);
+    line-height: 1;
+  }
+  .stat-value.red  { color: var(--mo-red); }
+  .stat-value.gold { color: var(--mo-gold); }
+  .stat-value.blue { color: var(--mo-blue); }
+  .stat-value.green { color: var(--mo-green); }
+  .stat-sub { font-size: 13px; color: #888; margin-top: 4px; font-weight: 300; }
+  .stat-sub a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* Billionaire photo */
+  .bill-photo-wrap { margin-top: 14px; }
+  .bill-photo-wrap:empty { display: none; }
+  .bill-photo-single {
+    display: block; width: 110px; height: 110px;
+    border-radius: 50%; overflow: hidden;
+    border: 3px solid var(--ink);
+    box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    background: var(--white);
+  }
+  .bill-photo-single:hover { transform: scale(1.04); }
+  .bill-photo-single img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bill-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 56px);
+    gap: 8px;
+  }
+  .bill-photo-grid-item {
+    width: 56px; height: 56px;
+    border-radius: 50%; overflow: hidden;
+    border: 2px solid var(--ink);
+    background: var(--white);
+    transition: transform 0.2s;
+  }
+  .bill-photo-grid-item:hover { transform: scale(1.08); }
+  .bill-photo-grid-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bill-photo-fallback {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    background: var(--mo-red); color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 34px; letter-spacing: 0.03em;
+  }
+  .bill-photo-grid-item .bill-photo-fallback { font-size: 18px; }
+
+  .bill-audit-link {
+    display: inline-flex; align-items: center; gap: 5px;
+    margin-top: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    text-decoration: none; color: #888;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .bill-audit-link:hover { color: var(--mo-red); border-color: var(--mo-red); }
+  .bill-audit-link svg { width: 11px; height: 11px; flex-shrink: 0; opacity: 0.6; }
+  .bill-audit-link:hover svg { opacity: 1; }
+  #billAuditLink { display: none; }
+
+  /* ── DISTRICT LOOKUP ── */
+  .district-search-wrap {
+    padding: 24px 0 0;
+  }
+  .district-search-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-bottom: 10px;
+  }
+  .district-search-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .district-select-wrap {
+    position: relative;
+    width: 380px;
+    max-width: 100%;
+  }
+  /* Custom select arrow */
+  .district-select-wrap::after {
+    content: '';
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--mo-navy);
+    pointer-events: none;
+  }
+  #districtSelect {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    padding: 12px 40px 12px 16px;
+    border: 1.5px solid var(--rule);
+    background: var(--white);
+    color: var(--ink);
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: border-color 0.15s;
+    border-radius: 0;
+  }
+  #districtSelect:focus { border-color: var(--mo-blue); }
+  #districtSelect option { font-size: 14px; color: var(--ink); }
+  #districtSelect option:first-child { color: #aaa; }
+
+  .district-count-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #888;
+    white-space: nowrap;
+  }
+
+  /* District result billboard */
+  .district-billboard {
+    display: none;
+    padding: 28px 0;
+    border-top: 1.5px solid var(--rule);
+    margin-top: 24px;
+  }
+  .district-billboard.visible { display: block; }
+  .district-headline {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    color: var(--mo-navy);
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .district-subtitle {
+    font-size: 13px; color: #666;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .district-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-bottom: 20px;
+  }
+  .dstat {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    padding: 20px 20px 16px;
+  }
+  .dstat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: #888;
+    margin-bottom: 6px;
+  }
+  .dstat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 3vw, 40px);
+    line-height: 1;
+  }
+  .dstat-value.cut    { color: var(--mo-red); }
+  .dstat-value.pct    { color: var(--mo-gold); }
+  .dstat-value.blue   { color: var(--mo-blue); }
+  .dstat-value.green  { color: var(--mo-green); }
+  .dstat-sub { font-size: 12px; color: #888; margin-top: 4px; font-weight: 300; }
+
+  /* What the cut means in real resources */
+  .district-grid-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--rule);
+    margin-bottom: 12px;
+    padding-top: 8px;
+    border-top: 1px solid var(--rule);
+  }
+
+  /* ── CARDS GRID ── */
+  .grid-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--rule);
+    padding: 28px 0 16px;
+  }
+  .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .card {
+    background: var(--white);
+    border: 1.5px solid var(--rule);
+    padding: 28px 28px 24px;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    animation: fadeUp 0.4s ease both;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 8px 32px rgba(0,0,0,0.10); border-color: var(--ink); z-index: 2; }
+  .card-accent { position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .card-icon   { font-size: 36px; margin-bottom: 14px; display: block; line-height: 1; }
+  .card-resource { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+  .card-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px,4vw,56px); line-height: 1; margin-bottom: 4px; }
+  .card-unit   { font-size: 12px; color: #999; font-weight: 300; margin-bottom: 16px; }
+  .bar-track { height: 4px; background: var(--pale); overflow: hidden; margin-top: 6px; }
+  .bar-fill  { height: 100%; transition: width 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .card-cost { font-family: 'DM Mono', monospace; font-size: 10px; color: #555; letter-spacing: 0.08em; margin-top: 10px; }
+
+  /* ── TOTAL BANNER ── */
+  .total-banner {
+    margin-top: 3px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 36px;
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    animation: fadeUp 0.4s ease 0.35s both;
+  }
+  .banner-label { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: #aaa; }
+  .banner-value { font-family: 'Bebas Neue', sans-serif; font-size: clamp(32px,4vw,50px); color: var(--gold); line-height: 1; }
+  .banner-text  { font-size: 14px; color: #ccc; font-weight: 300; max-width: 440px; line-height: 1.6; }
+  .banner-text a { color: var(--mo-gold); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+  .banner-text a:hover { color: #fff; }
+
+  /* ── METHODOLOGY MODAL ── */
+  .meth-btn {
+    background: none; border: 1.5px solid var(--rule);
+    padding: 7px 16px; font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    cursor: pointer; color: #888; transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .meth-btn:hover { border-color: var(--ink); color: var(--ink); }
+  .meth-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(13,13,13,0.72); z-index: 1000;
+    align-items: center; justify-content: center; padding: 24px;
+  }
+  .meth-overlay.open { display: flex; }
+  .meth-modal {
+    background: var(--white); border: 2px solid var(--ink);
+    max-width: 700px; width: 100%;
+    max-height: 88vh; overflow-y: auto;
+    position: relative; animation: fadeUp 0.25s ease both;
+  }
+  .meth-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 28px 18px; border-bottom: 2px solid var(--ink);
+    position: sticky; top: 0; background: var(--white); z-index: 1;
+  }
+  .meth-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 0.02em; color: var(--ink); line-height: 1; }
+  .meth-close {
+    background: none; border: 1.5px solid var(--rule); width: 32px; height: 32px;
+    cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center;
+    color: #888; transition: all 0.15s; flex-shrink: 0;
+  }
+  .meth-close:hover { border-color: var(--ink); color: var(--ink); }
+  .meth-body { padding: 24px 28px 32px; }
+  .meth-intro { font-size: 13px; line-height: 1.7; color: #444; margin-bottom: 24px; font-weight: 300; }
+  .meth-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; }
+  .meth-table th {
+    font-family: 'DM Mono', monospace; font-size: 8.5px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--rule); text-align: left;
+    padding: 0 12px 10px 0; border-bottom: 1.5px solid var(--ink);
+  }
+  .meth-table td {
+    font-size: 12px; line-height: 1.55; padding: 12px 12px 12px 0;
+    border-bottom: 1px solid var(--pale); vertical-align: top; color: #333;
+  }
+  .meth-table tr:last-child td { border-bottom: none; }
+  .meth-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+  .meth-table td .cost { font-family: 'Bebas Neue', sans-serif; font-size: 18px; color: var(--mo-red); display: block; line-height: 1.1; margin-bottom: 2px; }
+  .meth-source { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.08em; color: var(--rule); display: block; margin-top: 4px; }
+  .meth-source a { color: var(--rule); text-decoration: underline; text-underline-offset: 2px; }
+  .meth-note { font-size: 11px; color: #888; font-weight: 300; line-height: 1.65; padding-top: 16px; border-top: 1px solid var(--pale); }
+
+  /* ── CONTEXT BAND ── */
+  .context-band {
+    background: var(--pale);
+    border-left: 4px solid var(--mo-red);
+    padding: 14px 20px;
+    margin: 20px 0 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #333;
+    display: none;
+  }
+  .context-band.show { display: block; }
+  .context-band strong { color: var(--mo-red); }
+
+  /* ── FOOTER STATEMENT ── */
+  .footer-statement {
+    background: var(--mo-navy);
+    color: #fff;
+    padding: 48px 48px 56px;
+    border-top: 4px solid var(--mo-red);
+  }
+  .footer-statement-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: center;
+    gap: 18px 14px; text-align: center;
+  }
+  .footer-statement-left, .footer-statement-right {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
+  }
+  .footer-pill {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(20px, 3vw, 32px);
+    letter-spacing: 0.02em;
+    padding: 6px 18px 2px;
+    border-radius: 999px;
+    line-height: 1.1;
+    white-space: nowrap;
+  }
+  .fp-red    { background: var(--mo-red);  color: #fff; }
+  .fp-blue   { background: var(--mo-blue); color: #fff; }
+  .fp-gold   { background: var(--mo-gold); color: var(--mo-navy); }
+  .fp-navy   { background: #2e3d66; color: #fff; }
+  .footer-sep { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px,3vw,32px); color: rgba(255,255,255,0.35); line-height: 1.1; }
+  .footer-vs  { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px,4.5vw,52px); color: var(--mo-red); letter-spacing: 0.04em; font-style: italic; padding: 0 8px; }
+  .footer-tag { flex-basis: 100%; font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px,4vw,44px); letter-spacing: 0.05em; color: var(--mo-gold); margin-top: 10px; }
+  .footer-vote { font-size: 14px; color: rgba(255,255,255,0.7); flex-basis: 100%; margin-top: 6px; }
+  .footer-vote a { color: var(--mo-gold); text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    main { padding-left: 24px; padding-right: 24px; }
+    .billboard { grid-template-columns: 1fr 1fr; }
+
+    .cards-grid { grid-template-columns: repeat(2,1fr); }
+    .district-stats { grid-template-columns: repeat(2,1fr); }
+    .footer-statement { padding: 36px 24px 40px; }
+  }
+  @media (max-width: 580px) {
+    .cards-grid { grid-template-columns: 1fr; }
+    .billboard, .district-stats { grid-template-columns: 1fr; }
+    .billboard .stat-block, .dstat { border-right: none; margin-right: 0; padding-right: 0; }
+    .total-banner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* amendment 5 warning bar */
+  .amend5-bar {
+    background: #fff3cd;
+    border-left: 4px solid var(--mo-gold);
+    border-bottom: 1px solid #e0c84a;
+    padding: 12px 48px;
+    font-size: 13px; color: #5a4800;
+    line-height: 1.5;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .amend5-bar strong { color: #7a3900; }
+  @media (max-width: 900px) { .amend5-bar { padding: 12px 24px; } }
+</style>
+</head>
+<body>
+
+<!-- Amendment 5 context bar -->
+<div class="amend5-bar">
+  <span>⚠️</span>
+  <span><strong>Amendment 5 is on Missouri's August 4, 2026 ballot.</strong> It would repeal Missouri's state income tax — the primary revenue source for public schools. Missouri already ranks <strong>49th out of 50 states</strong> in state funding for public education. Vote NO on August 4.</span>
+</div>
+
+<header>
+  <div class="header-left">
+    <div class="eyebrow">Missouri Amendment 5 Impact Calculator</div>
+    <h1>THE HARMFUL IMPACT<br>OF <span class="hl-red">AMENDMENT 5:</span><br>WHAT BILLIONAIRES GAIN.<br>WHAT <span class="hl-gold">SCHOOLS</span> LOSE.</h1>
+  </div>
+  <div class="header-right">
+    <div class="header-logo">
+      <a class="p4mo-logo" href="https://parents4mopublicschools.org" target="_blank" rel="noopener" title="Parents for Missouri Public Schools">
+        <img src="data:image/png;base64,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" alt="Parents for Missouri Public Schools">
+      </a>
+    </div>
+    <p class="subhead">
+      Missouri's 8 billionaires hold a combined <strong>$49.2 billion</strong>. If Amendment 5 passes and ends the state income tax, they save billions — while public schools lose over <strong>$1.4 billion</strong> statewide.
+    </p>
+    <p class="sanders-note">
+      Net worth figures: <a href="https://www.forbes.com/billionaires/" target="_blank" rel="noopener">Forbes 2026 World's Billionaires List ↗</a>. District funding at risk: <a href="https://mobudget.org/schools-face-18-cut-under-tax-scheme/" target="_blank" rel="noopener">Missouri Budget Project analysis ↗</a>. This is an illustrative calculator — figures are estimates.
+    </p>
+  </div>
+</header>
+
+<!-- CTA bar -->
+<div class="cta-bar">
+  <div class="cta-text">
+    <svg class="cta-email-icon" style="width:24px;height:24px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>Vote <strong style="margin:0 4px 0 0">NO on Amendment 5</strong> — August 4, 2026. Protect Missouri public schools.
+  </div>
+  <a class="cta-btn" href="https://parents4mopublicschools.org/remind-me/" target="_blank" rel="noopener">
+    Get a Vote Reminder
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+  </a>
+</div>
+
+<main>
+  <!-- Mode tabs -->
+  <div class="mode-tabs">
+    <button class="mode-tab active" id="tabBill" onclick="switchTab('billionaires')">
+      <span class="tab-dot" style="background:var(--mo-red)"></span>
+      Missouri Billionaire Tax Savings
+    </button>
+    <button class="mode-tab" id="tabDistrict" onclick="switchTab('district')">
+      <span class="tab-dot" style="background:var(--mo-blue)"></span>
+      School District Losses
+    </button>
+    <button class="mode-tab" id="tabCombined" onclick="switchTab('combined')">
+      <span class="tab-dot" style="background:var(--mo-gold)"></span>
+      Side by Side
+    </button>
+    <button class="mode-tab" onclick="document.getElementById('methOverlay').classList.add('open')" style="margin-left:auto;opacity:0.7;font-size:10px">
+      ⓘ Methodology
+    </button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- BILLIONAIRES PANEL                              -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="panelBill">
+    <!-- Billionaire selector -->
+    <div class="selector-strip">
+      <div class="selector-label">Select billionaire →</div>
+      <div class="pill-group" id="billPillGroup"></div>
+      <button class="toggle-btn" id="billCombinedBtn" onclick="toggleBillCombined()">All 9 Combined</button>
+    </div>
+
+    <!-- Billboard -->
+    <div class="billboard" id="billboard">
+      <div class="stat-block">
+        <div class="stat-label" id="worthLabel">Estimated Net Worth</div>
+        <div class="stat-value red" id="billWorth">$12.4B</div>
+        <div class="stat-sub" id="worthSub">Forbes 2026</div>
+        <div class="bill-photo-wrap" id="billPhotoWrap"></div>
+        <a class="bill-audit-link" id="billAuditLink" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          <span id="billLinkLabel">Forbes profile →</span>
+        </a>
+      </div>
+      <div class="stat-block">
+        <div class="stat-label">Income Tax Saved / Year</div>
+        <div class="stat-value gold" id="billSavings">$593M</div>
+        <div class="stat-sub" id="billSavingsSub">at MO's top 4.95% income tax rate</div>
+        <div style="margin-top:12px;font-size:12px;color:#888;line-height:1.5;font-weight:300;max-width:240px" id="billContext">Assumes ~4.95% effective tax on income derived from wealth (dividends, capital gains). Illustrative estimate.</div>
+      </div>
+
+    </div>
+
+    <div id="contextBand" class="context-band"></div>
+
+    <div class="grid-label">What <span id="gridLabel">$593M</span> in annual tax savings could fund for Missouri public schools — <span style="color:var(--mo-red);font-style:italic">for 1 year</span></div>
+    <div class="cards-grid" id="cardsGrid"></div>
+
+    <div class="total-banner" id="totalBanner">
+      <div>
+        <div class="banner-label" id="bannerLabel1">All 8 billionaires combined</div>
+        <div class="banner-value" id="bannerVal1">$49.2B</div>
+      </div>
+      <div class="banner-text" id="bannerText">Missouri's 8 billionaires hold $49.2 billion combined. If Amendment 5 ends the income tax, their tax savings alone could otherwise fund thousands of teachers — every year.</div>
+      <div>
+        <div class="banner-label" id="bannerLabel2">Equivalent to</div>
+        <div class="banner-value" id="bannerVal2" style="color:#fff">—</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- DISTRICT PANEL                                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="panelDistrict" style="display:none">
+    <div class="district-search-wrap">
+      <div class="district-search-label">Showing statewide figures — select a district to drill down</div>
+      <div class="district-search-row">
+        <div class="district-select-wrap">
+          <select id="districtSelect" onchange="onDistrictSelect(this.value)">
+            <option value="" selected>— All Missouri (statewide) —</option>
+          </select>
+        </div>
+        <div class="district-count-tag">553 MO districts · Source: Missouri Budget Project</div>
+      </div>
+    </div>
+
+    <div class="district-billboard visible" id="districtBillboard">
+      <div class="district-headline" id="dName">—</div>
+      <div class="district-subtitle" id="dCounty">—</div>
+      <div class="district-stats">
+        <div class="dstat">
+          <div class="dstat-label">Estimated Budget Cut</div>
+          <div class="dstat-value cut" id="dCut">—</div>
+          <div class="dstat-sub">if Amendment 5 passes</div>
+        </div>
+        <div class="dstat">
+          <div class="dstat-label">Cut as % of Budget</div>
+          <div class="dstat-value pct" id="dPct">—</div>
+          <div class="dstat-sub">share of total district revenue</div>
+        </div>
+        <div class="dstat">
+          <div class="dstat-label">Cut Per Student</div>
+          <div class="dstat-value blue" id="dPerStudent">—</div>
+          <div class="dstat-sub">avg. daily attendance basis</div>
+        </div>
+
+      </div>
+
+      <div class="district-grid-label">What this <span id="dGridLabel">$0</span> budget cut means in real terms</div>
+      <div class="cards-grid" id="districtCardsGrid"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- COMBINED / SIDE-BY-SIDE PANEL                  -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <div id="panelCombined" style="display:none">
+    <div style="padding:32px 0 24px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
+        <!-- Left: 8 billionaires combined savings -->
+        <div style="background:#fff8f6;border:2px solid var(--mo-red);padding:32px">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-red);margin-bottom:12px">9 Missouri Billionaires</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--mo-red);line-height:1">$49.2B</div>
+          <div style="font-size:13px;color:#666;margin-top:6px;font-weight:300">Combined net worth (Forbes 2026)</div>
+          <div style="margin-top:20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);color:var(--mo-gold);line-height:1">~$2.44B</div>
+          <div style="font-size:13px;color:#888;margin-top:4px;font-weight:300">Est. annual income tax saved if Amendment 5 passes</div>
+          <div style="margin-top:20px;font-size:13px;line-height:1.6;color:#333">
+            <div style="margin-bottom:8px">🏆 <strong>David Steward</strong> (World Wide Technology) — $12.4B</div>
+            <div style="margin-bottom:8px">🛒 <strong>Pauline MacMillan Keinath</strong> (Cargill) — $9.7B</div>
+            <div style="margin-bottom:8px">🎣 <strong>John Morris</strong> (Bass Pro Shops) — $8.9B</div>
+            <div style="margin-bottom:8px">💻 <strong>Jim Kavanaugh</strong> (World Wide Technology) — $7.7B</div>
+            <div style="margin-bottom:8px">📈 <strong>Rodger Riney & Family</strong> (Scottrade) — $4.2B</div>
+            <div style="margin-bottom:8px">🏗️ <strong>Robert Clark</strong> (Construction) — $3.7B</div>
+            <div style="margin-bottom:8px">📱 <strong>Jim McKelvey</strong> (Square co-founder) — $1.6B</div>
+            <div style="margin-bottom:8px">♟️ <strong>Rex Sinquefield</strong> (Dimensional Fund Advisors) — ~$1.6B</div>
+            <div>🏠 <strong>David Humphreys & Family</strong> (Roofing) — $1.2B</div>
+          </div>
+        </div>
+
+        <!-- Right: MO schools statewide loss -->
+        <div style="background:#f0f7ff;border:2px solid var(--mo-blue);padding:32px">
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-blue);margin-bottom:12px">Missouri Public Schools</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--mo-blue);line-height:1">$1.4B+</div>
+          <div style="font-size:13px;color:#666;margin-top:6px;font-weight:300">Statewide school funding cut (MO Budget Project)</div>
+          <div style="margin-top:20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);color:var(--mo-red);line-height:1">~18%</div>
+          <div style="font-size:13px;color:#888;margin-top:4px;font-weight:300">Avg. budget cut for public school districts</div>
+          <div style="margin-top:20px;font-size:13px;line-height:1.6;color:#333">
+            <div style="margin-bottom:8px">📚 Missouri already ranks <strong>49th out of 50</strong> in state education funding</div>
+            <div style="margin-bottom:8px">📉 State provides only <strong>33%</strong> of school revenue (vs. 47% national avg)</div>
+            <div style="margin-bottom:8px">💸 Legislature already cut the foundation formula by <strong>$190 million</strong> this year</div>
+            <div style="margin-bottom:8px">🏫 <strong>Rural and small-town</strong> districts face the deepest cuts</div>
+            <div style="margin-bottom:8px">👩‍🏫 Equivalent to <strong>34,000+ teacher salaries</strong> eliminated statewide</div>
+            <div>⏰ Amendment 5 vote: <strong>August 4, 2026</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comparison bar chart -->
+      <div style="margin-top:3px;background:var(--mo-navy);padding:32px 36px;color:#fff">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:#aaa;margin-bottom:20px">The tradeoff visualized</div>
+        <div style="display:flex;flex-direction:column;gap:18px">
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-size:13px;color:#ccc">9 billionaires combined income tax savings / year</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--mo-gold)">~$2.44B</span>
+            </div>
+            <div style="height:24px;background:#2a2a2a;position:relative">
+              <div style="height:100%;width:100%;background:var(--mo-red);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1)" class="anim-bar"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-size:13px;color:#ccc">Statewide school budget cuts (Amendment 5)</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--mo-blue)">$1.4B+</span>
+            </div>
+            <div style="height:24px;background:#2a2a2a">
+              <div style="height:100%;width:57.4%;background:var(--mo-blue);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1) 0.2s" class="anim-bar"></div>
+            </div>
+          </div>
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span style="font-size:13px;color:#ccc">What school cuts could fund (34,000+ teachers)</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#7dd3a8">34,000+</span>
+            </div>
+            <div style="height:24px;background:#2a2a2a">
+              <div style="height:100%;width:75%;background:var(--mo-green);opacity:0.7;transition:width 1s cubic-bezier(0.16,1,0.3,1) 0.4s" class="anim-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div style="margin-top:20px;font-size:12px;color:#666;font-family:'DM Mono',monospace;letter-spacing:0.06em">
+          Sources: Forbes 2026 · Missouri Budget Project analysis · NEA teacher salary data. Billionaire income tax savings are illustrative estimates based on effective rates on investment income.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Methodology Modal -->
+  <div class="meth-overlay" id="methOverlay" onclick="if(event.target===this)this.classList.remove('open')">
+    <div class="meth-modal">
+      <div class="meth-header">
+        <div class="meth-title">Methodology & Sources</div>
+        <button class="meth-close" onclick="document.getElementById('methOverlay').classList.remove('open')">✕</button>
+      </div>
+      <div class="meth-body">
+        <p class="meth-intro">All unit costs use Missouri-specific or Midwest averages where available, and national averages otherwise. Billionaire tax savings are illustrative estimates. Figures represent what a single unit costs to fund for one school year unless otherwise noted.</p>
+
+        <table class="meth-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Resource</th>
+              <th style="width:16%">Unit Cost</th>
+              <th>Rationale & Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🍎 First-Year Teacher Salary</td>
+              <td><span class="cost">$40,386</span></td>
+              <td>
+                Missouri average beginning teacher salary (FY2023–24), per the NEA 2025 Teacher Salary Benchmark Report. Missouri ranks below the national average of $46,526 for starting teachers. This figure represents base salary; total employment cost to districts including benefits is roughly 25–30% higher.
+                <span class="meth-source">NEA 2025 Educator Pay Report · <a href="https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank" target="_blank">nea.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🏫 Afterschool Programs</td>
+              <td><span class="cost">$97,500</span></td>
+              <td>
+                Annual cost for a full school-based afterschool program serving approximately 65 students. The Afterschool Alliance estimates ~$1,500 per child per year for a high-quality program; at 65 students that yields ~$97,500. Program costs include staff salaries (primary driver), materials, snacks, and overhead.
+                <span class="meth-source">Afterschool Alliance · <a href="https://www.afterschoolalliance.org" target="_blank">afterschoolalliance.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>💻 Computer Labs</td>
+              <td><span class="cost">$25,000</span></td>
+              <td>
+                Fully equipped 30-device lab including devices, networking, furniture, charging cart, and basic software licensing. Per EdWeek and U.S. PIRG research: ~$300/device at bulk pricing, plus $3–5K furniture, $3K networking, $2K charging cart, and peripheral costs.
+                <span class="meth-source">U.S. PIRG "Chromebook Churn" (2023) · EdWeek ↗</span>
+              </td>
+            </tr>
+            <tr>
+              <td>🎺 Marching Band Uniform Sets</td>
+              <td><span class="cost">$50,000</span></td>
+              <td>
+                Full set for a 100-student high school marching band at ~$500/uniform. Includes jacket, trousers, shako hat, plume, and accessories. Per industry manufacturer data and multiple public school band boosters.
+                <span class="meth-source">Fruhauf Uniforms Buyer's Guide · <a href="https://fruhauf.com/buyers-guide/" target="_blank">fruhauf.com ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🎨 School Arts Programs</td>
+              <td><span class="cost">$40,000</span></td>
+              <td>
+                Annual arts program budget for a single school. Benchmarked against national per-student arts allocation data (~$160/student for a 250-student school). Covers part-time arts teacher, supplies, and partnerships.
+                <span class="meth-source">Americans for the Arts · <a href="https://www.americansforthearts.org" target="_blank">americansforthearts.org ↗</a></span>
+              </td>
+            </tr>
+            <tr>
+              <td>🤝 Paraprofessionals / Aides</td>
+              <td><span class="cost">$38,000</span></td>
+              <td>
+                Loaded annual cost (salary + benefits) for a Missouri-based school paraprofessional or special education aide. BLS reports median ~$30,600/yr for teacher assistants in Missouri; with 25% benefits load, total cost is approximately $38,000/position.
+                <span class="meth-source">BLS Occupational Outlook, May 2024 · <a href="https://www.bls.gov/oes/current/oes_mo.htm" target="_blank">bls.gov ↗</a></span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="meth-note">
+          <strong>Billionaire net worth figures</strong> are from the <a href="https://www.forbes.com/billionaires/" target="_blank">Forbes 2026 World's Billionaires List</a>. Missouri's 9 billionaires (David Steward $12.4B, Pauline MacMillan Keinath $9.7B, John Morris $8.9B, Jim Kavanaugh $7.7B, Rodger Riney $4.2B, Robert Clark $3.7B, Jim McKelvey $1.6B, David Humphreys $1.2B, Rex Sinquefield ~$1.6B) hold a combined ~$50.8B. Sinquefield's net worth is an estimate; he does not appear on the Forbes billionaires list but is widely reported at $1.6B based on his DFA stake and investments. <strong>Tax savings estimates</strong> are illustrative: Missouri's top state income tax rate is 4.95% (2024). Applying this to estimated investment income yields approximate annual savings. No Missouri wealth tax currently exists or is proposed — this calculator models Amendment 5's income tax repeal. <strong>District funding at risk</strong> comes from the <a href="https://mobudget.org/schools-face-18-cut-under-tax-scheme/" target="_blank">Missouri Budget Project's district analysis</a> using NCES Education Finance data (FY25 baseline).
+        </p>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<div class="footer-statement">
+  <div class="footer-statement-inner">
+    <div class="footer-statement-left">
+      <span class="footer-pill fp-red">Billionaires Save</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill fp-navy">$2.4B / Year</span>
+    </div>
+    <div class="footer-vs">vs.</div>
+    <div class="footer-statement-right">
+      <span class="footer-pill fp-gold">Schools Lose</span>
+      <span class="footer-sep">·</span>
+      <span class="footer-pill fp-blue">$1.4B+</span>
+    </div>
+    <div class="footer-tag">Vote NO on Amendment 5 · August 4, 2026</div>
+    <div class="footer-vote">
+      Register to vote by July 8 → <a href="https://www.sos.mo.gov/elections/govotemissouri/default.asp" target="_blank" rel="noopener">sos.mo.gov ↗</a>
+      &nbsp;·&nbsp; More info: <a href="https://parents4mopublicschools.org" target="_blank" rel="noopener">parents4mopublicschools.org ↗</a>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════════════════════════
+   DATA
+══════════════════════════════════════════════════════════════ */
+const MO_TAX_RATE = 0.0495; // Missouri top income tax rate
+
+const MO_BILLIONAIRES = {
+  steward:     { name:"David Steward",             affil:"Founder, World Wide Technology",                         worth:12.4, url:"https://www.forbes.com/profile/david-steward/" },
+  keinath:     { name:"Pauline MacMillan Keinath", affil:"Largest individual shareholder, Cargill",               worth:9.7,  url:"https://www.forbes.com/profile/pauline-macmillan-keinath/" },
+  morris:      { name:"John Morris",               affil:"Founder, Bass Pro Shops & Cabela's",                    worth:8.9,  url:"https://www.forbes.com/profile/john-morris/" },
+  kavanaugh:   { name:"Jim Kavanaugh",             affil:"CEO, World Wide Technology",                            worth:7.7,  url:"https://www.forbes.com/profile/jim-kavanaugh/" },
+  riney:       { name:"Rodger Riney & Family",     affil:"Founder, Scottrade (discount brokerage)",               worth:4.2,  url:"https://www.forbes.com/profile/rodger-riney/" },
+  clark:       { name:"Robert Clark",              affil:"Construction & engineering",                            worth:3.7,  url:"https://www.forbes.com/billionaires/" },
+  mckelvey:    { name:"Jim McKelvey",              affil:"Co-founder, Square (Block); glassblower",               worth:1.6,  url:"https://www.forbes.com/profile/jim-mckelvey/" },
+  sinquefield: { name:"Rex Sinquefield",           affil:"Co-founder, Dimensional Fund Advisors; MO political mega-donor", worth:1.6, url:"https://en.wikipedia.org/wiki/Rex_Sinquefield" },
+  humphreys:   { name:"David Humphreys & Family",  affil:"CEO, TAMKO Building Products (roofing)",               worth:1.2,  url:"https://www.forbes.com/billionaires/" },
+};
+
+const MO_COMBINED_WORTH = Object.values(MO_BILLIONAIRES).reduce((s,b) => s + b.worth, 0); // 50.8
+
+// Missouri-specific unit costs
+const MO_TEACHER_SALARY = 40386;
+const RESOURCES = [
+  { icon:"🍎", label:"First-Year Teachers",               unit:"Missouri starting salaries funded",  cost: MO_TEACHER_SALARY, color:"#c8102e",  desc:"MO avg. starting salary" },
+  { icon:"🏫", label:"Afterschool Programs",             unit:"full programs (~65 students each)",    cost: 97500,  color:"#f0b429",  desc:"annual program, ~65 students" },
+  { icon:"💻", label:"Computer Labs",                    unit:"fully equipped 30-device labs",        cost: 25000,  color:"#2b6cb0",  desc:"30-device lab, public school" },
+  { icon:"🎺", label:"Marching Band Uniform Sets",       unit:"full 100-student band sets",           cost: 50000,  color:"#276749",  desc:"100-student band, full kit" },
+  { icon:"🎨", label:"School Arts Programs",             unit:"full programs (~250 students each)",   cost: 40000,  color:"#d4543a",  desc:"annual program, ~250 students" },
+  { icon:"🤝", label:"Paraprofessionals / Aides",        unit:"annual MO staff positions",            cost: 38000,  color:"#b8091f",  desc:"MO avg. para salary + benefits" },
+];
+
+/* ══════════════════════════════════════════════════════════════
+   DISTRICT DATA (top 60 largest MO districts for search)
+══════════════════════════════════════════════════════════════ */
+const DISTRICTS = [
+  { name:"ACADEMIE LAFAYETTE", county:"Jackson", cut:3733338, pct:17.5, perStudent:2596, teachers:68, support:118 },
+  { name:"ACADEMY FOR INTEGRATED ARTS", county:"Jackson", cut:809001, pct:14.7, perStudent:3951, teachers:15, support:26 },
+  { name:"ADAIR COUNTY R-I SCHOOL DISTRICT", county:"Adair", cut:369856, pct:9.3, perStudent:1882, teachers:7, support:12 },
+  { name:"ADAIR COUNTY R-II SCHOOL DISTRICT", county:"Adair", cut:265479, pct:6.4, perStudent:1963, teachers:5, support:8 },
+  { name:"ADRIAN R-III SCHOOL DISTRICT", county:"Bates", cut:797198, pct:8.8, perStudent:1256, teachers:14, support:25 },
+  { name:"ADVANCE R-IV SCHOOL DISTRICT", county:"Stoddard", cut:462772, pct:8.3, perStudent:1130, teachers:8, support:15 },
+  { name:"AFFTON 101 SCHOOL DISTRICT", county:"St. Louis", cut:1402490, pct:3.1, perStudent:623, teachers:25, support:44 },
+  { name:"ALBANY R-III SCHOOL DISTRICT", county:"Gentry", cut:427732, pct:6.3, perStudent:1031, teachers:8, support:13 },
+  { name:"ALLEN VILLAGE", county:"Jackson", cut:1795797, pct:17.2, perStudent:4728, teachers:33, support:57 },
+  { name:"ALTENBURG 48 SCHOOL DISTRICT", county:"Perry", cut:91433, pct:5.0, perStudent:1167, teachers:2, support:3 },
+  { name:"ALTON R-IV SCHOOL DISTRICT", county:"Oregon", cut:781271, pct:9.5, perStudent:1480, teachers:14, support:25 },
+  { name:"APPLETON CITY R-II SCHOOL DISTRICT", county:"St. Clair", cut:405571, pct:8.2, perStudent:1408, teachers:7, support:13 },
+  { name:"ARCADIA VALLEY R-II SCHOOL DISTRICT", county:"Iron", cut:1729302, pct:9.3, perStudent:1919, teachers:31, support:55 },
+  { name:"ARCHIE R-V SCHOOL DISTRICT", county:"Cass", cut:886249, pct:9.4, perStudent:1815, teachers:16, support:28 },
+  { name:"ASH GROVE R-IV SCHOOL DISTRICT", county:"Greene", cut:1018596, pct:9.3, perStudent:1439, teachers:18, support:32 },
+  { name:"ATLANTA C-3 SCHOOLS", county:"Macon", cut:516550, pct:10.3, perStudent:2732, teachers:9, support:16 },
+  { name:"ATLAS PUBLIC SCHOOLS", county:"St. Louis City", cut:1269935, pct:14.4, perStudent:3362, teachers:23, support:40 },
+  { name:"AURORA R-VIII SCHOOL DISTRICT", county:"Lawrence", cut:2667427, pct:10.6, perStudent:1518, teachers:48, support:84 },
+  { name:"AVA R-I SCHOOL DISTRICT", county:"Douglas", cut:1578802, pct:8.7, perStudent:1312, teachers:29, support:50 },
+  { name:"AVENUE CITY R-IX SCHOOL DISTRICT", county:"Andrew", cut:405538, pct:7.9, perStudent:1695, teachers:7, support:13 },
+  { name:"AVILLA R-XIII SCHOOL DISTRICT", county:"Jasper", cut:164444, pct:7.0, perStudent:1075, teachers:3, support:5 },
+  { name:"BAKERSFIELD R-IV SCHOOL DISTRICT", county:"Ozark", cut:638561, pct:10.3, perStudent:1933, teachers:12, support:20 },
+  { name:"BALLARD R-II SCHOOL DISTRICT", county:"Bates", cut:253137, pct:10.8, perStudent:2565, teachers:5, support:8 },
+  { name:"BAYLESS SCHOOL DISTRICT", county:"St. Louis", cut:2256472, pct:8.4, perStudent:1363, teachers:41, support:71 },
+  { name:"BELIEVE ACADEMY STL", county:"St. Louis City", cut:382060, pct:8.4, perStudent:7509, teachers:7, support:12 },
+  { name:"BELL CITY R-II SCHOOL DISTRICT", county:"Stoddard", cut:257856, pct:5.2, perStudent:1409, teachers:5, support:8 },
+  { name:"BELLEVIEW R-III SCHOOL DISTRICT", county:"Iron", cut:197781, pct:8.8, perStudent:1749, teachers:4, support:6 },
+  { name:"BELTON 124 SCHOOL DISTRICT", county:"Cass", cut:6516664, pct:8.2, perStudent:1701, teachers:118, support:206 },
+  { name:"BERNIE R-XIII SCHOOL DISTRICT", county:"Stoddard", cut:595973, pct:8.7, perStudent:1398, teachers:11, support:19 },
+  { name:"BEVIER C-4 SCHOOL DISTRICT", county:"Macon", cut:257565, pct:8.7, perStudent:1411, teachers:5, support:8 },
+  { name:"BILLINGS R-IV SCHOOL DISTRICT", county:"Christian", cut:527030, pct:9.2, perStudent:1509, teachers:10, support:17 },
+  { name:"BISMARCK R-V SCHOOL DISTRICT", county:"St. Francois", cut:668851, pct:9.2, perStudent:1744, teachers:12, support:21 },
+  { name:"BLACKWATER R-II SCHOOL DISTRICT", county:"Cooper", cut:154063, pct:8.3, perStudent:1219, teachers:3, support:5 },
+  { name:"BLAIR OAKS R-II SCHOOL DISTRICT", county:"Cole", cut:2996595, pct:8.9, perStudent:2709, teachers:54, support:94 },
+  { name:"BLOOMFIELD R-XIV SCHOOL DISTRICT", county:"Stoddard", cut:615719, pct:7.7, perStudent:1124, teachers:11, support:19 },
+  { name:"BLUE EYE R-V SCHOOL DISTRICT", county:"Stone", cut:248885, pct:2.5, perStudent:536, teachers:5, support:8 },
+  { name:"BLUE SPRINGS R-IV SCHOOL DISTRICT", county:"Jackson", cut:21304441, pct:6.8, perStudent:1543, teachers:386, support:672 },
+  { name:"BOLIVAR R-I SCHOOL DISTRICT", county:"Polk", cut:3758912, pct:9.3, perStudent:1471, teachers:68, support:119 },
+  { name:"BONCL R-X SCHOOL DISTRICT", county:"Pike", cut:31595, pct:3.4, perStudent:831, teachers:1, support:1 },
+  { name:"BOONVILLE R-I SCHOOL DISTRICT", county:"Cooper", cut:2455571, pct:7.7, perStudent:1769, teachers:45, support:77 },
+  { name:"BOSWORTH R-V SCHOOL DISTRICT", county:"Carroll", cut:165635, pct:9.9, perStudent:4109, teachers:3, support:5 },
+  { name:"BOWLING GREEN R-I SCHOOL DISTRICT", county:"Pike", cut:1609486, pct:7.0, perStudent:1329, teachers:29, support:51 },
+  { name:"BRADLEYVILLE R-I SCHOOL DISTRICT", county:"Taney", cut:330359, pct:9.6, perStudent:2045, teachers:6, support:10 },
+  { name:"BRANSON R-IV SCHOOL DISTRICT", county:"Taney", cut:4437757, pct:6.1, perStudent:1104, teachers:80, support:140 },
+  { name:"BRAYMER C-4 SCHOOL DISTRICT", county:"Caldwell", cut:397422, pct:8.7, perStudent:1605, teachers:7, support:13 },
+  { name:"BRECKENRIDGE R-I SCHOOL DISTRICT", county:"Caldwell", cut:156176, pct:9.9, perStudent:3465, teachers:3, support:5 },
+  { name:"BRENTWOOD SCHOOL DISTRICT", county:"St. Louis", cut:143353, pct:0.5, perStudent:203, teachers:3, support:5 },
+  { name:"BRONAUGH R-VII SCHOOL DISTRICT", county:"Vernon", cut:255308, pct:9.0, perStudent:1642, teachers:5, support:8 },
+  { name:"BROOKFIELD R-III SCHOOL DISTRICT", county:"Linn", cut:1060194, pct:7.0, perStudent:1342, teachers:19, support:33 },
+  { name:"BROOKSIDE CHARTER SCH.", county:"Jackson", cut:2834976, pct:16.3, perStudent:3694, teachers:51, support:89 },
+  { name:"BRUNSWICK R-II SCHOOL DISTRICT", county:"Chariton", cut:325571, pct:5.6, perStudent:1465, teachers:6, support:10 },
+  { name:"BUCHANAN COUNTY R-IV SCHOOL DISTRICT", county:"Buchanan", cut:467481, pct:10.1, perStudent:1929, teachers:8, support:15 },
+  { name:"BUCKLIN R-II SCHOOL DISTRICT", county:"Linn", cut:246253, pct:9.2, perStudent:2779, teachers:4, support:8 },
+  { name:"BUNKER R-III SCHOOL DISTRICT", county:"Reynolds", cut:158963, pct:4.4, perStudent:761, teachers:3, support:5 },
+  { name:"BUTLER R-V SCHOOL DISTRICT", county:"Bates", cut:841567, pct:5.9, perStudent:1047, teachers:15, support:27 },
+  { name:"CABOOL R-IV SCHOOL DISTRICT", county:"Texas", cut:1035533, pct:9.2, perStudent:1503, teachers:19, support:33 },
+  { name:"CAINSVILLE R-I SCHOOL DISTRICT", county:"Harrison", cut:194949, pct:10.8, perStudent:3058, teachers:4, support:6 },
+  { name:"CALHOUN R-VIII SCHOOL DISTRICT", county:"Henry", cut:199525, pct:10.1, perStudent:3003, teachers:4, support:6 },
+  { name:"CALLAO C-8 SCHOOL DISTRICT", county:"Macon", cut:138724, pct:10.4, perStudent:2511, teachers:3, support:4 },
+  { name:"CAMDENTON R-III SCHOOL DISTRICT", county:"Camden", cut:1744300, pct:2.8, perStudent:529, teachers:32, support:55 },
+  { name:"CAMERON R-I SCHOOL DISTRICT", county:"Clinton", cut:3204747, pct:8.8, perStudent:2182, teachers:58, support:101 },
+  { name:"CAMPBELL R-II SCHOOL DISTRICT", county:"Dunklin", cut:450101, pct:6.0, perStudent:899, teachers:8, support:14 },
+  { name:"CANTON R-V SCHOOL DISTRICT", county:"Lewis", cut:1096523, pct:8.4, perStudent:2562, teachers:20, support:35 },
+  { name:"CAPE GIRARDEAU 63 SCHOOL DISTRICT", county:"Cape Girardeau", cut:3687010, pct:5.2, perStudent:1004, teachers:67, support:116 },
+  { name:"CARL JUNCTION R-I SCHOOL DISTRICT", county:"Jasper", cut:5585372, pct:9.2, perStudent:1870, teachers:101, support:176 },
+  { name:"CARROLLTON R-VII SCHOOL DISTRICT", county:"Carroll", cut:650270, pct:4.3, perStudent:835, teachers:12, support:21 },
+  { name:"CARTHAGE R-IX SCHOOL DISTRICT", county:"Jasper", cut:7532631, pct:10.3, perStudent:1618, teachers:137, support:238 },
+  { name:"CARUTHERSVILLE 18 SCHOOL DISTRICT", county:"Pemiscot", cut:1253348, pct:7.8, perStudent:1491, teachers:23, support:40 },
+  { name:"CASSVILLE R-IV SCHOOL DISTRICT", county:"Barry", cut:2315903, pct:8.2, perStudent:1384, teachers:42, support:73 },
+  { name:"CENTER 58 SCHOOL DISTRICT", county:"Jackson", cut:1552807, pct:2.8, perStudent:952, teachers:28, support:49 },
+  { name:"CENTERVILLE R-I SCHOOL DISTRICT", county:"Reynolds", cut:80275, pct:7.8, perStudent:1976, teachers:1, support:3 },
+  { name:"CENTRAL R-III SCHOOL DISTRICT", county:"St. Francois", cut:2958554, pct:10.3, perStudent:1572, teachers:54, support:93 },
+  { name:"CENTRALIA R-VI SCHOOL DISTRICT", county:"Boone", cut:1530003, pct:8.1, perStudent:1237, teachers:28, support:48 },
+  { name:"CHADWICK R-I SCHOOL DISTRICT", county:"Christian", cut:478854, pct:11.2, perStudent:2109, teachers:9, support:15 },
+  { name:"CHAFFEE R-II SCHOOL DISTRICT", county:"Scott", cut:811285, pct:10.5, perStudent:1547, teachers:15, support:26 },
+  { name:"CHARLESTON R-I SCHOOL DISTRICT", county:"Mississippi", cut:757218, pct:6.7, perStudent:1209, teachers:14, support:24 },
+  { name:"CHILHOWEE R-IV SCHOOL DISTRICT", county:"Johnson", cut:203661, pct:7.2, perStudent:1621, teachers:4, support:6 },
+  { name:"CHILLICOTHE R-II SCHOOL DISTRICT", county:"Livingston", cut:2417968, pct:7.6, perStudent:1506, teachers:44, support:76 },
+  { name:"CITIZENS OF THE WORLD CHARTER", county:"Jackson", cut:2263768, pct:16.7, perStudent:5776, teachers:41, support:71 },
+  { name:"CITY GARDEN MONTESSORI", county:"St. Louis City", cut:1543086, pct:13.8, perStudent:3148, teachers:28, support:49 },
+  { name:"CLARK COUNTY R-I SCHOOL DISTRICT", county:"Clark", cut:1171036, pct:8.2, perStudent:1289, teachers:21, support:37 },
+  { name:"CLARKSBURG C-2 SCHOOL DISTRICT", county:"Moniteau", cut:174534, pct:9.7, perStudent:2705, teachers:3, support:6 },
+  { name:"CLARKTON C-4 SCHOOL DISTRICT", county:"Dunklin", cut:505956, pct:10.2, perStudent:2036, teachers:9, support:16 },
+  { name:"CLAYTON SCHOOL DISTRICT", county:"St. Louis", cut:412548, pct:0.5, perStudent:186, teachers:7, support:13 },
+  { name:"CLEARWATER R-I SCHOOL DISTRICT", county:"Wayne", cut:1043266, pct:8.9, perStudent:1372, teachers:19, support:33 },
+  { name:"CLEVER R-V SCHOOL DISTRICT", county:"Christian", cut:2483853, pct:10.3, perStudent:2121, teachers:45, support:78 },
+  { name:"CLIMAX SPRINGS R-IV SCHOOL DISTRICT", county:"Camden", cut:117391, pct:2.5, perStudent:671, teachers:2, support:4 },
+  { name:"CLINTON COUNTY R-III SCHOOL DISTRICT", county:"Clinton", cut:756485, pct:6.9, perStudent:1193, teachers:14, support:24 },
+  { name:"CLINTON SCHOOL DISTRICT", county:"Henry", cut:2146241, pct:6.7, perStudent:1305, teachers:39, support:68 },
+  { name:"COLE CAMP R-I SCHOOL DISTRICT", county:"Benton", cut:1016007, pct:8.5, perStudent:1470, teachers:18, support:32 },
+  { name:"COLE COUNTY R-I SCHOOL DISTRICT", county:"Cole", cut:638401, pct:5.9, perStudent:1226, teachers:12, support:20 },
+  { name:"COLE COUNTY R-V SCHOOL DISTRICT", county:"Cole", cut:640661, pct:6.6, perStudent:1171, teachers:12, support:20 },
+  { name:"COLUMBIA 93 SCHOOL DISTRICT", county:"Boone", cut:27655533, pct:6.4, perStudent:1659, teachers:502, support:872 },
+  { name:"COMMUNITY R-VI SCHOOL DISTRICT", county:"Audrain", cut:351597, pct:6.2, perStudent:1288, teachers:6, support:11 },
+  { name:"CONCORDIA R-II SCHOOL DISTRICT", county:"Lafayette", cut:419490, pct:5.7, perStudent:1087, teachers:8, support:13 },
+  { name:"CONFLUENCE ACADEMIES", county:"St. Louis City", cut:9196247, pct:16.9, perStudent:3971, teachers:167, support:290 },
+  { name:"COOPER COUNTY R-IV SCHOOL DISTRICT", county:"Cooper", cut:262779, pct:10.8, perStudent:3494, teachers:5, support:8 },
+  { name:"COOTER R-IV SCHOOL DISTRICT", county:"Pemiscot", cut:280374, pct:9.5, perStudent:2316, teachers:5, support:9 },
+  { name:"COUCH R-I SCHOOL DISTRICT", county:"Oregon", cut:279726, pct:9.8, perStudent:2163, teachers:5, support:9 },
+  { name:"COWGILL R-VI SCHOOL DISTRICT", county:"Caldwell", cut:99858, pct:10.6, perStudent:2291, teachers:2, support:3 },
+  { name:"CRAIG R-III SCHOOL DISTRICT", county:"Holt", cut:90885, pct:3.3, perStudent:1723, teachers:2, support:3 },
+  { name:"CRANE R-III SCHOOL DISTRICT", county:"Stone", cut:810289, pct:10.3, perStudent:1467, teachers:15, support:26 },
+  { name:"CRAWFORD COUNTY R-2 SCHOOL DISTRICT", county:"Crawford", cut:1396723, pct:8.3, perStudent:1233, teachers:25, support:44 },
+  { name:"CRAWFORD COUNTY R-I SCHOOL DISTRICT", county:"Crawford", cut:1036897, pct:8.6, perStudent:1396, teachers:19, support:33 },
+  { name:"CROCKER R-II SCHOOL DISTRICT", county:"Pulaski", cut:901373, pct:11.3, perStudent:1848, teachers:16, support:28 },
+  { name:"CROSSROADS CHARTER SCHOOLS", county:"Jackson", cut:4139793, pct:17.3, perStudent:3106, teachers:75, support:131 },
+  { name:"CRYSTAL CITY 47 SCHOOL DISTRICT", county:"Jefferson", cut:531208, pct:6.5, perStudent:1049, teachers:10, support:17 },
+  { name:"DADEVILLE R-II SCHOOL DISTRICT", county:"Dade", cut:288350, pct:9.5, perStudent:1397, teachers:5, support:9 },
+  { name:"DALLAS COUNTY R-I SCHOOL DISTRICT", county:"Dallas", cut:2528313, pct:8.6, perStudent:1722, teachers:46, support:80 },
+  { name:"DAVIS R-XII SCHOOL DISTRICT", county:"Henry", cut:35240, pct:3.0, perStudent:630, teachers:1, support:1 },
+  { name:"DE SOTO 73 SCHOOL DISTRICT", county:"Jefferson", cut:4240806, pct:8.8, perStudent:2002, teachers:77, support:134 },
+  { name:"DELASALLE CHARTER SCHOOL", county:"Jackson", cut:631413, pct:13.5, perStudent:3358, teachers:11, support:20 },
+  { name:"DELTA C-7 SCHOOL DISTRICT", county:"Pemiscot", cut:278008, pct:10.1, perStudent:2021, teachers:5, support:9 },
+  { name:"DELTA R-V SCHOOL DISTRICT", county:"Cape Girardeau", cut:369991, pct:9.4, perStudent:1920, teachers:7, support:12 },
+  { name:"DENT-PHELPS R-III SCHOOL DISTRICT", county:"Dent", cut:413011, pct:9.2, perStudent:1244, teachers:7, support:13 },
+  { name:"DEXTER R-XI SCHOOL DISTRICT", county:"Stoddard", cut:3081936, pct:8.3, perStudent:1622, teachers:56, support:97 },
+  { name:"DIAMOND R-IV SCHOOL DISTRICT", county:"Newton", cut:1142270, pct:8.9, perStudent:1593, teachers:21, support:36 },
+  { name:"DIXON R-I SCHOOL DISTRICT", county:"Pulaski", cut:987389, pct:9.8, perStudent:1351, teachers:18, support:31 },
+  { name:"DONIPHAN R-I SCHOOL DISTRICT", county:"Ripley", cut:2137856, pct:10.3, perStudent:1646, teachers:39, support:67 },
+  { name:"DORA R-III SCHOOL DISTRICT", county:"Ozark", cut:394216, pct:8.6, perStudent:1724, teachers:7, support:12 },
+  { name:"DREXEL R-IV SCHOOL DISTRICT", county:"Cass", cut:525888, pct:9.0, perStudent:2308, teachers:10, support:17 },
+  { name:"DUNKLIN R-V SCHOOL DISTRICT", county:"Jefferson", cut:3225732, pct:8.3, perStudent:2199, teachers:59, support:102 },
+  { name:"EAST BUCHANAN COUNTY C-1 SCHOOL DISTRICT", county:"Buchanan", cut:891682, pct:7.5, perStudent:1356, teachers:16, support:28 },
+  { name:"EAST CARTER COUNTY R-II SCHOOL DISTRICT", county:"Carter", cut:988349, pct:10.4, perStudent:1575, teachers:18, support:31 },
+  { name:"EAST LYNNE 40 SCHOOL DISTRICT", county:"Cass", cut:284924, pct:8.7, perStudent:1666, teachers:5, support:9 },
+  { name:"EAST NEWTON COUNTY R-VI SCHOOL DISTRICT", county:"Newton", cut:1975870, pct:10.4, perStudent:1517, teachers:36, support:62 },
+  { name:"EAST PRAIRIE R-II SCHOOL DISTRICT", county:"Mississippi", cut:1206131, pct:8.8, perStudent:1377, teachers:22, support:38 },
+  { name:"EL DORADO SPRINGS R-II SCHOOL DISTRICT", county:"Cedar", cut:1474732, pct:8.6, perStudent:1389, teachers:27, support:47 },
+  { name:"ELDON R-I SCHOOL DISTRICT", county:"Miller", cut:2269054, pct:7.5, perStudent:1207, teachers:41, support:72 },
+  { name:"ELSBERRY R-II SCHOOL DISTRICT", county:"Lincoln", cut:1546387, pct:10.8, perStudent:2043, teachers:28, support:49 },
+  { name:"EMINENCE R-I SCHOOL DISTRICT", county:"Shannon", cut:431221, pct:8.1, perStudent:1853, teachers:8, support:14 },
+  { name:"EVERTON R-III SCHOOL DISTRICT", county:"Dade", cut:251406, pct:9.5, perStudent:2205, teachers:5, support:8 },
+  { name:"EWING MARION KAUFFMAN SCHOOL", county:"Jackson", cut:3227848, pct:12.7, perStudent:3736, teachers:59, support:102 },
+  { name:"EXCELSIOR SPRINGS 40 SCHOOL DISTRICT", county:"Clay", cut:4319315, pct:7.3, perStudent:1791, teachers:78, support:136 },
+  { name:"EXETER R-VI SCHOOL DISTRICT", county:"Barry", cut:432642, pct:9.8, perStudent:1357, teachers:8, support:14 },
+  { name:"FAIR GROVE R-X SCHOOL DISTRICT", county:"Greene", cut:1702774, pct:11.0, perStudent:1404, teachers:31, support:54 },
+  { name:"FAIR PLAY R-II SCHOOL DISTRICT", county:"Polk", cut:731013, pct:10.8, perStudent:2272, teachers:13, support:23 },
+  { name:"FAIRFAX R-III SCHOOL DISTRICT", county:"Atchison", cut:122714, pct:4.9, perStudent:1081, teachers:2, support:4 },
+  { name:"FAIRVIEW R-XI SCHOOL DISTRICT", county:"Howell", cut:697856, pct:9.1, perStudent:1163, teachers:13, support:22 },
+  { name:"FARMINGTON R-VII SCHOOL DISTRICT", county:"St. Francois", cut:4410808, pct:8.1, perStudent:1239, teachers:80, support:139 },
+  { name:"FAYETTE R-III SCHOOL DISTRICT", county:"Howard", cut:721544, pct:7.4, perStudent:1210, teachers:13, support:23 },
+  { name:"FERGUSON-FLORISSANT R-II SCHOOL DISTRICT", county:"St. Louis", cut:10007544, pct:6.1, perStudent:1385, teachers:182, support:316 },
+  { name:"FESTUS R-VI SCHOOL DISTRICT", county:"Jefferson", cut:3901123, pct:8.8, perStudent:1205, teachers:71, support:123 },
+  { name:"FORDLAND R-III SCHOOL DISTRICT", county:"Webster", cut:759460, pct:8.7, perStudent:1257, teachers:14, support:24 },
+  { name:"FORSYTH R-III SCHOOL DISTRICT", county:"Taney", cut:2342968, pct:10.0, perStudent:2185, teachers:42, support:74 },
+  { name:"FORT OSAGE R-I SCHOOL DISTRICT", county:"Jackson", cut:6730624, pct:8.0, perStudent:1588, teachers:122, support:212 },
+  { name:"FORT ZUMWALT R-II SCHOOL DISTRICT", county:"St. Charles", cut:19312145, pct:6.0, perStudent:1266, teachers:350, support:609 },
+  { name:"FOX C-6 SCHOOL DISTRICT", county:"Jefferson", cut:12258255, pct:7.7, perStudent:1279, teachers:222, support:387 },
+  { name:"FRANCIS HOWELL R-III SCHOOL DISTRICT", county:"St. Charles", cut:17792879, pct:5.2, perStudent:1168, teachers:323, support:561 },
+  { name:"FRANKLIN COUNTY R-II SCHOOL DISTRICT", county:"Franklin", cut:178227, pct:5.7, perStudent:1033, teachers:3, support:6 },
+  { name:"FREDERICKTOWN R-I SCHOOL DISTRICT", county:"Madison", cut:2284177, pct:8.4, perStudent:1320, teachers:41, support:72 },
+  { name:"FRONTIER SCHOOLS", county:"Jackson", cut:6226041, pct:16.5, perStudent:4152, teachers:113, support:196 },
+  { name:"FULTON 58 SCHOOL DISTRICT", county:"Callaway", cut:3762178, pct:7.9, perStudent:1888, teachers:68, support:119 },
+  { name:"GAINESVILLE R-V SCHOOL DISTRICT", county:"Ozark", cut:834373, pct:9.1, perStudent:1374, teachers:15, support:26 },
+  { name:"GALENA R-II SCHOOL DISTRICT", county:"Stone", cut:512893, pct:6.9, perStudent:1391, teachers:9, support:16 },
+  { name:"GALLATIN R-V SCHOOL DISTRICT", county:"Daviess", cut:634137, pct:7.6, perStudent:1235, teachers:12, support:20 },
+  { name:"GASCONADE C-4 SCHOOL DISTRICT", county:"Laclede", cut:164771, pct:9.3, perStudent:1427, teachers:3, support:5 },
+  { name:"GASCONADE COUNTY R-I SCHOOL DISTRICT", county:"Gasconade", cut:712468, pct:4.9, perStudent:976, teachers:13, support:22 },
+  { name:"GASCONADE COUNTY R-II SCHOOL DISTRICT", county:"Gasconade", cut:2376321, pct:8.7, perStudent:1470, teachers:43, support:75 },
+  { name:"GATEWAY SCIENCE ACAD/ST LOUIS", county:"St. Louis City", cut:199663, pct:0.6, perStudent:137, teachers:4, support:6 },
+  { name:"GENESIS SCHOOL INC.", county:"Jackson", cut:682654, pct:16.2, perStudent:4055, teachers:12, support:22 },
+  { name:"GIDEON 37 SCHOOL DISTRICT", county:"New Madrid", cut:351351, pct:8.9, perStudent:1732, teachers:6, support:11 },
+  { name:"GILLIAM C-4 SCHOOL DISTRICT", county:"Saline", cut:72197, pct:9.3, perStudent:1434, teachers:1, support:2 },
+  { name:"GILMAN CITY R-IV SCHOOL DISTRICT", county:"Harrison", cut:211243, pct:8.3, perStudent:1536, teachers:4, support:7 },
+  { name:"GLASGOW SCHOOL DISTRICT", county:"Howard", cut:331049, pct:7.1, perStudent:1326, teachers:6, support:10 },
+  { name:"GLENWOOD R-VIII SCHOOL DISTRICT", county:"Howell", cut:632206, pct:9.6, perStudent:2121, teachers:11, support:20 },
+  { name:"GOLDEN CITY R-III SCHOOL DISTRICT", county:"Barton", cut:202760, pct:6.6, perStudent:1280, teachers:4, support:6 },
+  { name:"GORDON PARKS ELEM.", county:"Jackson", cut:453686, pct:12.3, perStudent:3985, teachers:8, support:14 },
+  { name:"GRAIN VALLEY R-V SCHOOL DISTRICT", county:"Jackson", cut:8831248, pct:9.4, perStudent:2086, teachers:160, support:278 },
+  { name:"GRANDVIEW C-4 SCHOOL DISTRICT", county:"Jackson", cut:3925785, pct:4.2, perStudent:1290, teachers:71, support:124 },
+  { name:"GRANDVIEW R-II SCHOOL DISTRICT", county:"Jefferson", cut:8553472, pct:17.9, perStudent:12190, teachers:155, support:270 },
+  { name:"GREEN CITY R-I SCHOOL DISTRICT", county:"Sullivan", cut:546427, pct:9.3, perStudent:2484, teachers:10, support:17 },
+  { name:"GREEN FOREST R-II SCHOOL DISTRICT", county:"Dent", cut:291661, pct:9.4, perStudent:1426, teachers:5, support:9 },
+  { name:"GREEN RIDGE R-VIII SCHOOL DISTRICT", county:"Pettis", cut:447967, pct:9.2, perStudent:1360, teachers:8, support:14 },
+  { name:"GREENFIELD R-IV SCHOOL DISTRICT", county:"Dade", cut:533992, pct:7.7, perStudent:1701, teachers:10, support:17 },
+  { name:"GREENVILLE R-II SCHOOL DISTRICT", county:"Wayne", cut:840078, pct:9.2, perStudent:1467, teachers:15, support:26 },
+  { name:"GRUNDY COUNTY R-V SCHOOL DISTRICT", county:"Grundy", cut:263561, pct:9.4, perStudent:2620, teachers:5, support:8 },
+  { name:"GUADALUPE CENTERS SCHOOLS", county:"Jackson", cut:6768022, pct:16.0, perStudent:4276, teachers:123, support:213 },
+  { name:"HALE R-I SCHOOL DISTRICT", county:"Carroll", cut:185707, pct:8.1, perStudent:2098, teachers:3, support:6 },
+  { name:"HALFWAY R-III SCHOOL DISTRICT", county:"Polk", cut:464907, pct:8.6, perStudent:1877, teachers:8, support:15 },
+  { name:"HALLSVILLE R-IV SCHOOL DISTRICT", county:"Boone", cut:2324748, pct:10.4, perStudent:1610, teachers:42, support:73 },
+  { name:"HAMILTON R-II SCHOOL DISTRICT", county:"Caldwell", cut:865722, pct:8.1, perStudent:1574, teachers:16, support:27 },
+  { name:"HANCOCK PLACE SCHOOL DISTRICT", county:"St. Louis", cut:1739188, pct:7.3, perStudent:1593, teachers:32, support:55 },
+  { name:"HANNIBAL 60 SCHOOL DISTRICT", county:"Marion", cut:4479969, pct:7.7, perStudent:1528, teachers:81, support:141 },
+  { name:"HARDEMAN R-X SCHOOL DISTRICT", county:"Saline", cut:76270, pct:6.1, perStudent:1161, teachers:1, support:2 },
+  { name:"HARDIN-CENTRAL C-2 SCHOOL DISTRICT", county:"Ray", cut:332285, pct:8.6, perStudent:1807, teachers:6, support:10 },
+  { name:"HARRISBURG R-VIII SCHOOL DISTRICT", county:"Boone", cut:1000015, pct:9.4, perStudent:1799, teachers:18, support:32 },
+  { name:"HARRISONVILLE R-IX SCHOOL DISTRICT", county:"Cass", cut:2964082, pct:6.5, perStudent:1552, teachers:54, support:93 },
+  { name:"HARTVILLE R-II SCHOOL DISTRICT", county:"Wright", cut:727512, pct:8.6, perStudent:1223, teachers:13, support:23 },
+  { name:"HAYTI R-II SCHOOL DISTRICT", county:"Pemiscot", cut:793852, pct:8.2, perStudent:1491, teachers:14, support:25 },
+  { name:"HAZELWOOD SCHOOL DISTRICT", county:"St. Louis", cut:17956451, pct:5.6, perStudent:1308, teachers:326, support:566 },
+  { name:"HENRY COUNTY R-I SCHOOL DISTRICT", county:"Henry", cut:1319158, pct:10.0, perStudent:2054, teachers:24, support:42 },
+  { name:"HERMITAGE R-IV SCHOOL DISTRICT", county:"Hickory", cut:348338, pct:5.6, perStudent:1412, teachers:6, support:11 },
+  { name:"HICKMAN MILLS C-1 SCHOOL DISTRICT", county:"Jackson", cut:8859890, pct:7.0, perStudent:2058, teachers:161, support:279 },
+  { name:"HICKORY COUNTY R-I SCHOOL DISTRICT", county:"Hickory", cut:924710, pct:9.9, perStudent:1374, teachers:17, support:29 },
+  { name:"HIGBEE R-VIII SCHOOL DISTRICT", county:"Randolph", cut:323336, pct:8.9, perStudent:1688, teachers:6, support:10 },
+  { name:"HIGH POINT R-III SCHOOL DISTRICT", county:"Moniteau", cut:139884, pct:7.5, perStudent:1695, teachers:3, support:4 },
+  { name:"HILLSBORO R-III SCHOOL DISTRICT", county:"Jefferson", cut:5021840, pct:8.8, perStudent:1698, teachers:91, support:158 },
+  { name:"HOGAN PREPARATORY ACADEMY", county:"Jackson", cut:2861306, pct:14.9, perStudent:4378, teachers:52, support:90 },
+  { name:"HOLCOMB R-III SCHOOL DISTRICT", county:"Dunklin", cut:666292, pct:10.0, perStudent:1664, teachers:12, support:21 },
+  { name:"HOLDEN R-III SCHOOL DISTRICT", county:"Johnson", cut:1416338, pct:7.5, perStudent:1219, teachers:26, support:45 },
+  { name:"HOLLIDAY C-2 SCHOOL DISTRICT", county:"Monroe", cut:94353, pct:7.3, perStudent:1375, teachers:2, support:3 },
+  { name:"HOLLISTER R-V SCHOOL DISTRICT", county:"Taney", cut:1847362, pct:5.7, perStudent:1517, teachers:34, support:58 },
+  { name:"HOPE LEADERSHIP ACADEMY", county:"Jackson", cut:381538, pct:16.2, perStudent:4225, teachers:7, support:12 },
+  { name:"HOUSTON R-I SCHOOL DISTRICT", county:"Texas", cut:1786257, pct:10.8, perStudent:2082, teachers:32, support:56 },
+  { name:"HOWELL VALLEY R-I SCHOOL DISTRICT", county:"Howell", cut:311561, pct:8.8, perStudent:1150, teachers:6, support:10 },
+  { name:"HUDSON R-IX SCHOOL DISTRICT", county:"Bates", cut:62797, pct:6.8, perStudent:1072, teachers:1, support:2 },
+  { name:"HUMANSVILLE R-IV SCHOOL DISTRICT", county:"Polk", cut:793358, pct:10.1, perStudent:2497, teachers:14, support:25 },
+  { name:"HUME R-VIII SCHOOL DISTRICT", county:"Bates", cut:202983, pct:9.9, perStudent:2007, teachers:4, support:6 },
+  { name:"HURLEY R-I SCHOOL DISTRICT", county:"Stone", cut:395293, pct:11.2, perStudent:2033, teachers:7, support:12 },
+  { name:"IBERIA R-V SCHOOL DISTRICT", county:"Miller", cut:832551, pct:9.7, perStudent:1276, teachers:15, support:26 },
+  { name:"INDEPENDENCE 30 SCHOOL DISTRICT", county:"Jackson", cut:20296846, pct:8.2, perStudent:1589, teachers:368, support:640 },
+  { name:"IRON COUNTY C-4 SCHOOL DISTRICT", county:"Iron", cut:200617, pct:3.7, perStudent:678, teachers:4, support:6 },
+  { name:"JACKSON R-II SCHOOL DISTRICT", county:"Cape Girardeau", cut:6032396, pct:7.8, perStudent:1172, teachers:109, support:190 },
+  { name:"JAMESTOWN C-1 SCHOOL DISTRICT", county:"Moniteau", cut:255504, pct:8.5, perStudent:1564, teachers:5, support:8 },
+  { name:"JASPER COUNTY R-V SCHOOL DISTRICT", county:"Jasper", cut:415655, pct:7.5, perStudent:954, teachers:8, support:13 },
+  { name:"JEFFERSON C-123 SCHOOL DISTRICT", county:"Nodaway", cut:245110, pct:8.3, perStudent:2118, teachers:4, support:8 },
+  { name:"JEFFERSON CITY PUBLIC SCHOOLS", county:"Cole", cut:8453568, pct:4.9, perStudent:1121, teachers:153, support:267 },
+  { name:"JEFFERSON COUNTY R-VII SCHOOL DISTRICT", county:"Jefferson", cut:660927, pct:3.5, perStudent:735, teachers:12, support:21 },
+  { name:"JENNINGS SCHOOL DISTRICT", county:"St. Louis", cut:2444190, pct:6.2, perStudent:1306, teachers:44, support:77 },
+  { name:"JOHNSON COUNTY R-VII SCHOOL DISTRICT", county:"Johnson", cut:709055, pct:7.9, perStudent:1354, teachers:13, support:22 },
+  { name:"JOPLIN SCHOOL DISTRICT", county:"Jasper", cut:7446624, pct:6.7, perStudent:1051, teachers:135, support:235 },
+  { name:"JUNCTION HILL C-12 SCHOOL DISTRICT", county:"Howell", cut:399697, pct:10.6, perStudent:1724, teachers:7, support:13 },
+  { name:"KAIROS ACADEMIES", county:"St. Louis City", cut:1503451, pct:14.3, perStudent:3546, teachers:27, support:47 },
+  { name:"KANSAS CITY 33 SCHOOL DISTRICT", county:"Jackson", cut:2488640, pct:0.7, perStudent:203, teachers:45, support:78 },
+  { name:"KANSAS CITY GIRLS PREP ACADEMY", county:"Jackson", cut:611720, pct:11.6, perStudent:6208, teachers:11, support:19 },
+  { name:"KC INTERNATIONAL ACADEMY", county:"Jackson", cut:2696720, pct:16.7, perStudent:4554, teachers:49, support:85 },
+  { name:"KEARNEY R-I SCHOOL DISTRICT", county:"Clay", cut:5985397, pct:7.3, perStudent:1878, teachers:109, support:189 },
+  { name:"KELSO C-7 SCHOOL DISTRICT", county:"Scott", cut:278976, pct:7.4, perStudent:1370, teachers:5, support:9 },
+  { name:"KENNETT 39 SCHOOL DISTRICT", county:"Dunklin", cut:2759658, pct:8.6, perStudent:1673, teachers:50, support:87 },
+  { name:"KEYTESVILLE R-III SCHOOL DISTRICT", county:"Chariton", cut:212690, pct:5.9, perStudent:2125, teachers:4, support:7 },
+  { name:"KING CITY R-I SCHOOL DISTRICT", county:"Gentry", cut:500493, pct:7.2, perStudent:1654, teachers:9, support:16 },
+  { name:"KINGSTON 42 SCHOOL DISTRICT", county:"Caldwell", cut:79643, pct:8.8, perStudent:2426, teachers:1, support:3 },
+  { name:"KINGSTON K-14 SCHOOL DISTRICT", county:"Washington", cut:1328028, pct:10.5, perStudent:1774, teachers:24, support:42 },
+  { name:"KINGSVILLE R-I SCHOOL DISTRICT", county:"Johnson", cut:349234, pct:7.9, perStudent:1565, teachers:6, support:11 },
+  { name:"KIPP ST LOUIS PUBLIC SCHOOLS", county:"St. Louis City", cut:7402948, pct:14.8, perStudent:4233, teachers:134, support:233 },
+  { name:"KIPP: ENDEAVOR ACADEMY", county:"Jackson", cut:2994882, pct:15.8, perStudent:3527, teachers:54, support:94 },
+  { name:"KIRBYVILLE R-VI SCHOOL DISTRICT", county:"Taney", cut:597828, pct:8.9, perStudent:2033, teachers:11, support:19 },
+  { name:"KIRKSVILLE R-III SCHOOL DISTRICT", county:"Adair", cut:3068434, pct:7.3, perStudent:1396, teachers:56, support:97 },
+  { name:"KIRKWOOD R-VII SCHOOL DISTRICT", county:"St. Louis", cut:2180287, pct:2.0, perStudent:416, teachers:40, support:69 },
+  { name:"KNOB NOSTER R-VIII SCHOOL DISTRICT", county:"Johnson", cut:2078117, pct:6.9, perStudent:1664, teachers:38, support:66 },
+  { name:"KNOX COUNTY R-I SCHOOL DISTRICT", county:"Knox", cut:666315, pct:5.3, perStudent:1561, teachers:12, support:21 },
+  { name:"LA MONTE R-IV SCHOOL DISTRICT", county:"Pettis", cut:563221, pct:9.2, perStudent:2127, teachers:10, support:18 },
+  { name:"LA PLATA R-II SCHOOL DISTRICT", county:"Macon", cut:466073, pct:9.8, perStudent:1709, teachers:8, support:15 },
+  { name:"LACLEDE COUNTY C-5 SCHOOL DISTRICT", county:"Laclede", cut:788129, pct:10.8, perStudent:1321, teachers:14, support:25 },
+  { name:"LACLEDE COUNTY R-I SCHOOL DISTRICT", county:"Laclede", cut:974928, pct:10.5, perStudent:1480, teachers:18, support:31 },
+  { name:"LADUE SCHOOL DISTRICT", county:"St. Louis", cut:941925, pct:0.9, perStudent:234, teachers:17, support:30 },
+  { name:"LAFAYETTE COUNTY C-1 SCHOOL DISTRICT", county:"Lafayette", cut:1773964, pct:8.1, perStudent:1994, teachers:32, support:56 },
+  { name:"LAFAYETTE PREPARATORY ACADEMY", county:"St. Louis City", cut:989968, pct:16.7, perStudent:2545, teachers:18, support:31 },
+  { name:"LAKELAND R-III SCHOOL DISTRICT", county:"St. Clair", cut:1151769, pct:9.2, perStudent:3219, teachers:21, support:36 },
+  { name:"LAMAR R-I SCHOOL DISTRICT", county:"Barton", cut:1358780, pct:8.0, perStudent:1268, teachers:25, support:43 },
+  { name:"LAQUEY R-V SCHOOL DISTRICT", county:"Pulaski", cut:4007950, pct:17.3, perStudent:7676, teachers:73, support:126 },
+  { name:"LAREDO R-VII SCHOOL DISTRICT", county:"Grundy", cut:93161, pct:8.0, perStudent:1409, teachers:2, support:3 },
+  { name:"LATHROP R-II SCHOOL DISTRICT", county:"Clinton", cut:1269485, pct:8.9, perStudent:1532, teachers:23, support:40 },
+  { name:"LAWSON R-XIV SCHOOL DISTRICT", county:"Ray", cut:1612385, pct:8.5, perStudent:1528, teachers:29, support:51 },
+  { name:"LEBANON R-III SCHOOL DISTRICT", county:"Laclede", cut:7253167, pct:9.1, perStudent:1851, teachers:132, support:229 },
+  { name:"LEE A. TOLBERT COM. ACADEMY", county:"Jackson", cut:1071533, pct:16.1, perStudent:2982, teachers:19, support:34 },
+  { name:"LEE'S SUMMIT R-VII SCHOOL DISTRICT", county:"Jackson", cut:21703933, pct:6.3, perStudent:1315, teachers:394, support:684 },
+  { name:"LEESVILLE R-IX SCHOOL DISTRICT", county:"Henry", cut:113156, pct:6.1, perStudent:1094, teachers:2, support:4 },
+  { name:"LEETON R-X SCHOOL DISTRICT", county:"Johnson", cut:471766, pct:9.3, perStudent:2043, teachers:9, support:15 },
+  { name:"LEOPOLD R-III SCHOOL DISTRICT", county:"Bollinger", cut:265547, pct:11.4, perStudent:1391, teachers:5, support:8 },
+  { name:"LESTERVILLE R-IV SCHOOL DISTRICT", county:"Reynolds", cut:294597, pct:6.0, perStudent:2206, teachers:5, support:9 },
+  { name:"LEWIS COUNTY C-1 SCHOOL DISTRICT", county:"Lewis", cut:1030704, pct:7.5, perStudent:1244, teachers:19, support:33 },
+  { name:"LEXINGTON R-V SCHOOL DISTRICT", county:"Lafayette", cut:1491694, pct:8.4, perStudent:1914, teachers:27, support:47 },
+  { name:"LIBERAL R-II SCHOOL DISTRICT", county:"Barton", cut:417191, pct:7.4, perStudent:1703, teachers:8, support:13 },
+  { name:"LIBERTY 53 SCHOOL DISTRICT", county:"Clay", cut:19503698, pct:7.3, perStudent:1726, teachers:354, support:615 },
+  { name:"LICKING R-VIII SCHOOL DISTRICT", county:"Texas", cut:1062485, pct:10.5, perStudent:1557, teachers:19, support:34 },
+  { name:"LIFT FOR LIFE ACADEMY", county:"St. Louis City", cut:3061177, pct:14.8, perStudent:3911, teachers:56, support:97 },
+  { name:"LINCOLN R-II SCHOOL DISTRICT", county:"Benton", cut:686966, pct:8.4, perStudent:1453, teachers:12, support:22 },
+  { name:"LINDBERGH SCHOOL DISTRICT", county:"St. Louis", cut:4429297, pct:3.2, perStudent:648, teachers:80, support:140 },
+  { name:"LINN COUNTY R-I SCHOOL DISTRICT", county:"Linn", cut:288914, pct:8.8, perStudent:1952, teachers:5, support:9 },
+  { name:"LIVINGSTON COUNTY R-III SCHOOL DISTRICT", county:"Livingston", cut:129586, pct:8.7, perStudent:2235, teachers:2, support:4 },
+  { name:"LOCKWOOD R-I SCHOOL DISTRICT", county:"Dade", cut:339008, pct:7.2, perStudent:1292, teachers:6, support:11 },
+  { name:"LOGAN-ROGERSVILLE R-VIII SCHOOL DISTRICT", county:"Greene", cut:3956371, pct:8.1, perStudent:1713, teachers:72, support:125 },
+  { name:"LONE JACK C-6 SCHOOL DISTRICT", county:"Jackson", cut:1653187, pct:7.3, perStudent:2721, teachers:30, support:52 },
+  { name:"LONEDELL R-XIV SCHOOL DISTRICT", county:"Franklin", cut:575170, pct:8.3, perStudent:1408, teachers:10, support:18 },
+  { name:"LOUISIANA R-II SCHOOL DISTRICT", county:"Pike", cut:805419, pct:8.3, perStudent:1352, teachers:15, support:25 },
+  { name:"LUTIE R-VI SCHOOL DISTRICT", county:"Ozark", cut:202449, pct:6.6, perStudent:2306, teachers:4, support:6 },
+  { name:"MACKS CREEK R-V SCHOOL DISTRICT", county:"Camden", cut:450111, pct:8.5, perStudent:1587, teachers:8, support:14 },
+  { name:"MACON COUNTY R-I SCHOOL DISTRICT", county:"Macon", cut:1350277, pct:7.4, perStudent:1220, teachers:24, support:43 },
+  { name:"MACON COUNTY R-IV SCHOOL DISTRICT", county:"Macon", cut:200445, pct:8.8, perStudent:2520, teachers:4, support:6 },
+  { name:"MADISON C-3 SCHOOL DISTRICT", county:"Monroe", cut:277595, pct:9.3, perStudent:1807, teachers:5, support:9 },
+  { name:"MALDEN R-I SCHOOL DISTRICT", county:"Dunklin", cut:1175655, pct:9.3, perStudent:1606, teachers:21, support:37 },
+  { name:"MALTA BEND R-V SCHOOL DISTRICT", county:"Saline", cut:136790, pct:8.1, perStudent:2759, teachers:2, support:4 },
+  { name:"MANES R-V SCHOOL DISTRICT", county:"Wright", cut:162519, pct:10.3, perStudent:3592, teachers:3, support:5 },
+  { name:"MANSFIELD R-IV SCHOOL DISTRICT", county:"Wright", cut:843046, pct:9.2, perStudent:1355, teachers:15, support:27 },
+  { name:"MAPLEWOOD-RICHMOND HEIGHTS SCHOOL DISTRICT", county:"St. Louis", cut:1007786, pct:2.8, perStudent:762, teachers:18, support:32 },
+  { name:"MARCELINE R-V SCHOOL DISTRICT", county:"Linn", cut:810391, pct:7.5, perStudent:1362, teachers:15, support:26 },
+  { name:"MARIES COUNTY R-I SCHOOL DISTRICT", county:"Maries", cut:598169, pct:6.5, perStudent:1465, teachers:11, support:19 },
+  { name:"MARIES COUNTY R-II SCHOOL DISTRICT", county:"Maries", cut:645659, pct:6.8, perStudent:1014, teachers:12, support:20 },
+  { name:"MARION C. EARLY R-V SCHOOL DISTRICT", county:"Polk", cut:641612, pct:8.9, perStudent:1233, teachers:12, support:20 },
+  { name:"MARION COUNTY R-II SCHOOL DISTRICT", county:"Marion", cut:279173, pct:9.4, perStudent:1524, teachers:5, support:9 },
+  { name:"MARIONVILLE R-IX SCHOOL DISTRICT", county:"Lawrence", cut:1295552, pct:9.6, perStudent:1879, teachers:23, support:41 },
+  { name:"MARK TWAIN R-VIII SCHOOL DISTRICT", county:"Taney", cut:92872, pct:8.5, perStudent:1348, teachers:2, support:3 },
+  { name:"MARQUAND-ZION R-VI SCHOOL DISTRICT", county:"Madison", cut:311228, pct:10.0, perStudent:2855, teachers:6, support:10 },
+  { name:"MARSHALL SCHOOL DISTRICT", county:"Saline", cut:2456428, pct:7.0, perStudent:1118, teachers:45, support:77 },
+  { name:"MARSHFIELD R-I SCHOOL DISTRICT", county:"Webster", cut:4044998, pct:9.3, perStudent:1455, teachers:73, support:128 },
+  { name:"MARYVILLE R-II SCHOOLS", county:"Nodaway", cut:1448462, pct:3.6, perStudent:1157, teachers:26, support:46 },
+  { name:"MAYSVILLE R-I SCHOOL DISTRICT", county:"DeKalb", cut:482715, pct:5.9, perStudent:1107, teachers:9, support:15 },
+  { name:"MCDONALD COUNTY R-I SCHOOL DISTRICT", county:"McDonald", cut:5724784, pct:10.1, perStudent:1693, teachers:104, support:181 },
+  { name:"MEADOW HEIGHTS R-II SCHOOL DISTRICT", county:"Bollinger", cut:660013, pct:6.9, perStudent:1482, teachers:12, support:21 },
+  { name:"MEADVILLE R-IV SCHOOL DISTRICT", county:"Linn", cut:298715, pct:7.8, perStudent:1394, teachers:5, support:9 },
+  { name:"MEHLVILLE R-IX SCHOOL DISTRICT", county:"St. Louis", cut:6780182, pct:3.8, perStudent:752, teachers:123, support:214 },
+  { name:"MERAMEC VALLEY R-III SCHOOL DISTRICT", county:"Franklin", cut:3246174, pct:6.6, perStudent:1164, teachers:59, support:102 },
+  { name:"MEXICO 59 SCHOOL DISTRICT", county:"Audrain", cut:2639571, pct:6.2, perStudent:1339, teachers:48, support:83 },
+  { name:"MIAMI R-I SCHOOL DISTRICT", county:"Bates", cut:278894, pct:8.6, perStudent:1877, teachers:5, support:9 },
+  { name:"MIAMI R-I SCHOOL DISTRICT", county:"Saline", cut:127670, pct:7.1, perStudent:1634, teachers:2, support:4 },
+  { name:"MID-BUCHANAN COUNTY R-V SCHOOL DISTRICT", county:"Buchanan", cut:1109614, pct:8.2, perStudent:1358, teachers:20, support:35 },
+  { name:"MIDDLE GROVE C-1 SCHOOL DISTRICT", county:"Monroe", cut:65095, pct:6.8, perStudent:1693, teachers:1, support:2 },
+  { name:"MIDWAY R-I SCHOOL DISTRICT", county:"Cass", cut:564564, pct:6.6, perStudent:1411, teachers:10, support:18 },
+  { name:"MILAN C-2 SCHOOL DISTRICT", county:"Sullivan", cut:940839, pct:9.4, perStudent:1523, teachers:17, support:30 },
+  { name:"MILLER COUNTY R-III SCHOOL DISTRICT", county:"Miller", cut:384355, pct:11.8, perStudent:2567, teachers:7, support:12 },
+  { name:"MILLER R-II SCHOOL DISTRICT", county:"Lawrence", cut:1000516, pct:7.9, perStudent:1855, teachers:18, support:32 },
+  { name:"MIRABILE C-1 SCHOOL DISTRICT", county:"Caldwell", cut:77899, pct:8.0, perStudent:2070, teachers:1, support:2 },
+  { name:"MISSOURI CITY 56 SCHOOL DISTRICT", county:"Clay", cut:65882, pct:7.6, perStudent:3067, teachers:1, support:2 },
+  { name:"MOBERLY SCHOOL DISTRICT", county:"Randolph", cut:2907508, pct:7.8, perStudent:1640, teachers:53, support:92 },
+  { name:"MOMENTUM ACADEMY", county:"St. Louis City", cut:2449468, pct:16.2, perStudent:4705, teachers:44, support:77 },
+  { name:"MONETT R-I SCHOOL DISTRICT", county:"Barry", cut:4925386, pct:9.7, perStudent:2198, teachers:89, support:155 },
+  { name:"MONITEAU COUNTY R-I SCHOOL DISTRICT", county:"Moniteau", cut:1706228, pct:9.7, perStudent:1418, teachers:31, support:54 },
+  { name:"MONITEAU COUNTY R-V SCHOOL DISTRICT", county:"Moniteau", cut:63424, pct:5.0, perStudent:1395, teachers:1, support:2 },
+  { name:"MONROE CITY R-I SCHOOL DISTRICT", county:"Monroe", cut:1154307, pct:6.4, perStudent:1699, teachers:21, support:36 },
+  { name:"MONTGOMERY COUNTY R-II SCHOOL DISTRICT", county:"Montgomery", cut:1598908, pct:6.1, perStudent:1620, teachers:29, support:50 },
+  { name:"MONTROSE R-XIV SCHOOL DISTRICT", county:"Henry", cut:146986, pct:7.7, perStudent:2498, teachers:3, support:5 },
+  { name:"MORGAN COUNTY R-I SCHOOL DISTRICT", county:"Morgan", cut:1300915, pct:9.5, perStudent:1609, teachers:24, support:41 },
+  { name:"MORGAN COUNTY R-II SCHOOL DISTRICT", county:"Morgan", cut:585870, pct:3.4, perStudent:538, teachers:11, support:18 },
+  { name:"MOUND CITY R-II SCHOOL DISTRICT", county:"Holt", cut:250796, pct:4.5, perStudent:1055, teachers:5, support:8 },
+  { name:"MOUNT VERNON R-V SCHOOL DISTRICT", county:"Lawrence", cut:2890780, pct:9.5, perStudent:2079, teachers:52, support:91 },
+  { name:"MOUNTAIN GROVE R-III SCHOOL DISTRICT", county:"Wright", cut:1758453, pct:8.9, perStudent:1312, teachers:32, support:55 },
+  { name:"MOUNTAIN VIEW-BIRCH TREE R-III SCHOOL DISTRICT", county:"Howell", cut:1473081, pct:9.8, perStudent:1333, teachers:27, support:46 },
+  { name:"NAYLOR R-II SCHOOL DISTRICT", county:"Ripley", cut:561972, pct:11.5, perStudent:1724, teachers:10, support:18 },
+  { name:"NEELYVILLE R-IV SCHOOL DISTRICT", county:"Butler", cut:681062, pct:8.9, perStudent:1178, teachers:12, support:21 },
+  { name:"NELL HOLCOMB R-IV SCHOOL DISTRICT", county:"Cape Girardeau", cut:327436, pct:5.9, perStudent:994, teachers:6, support:10 },
+  { name:"NEOSHO R-V SCHOOL DISTRICT", county:"Newton", cut:7560390, pct:10.3, perStudent:1674, teachers:137, support:238 },
+  { name:"NEVADA R-V SCHOOL DISTRICT", county:"Vernon", cut:3214540, pct:8.0, perStudent:1521, teachers:58, support:101 },
+  { name:"NEW BLOOMFIELD R-III SCHOOL DISTRICT", county:"Callaway", cut:1146441, pct:8.6, perStudent:1846, teachers:21, support:36 },
+  { name:"NEW FRANKLIN R-I SCHOOL DISTRICT", county:"Howard", cut:456557, pct:8.0, perStudent:1317, teachers:8, support:14 },
+  { name:"NEW HAVEN SCHOOL DISTRICT", county:"Franklin", cut:810762, pct:7.8, perStudent:1953, teachers:15, support:26 },
+  { name:"NEW MADRID COUNTY R-I SCHOOL DISTRICT", county:"New Madrid", cut:888104, pct:2.9, perStudent:814, teachers:16, support:28 },
+  { name:"NEW YORK R-IV SCHOOL DISTRICT", county:"Caldwell", cut:90344, pct:8.6, perStudent:2950, teachers:2, support:3 },
+  { name:"NEWBURG R-II SCHOOL DISTRICT", county:"Phelps", cut:486401, pct:9.4, perStudent:1659, teachers:9, support:15 },
+  { name:"NEWTOWN-HARRIS R-III SCHOOL DISTRICT", county:"Sullivan", cut:163502, pct:7.3, perStudent:2861, teachers:3, support:5 },
+  { name:"NIANGUA R-V SCHOOL DISTRICT", county:"Webster", cut:426187, pct:10.5, perStudent:1736, teachers:8, support:13 },
+  { name:"NIXA SCHOOL DISTRICT", county:"Christian", cut:10028492, pct:8.7, perStudent:1609, teachers:182, support:316 },
+  { name:"NODAWAY-HOLT R-VII SCHOOL DISTRICT", county:"Nodaway", cut:195926, pct:4.6, perStudent:1090, teachers:4, support:6 },
+  { name:"NORBORNE R-VIII SCHOOL DISTRICT", county:"Carroll", cut:330365, pct:6.8, perStudent:2343, teachers:6, support:10 },
+  { name:"NORMANDY SCHOOLS COLLABORATIVE", county:"St. Louis", cut:5104471, pct:7.2, perStudent:2403, teachers:93, support:161 },
+  { name:"NORTH ANDREW COUNTY R-VI SCHOOL DISTRICT", county:"Andrew", cut:538249, pct:10.8, perStudent:2049, teachers:10, support:17 },
+  { name:"NORTH CALLAWAY COUNTY R-I SCHOOL DISTRICT", county:"Callaway", cut:1123701, pct:5.0, perStudent:1250, teachers:20, support:35 },
+  { name:"NORTH DAVIESS R-III SCHOOL DISTRICT", county:"Daviess", cut:148446, pct:5.7, perStudent:3250, teachers:3, support:5 },
+  { name:"NORTH HARRISON R-III SCHOOL DISTRICT", county:"Harrison", cut:299829, pct:7.9, perStudent:1600, teachers:5, support:9 },
+  { name:"NORTH KANSAS CITY 74 SCHOOL DISTRICT", county:"Clay", cut:31430020, pct:6.9, perStudent:1572, teachers:570, support:991 },
+  { name:"NORTH MERCER COUNTY R-III SCHOOL DISTRICT", county:"Mercer", cut:273374, pct:7.9, perStudent:2228, teachers:5, support:9 },
+  { name:"NORTH NODAWAY COUNTY R-VI SCHOOL DISTRICT", county:"Nodaway", cut:308772, pct:8.0, perStudent:1792, teachers:6, support:10 },
+  { name:"NORTH PEMISCOT COUNTY R-I SCHOOL DISTRICT", county:"Pemiscot", cut:452059, pct:11.3, perStudent:2166, teachers:8, support:14 },
+  { name:"NORTH PLATTE COUNTY R-I SCHOOL DISTRICT", county:"Platte", cut:651322, pct:7.4, perStudent:1246, teachers:12, support:21 },
+  { name:"NORTH SHELBY SCHOOL DISTRICT", county:"Shelby", cut:522190, pct:7.6, perStudent:1967, teachers:9, support:16 },
+  { name:"NORTH SIDE COMMUNITY SCHOOL", county:"St. Louis City", cut:1803703, pct:15.7, perStudent:4451, teachers:33, support:57 },
+  { name:"NORTH ST. FRANCIS COUNTY R-I SCHOOL DISTRICT", county:"St. Francois", cut:3780392, pct:8.1, perStudent:1691, teachers:69, support:119 },
+  { name:"NORTH WOOD R-IV SCHOOL DISTRICT", county:"Dent", cut:303760, pct:6.5, perStudent:1428, teachers:6, support:10 },
+  { name:"NORTHEAST NODAWAY COUNTY R-V SCHOOL DISTRICT", county:"Nodaway", cut:335785, pct:9.3, perStudent:1930, teachers:6, support:11 },
+  { name:"NORTHEAST RANDOLPH COUNTY R-IV SCHOOL DISTRICT", county:"Randolph", cut:638351, pct:9.1, perStudent:2200, teachers:12, support:20 },
+  { name:"NORTHEAST VERNON COUNTY R-I SCHOOL DISTRICT", county:"Vernon", cut:229956, pct:7.1, perStudent:1389, teachers:4, support:7 },
+  { name:"NORTHWEST R-I SCHOOL DISTRICT", county:"Jefferson", cut:7916313, pct:7.4, perStudent:1490, teachers:144, support:250 },
+  { name:"NORTHWESTERN R-I SCHOOL DISTRICT", county:"Chariton", cut:180276, pct:5.3, perStudent:1604, teachers:3, support:6 },
+  { name:"NORWOOD R-I SCHOOL DISTRICT", county:"Wright", cut:537550, pct:10.6, perStudent:2055, teachers:10, support:17 },
+  { name:"OAK GROVE R-VI SCHOOL DISTRICT", county:"Jackson", cut:3505035, pct:8.3, perStudent:1944, teachers:64, support:111 },
+  { name:"OAK HILL R-I SCHOOL DISTRICT", county:"Dent", cut:296406, pct:10.6, perStudent:1659, teachers:5, support:9 },
+  { name:"OAK RIDGE R-VI SCHOOL DISTRICT", county:"Cape Girardeau", cut:472555, pct:9.1, perStudent:1519, teachers:9, support:15 },
+  { name:"ODESSA R-VII SCHOOL DISTRICT", county:"Lafayette", cut:2595457, pct:8.8, perStudent:1361, teachers:47, support:82 },
+  { name:"ORAN R-III SCHOOL DISTRICT", county:"Scott", cut:557073, pct:8.6, perStudent:1898, teachers:10, support:18 },
+  { name:"ORCHARD FARM R-V SCHOOL DISTRICT", county:"St. Charles", cut:4463854, pct:6.4, perStudent:2016, teachers:81, support:141 },
+  { name:"OREARVILLE R-IV SCHOOL DISTRICT", county:"Saline", cut:82933, pct:6.1, perStudent:1271, teachers:2, support:3 },
+  { name:"OREGON-HOWELL R-III SCHOOL DISTRICT", county:"Oregon", cut:496150, pct:10.3, perStudent:3013, teachers:9, support:16 },
+  { name:"ORRICK R-XI SCHOOL DISTRICT", county:"Ray", cut:616780, pct:9.6, perStudent:2262, teachers:11, support:19 },
+  { name:"OSAGE COUNTY R-I SCHOOL DISTRICT", county:"Osage", cut:260858, pct:9.5, perStudent:2548, teachers:5, support:8 },
+  { name:"OSAGE COUNTY R-II SCHOOL DISTRICT", county:"Osage", cut:740354, pct:6.0, perStudent:1315, teachers:13, support:23 },
+  { name:"OSAGE COUNTY R-III SCHOOL DISTRICT", county:"Osage", cut:756809, pct:6.0, perStudent:1139, teachers:14, support:24 },
+  { name:"OSBORN R-O SCHOOL DISTRICT", county:"DeKalb", cut:241683, pct:8.0, perStudent:2130, teachers:4, support:8 },
+  { name:"OSCEOLA SCHOOL DISTRICT", county:"St. Clair", cut:672101, pct:9.0, perStudent:1378, teachers:12, support:21 },
+  { name:"OTTERVILLE R-VI SCHOOL DISTRICT", county:"Cooper", cut:385945, pct:9.2, perStudent:2109, teachers:7, support:12 },
+  { name:"OZARK R-VI SCHOOL DISTRICT", county:"Christian", cut:8959900, pct:9.9, perStudent:1628, teachers:163, support:283 },
+  { name:"PALMYRA R-I SCHOOL DISTRICT", county:"Marion", cut:1120562, pct:6.0, perStudent:1066, teachers:20, support:35 },
+  { name:"PARIS R-II SCHOOL DISTRICT", county:"Monroe", cut:493496, pct:6.1, perStudent:1285, teachers:9, support:16 },
+  { name:"PARK HILL SCHOOL DISTRICT", county:"Platte", cut:14799654, pct:4.7, perStudent:1340, teachers:268, support:467 },
+  { name:"PARKWAY C-2 SCHOOL DISTRICT", county:"St. Louis", cut:3975215, pct:1.1, perStudent:264, teachers:72, support:125 },
+  { name:"PATTONSBURG R-II SCHOOL DISTRICT", county:"Daviess", cut:288842, pct:9.0, perStudent:1751, teachers:5, support:9 },
+  { name:"PATTONVILLE R-III SCHOOL DISTRICT", county:"St. Louis", cut:3276484, pct:2.1, perStudent:595, teachers:59, support:103 },
+  { name:"PEMISCOT COUNTY R-III SCHOOL DISTRICT", county:"Pemiscot", cut:281096, pct:10.9, perStudent:2198, teachers:5, support:9 },
+  { name:"PERRY COUNTY 32 SCHOOL DISTRICT", county:"Perry", cut:1395729, pct:4.9, perStudent:758, teachers:25, support:44 },
+  { name:"PETTIS COUNTY R-V SCHOOL DISTRICT", county:"Pettis", cut:424954, pct:9.0, perStudent:1540, teachers:8, support:13 },
+  { name:"PETTIS COUNTY R-XII SCHOOL DISTRICT", county:"Pettis", cut:110293, pct:3.1, perStudent:754, teachers:2, support:3 },
+  { name:"PHELPS COUNTY R-III SCHOOL DISTRICT", county:"Phelps", cut:313688, pct:8.8, perStudent:1511, teachers:6, support:10 },
+  { name:"PIERCE CITY R-VI SCHOOL DISTRICT", county:"Lawrence", cut:1120451, pct:10.0, perStudent:1730, teachers:20, support:35 },
+  { name:"PIKE COUNTY R-III SCHOOL DISTRICT", county:"Pike", cut:803941, pct:5.4, perStudent:2032, teachers:15, support:25 },
+  { name:"PILOT GROVE C-4 SCHOOL DISTRICT", county:"Cooper", cut:353351, pct:7.8, perStudent:2012, teachers:6, support:11 },
+  { name:"PLAINVIEW R-VIII SCHOOL DISTRICT", county:"Douglas", cut:207076, pct:10.5, perStudent:2016, teachers:4, support:7 },
+  { name:"PLATO R-V SCHOOL DISTRICT", county:"Texas", cut:730150, pct:10.0, perStudent:1642, teachers:13, support:23 },
+  { name:"PLATTE COUNTY R-III SCHOOL DISTRICT", county:"Platte", cut:5052516, pct:5.5, perStudent:1266, teachers:92, support:159 },
+  { name:"PLEASANT HILL R-III SCHOOL DISTRICT", county:"Cass", cut:2896551, pct:9.0, perStudent:1510, teachers:53, support:91 },
+  { name:"PLEASANT HOPE R-VI SCHOOL DISTRICT", county:"Polk", cut:1017619, pct:10.0, perStudent:1663, teachers:18, support:32 },
+  { name:"PLEASANT VIEW R-VI SCHOOL DISTRICT", county:"Grundy", cut:243034, pct:10.6, perStudent:3119, teachers:4, support:8 },
+  { name:"POLO R-VII SCHOOL DISTRICT", county:"Caldwell", cut:564840, pct:8.6, perStudent:1826, teachers:10, support:18 },
+  { name:"POPLAR BLUFF R-I SCHOOL DISTRICT", county:"Butler", cut:5113051, pct:7.3, perStudent:1189, teachers:93, support:161 },
+  { name:"PORTAGEVILLE SCHOOL DISTRICT", county:"New Madrid", cut:940408, pct:6.4, perStudent:1471, teachers:17, support:30 },
+  { name:"POTOSI R-III SCHOOL DISTRICT", county:"Washington", cut:2826287, pct:9.7, perStudent:1457, teachers:51, support:89 },
+  { name:"PRAIRIE HOME R-V SCHOOL DISTRICT", county:"Cooper", cut:194451, pct:6.9, perStudent:1339, teachers:4, support:6 },
+  { name:"PREMIER CHARTER SCHOOL", county:"St. Louis City", cut:2948101, pct:16.2, perStudent:3290, teachers:53, support:93 },
+  { name:"PRINCETON R-V SCHOOL DISTRICT", county:"Mercer", cut:402758, pct:4.6, perStudent:1467, teachers:7, support:13 },
+  { name:"PURDY R-II SCHOOL DISTRICT", county:"Barry", cut:941625, pct:10.6, perStudent:1706, teachers:17, support:30 },
+  { name:"PUTNAM COUNTY R-I SCHOOL DISTRICT", county:"Putnam", cut:689287, pct:6.7, perStudent:1183, teachers:13, support:22 },
+  { name:"PUXICO R-VIII SCHOOL DISTRICT", county:"Stoddard", cut:929294, pct:9.9, perStudent:1279, teachers:17, support:29 },
+  { name:"RALLS COUNTY R-II SCHOOL DISTRICT", county:"Ralls", cut:912187, pct:8.0, perStudent:1242, teachers:17, support:29 },
+  { name:"RAYMONDVILLE R-VII SCHOOL DISTRICT", county:"Texas", cut:250410, pct:10.6, perStudent:1637, teachers:5, support:8 },
+  { name:"RAYMORE-PECULIAR R-II SCHOOL DISTRICT", county:"Cass", cut:8051202, pct:7.8, perStudent:1359, teachers:146, support:254 },
+  { name:"RAYTOWN C-2 SCHOOL DISTRICT", county:"Jackson", cut:11614534, pct:6.8, perStudent:1705, teachers:211, support:366 },
+  { name:"REEDS SPRING R-IV SCHOOL DISTRICT", county:"Stone", cut:2232637, pct:4.2, perStudent:1458, teachers:40, support:70 },
+  { name:"RENICK R-V SCHOOL DISTRICT", county:"Randolph", cut:221232, pct:9.3, perStudent:2118, teachers:4, support:7 },
+  { name:"REPUBLIC R-III SCHOOL DISTRICT", county:"Greene", cut:9018458, pct:8.6, perStudent:1850, teachers:164, support:284 },
+  { name:"RICH HILL R-IV SCHOOL DISTRICT", county:"Bates", cut:436919, pct:8.1, perStudent:1391, teachers:8, support:14 },
+  { name:"RICHARDS R-V SCHOOL DISTRICT", county:"Howell", cut:545040, pct:8.9, perStudent:1130, teachers:10, support:17 },
+  { name:"RICHLAND R-I SCHOOL DISTRICT", county:"Stoddard", cut:543369, pct:9.1, perStudent:2212, teachers:10, support:17 },
+  { name:"RICHLAND R-IV SCHOOL DISTRICT", county:"Pulaski", cut:592838, pct:9.3, perStudent:1482, teachers:11, support:19 },
+  { name:"RICHMOND R-XVI SCHOOL DISTRICT", county:"Ray", cut:1593889, pct:7.7, perStudent:1159, teachers:29, support:50 },
+  { name:"RICHWOODS R-VII SCHOOL DISTRICT", county:"Washington", cut:319460, pct:10.2, perStudent:2403, teachers:6, support:10 },
+  { name:"RIDGEWAY R-V SCHOOL DISTRICT", county:"Harrison", cut:157672, pct:10.0, perStudent:6852, teachers:3, support:5 },
+  { name:"RIPLEY COUNTY R-III SCHOOL DISTRICT", county:"Ripley", cut:208307, pct:12.1, perStudent:1546, teachers:4, support:7 },
+  { name:"RIPLEY COUNTY R-IV SCHOOL DISTRICT", county:"Ripley", cut:217416, pct:8.5, perStudent:1649, teachers:4, support:7 },
+  { name:"RISCO R-II SCHOOL DISTRICT", county:"New Madrid", cut:278243, pct:9.6, perStudent:1956, teachers:5, support:9 },
+  { name:"RITENOUR SCHOOL DISTRICT", county:"St. Louis", cut:8975329, pct:7.8, perStudent:1589, teachers:163, support:283 },
+  { name:"RIVERVIEW GARDENS SCHOOL DISTRICT", county:"St. Louis", cut:7950389, pct:8.0, perStudent:2028, teachers:144, support:251 },
+  { name:"ROCK PORT R-II SCHOOL DISTRICT", county:"Atchison", cut:549910, pct:4.8, perStudent:1696, teachers:10, support:17 },
+  { name:"ROCKWOOD R-VI SCHOOL DISTRICT", county:"St. Louis", cut:10317293, pct:3.1, perStudent:591, teachers:187, support:325 },
+  { name:"ROLLA 31 SCHOOL DISTRICT", county:"Phelps", cut:5674533, pct:7.8, perStudent:1530, teachers:103, support:179 },
+  { name:"ROSCOE C-1 SCHOOL DISTRICT", county:"St. Clair", cut:90619, pct:8.1, perStudent:1656, teachers:2, support:3 },
+  { name:"SALEM R-80 SCHOOL DISTRICT", county:"Dent", cut:1735590, pct:8.4, perStudent:1706, teachers:31, support:55 },
+  { name:"SALISBURY R-IV SCHOOL DISTRICT", county:"Chariton", cut:290965, pct:3.3, perStudent:673, teachers:5, support:9 },
+  { name:"SANTA FE R-X SCHOOL DISTRICT", county:"Lafayette", cut:496167, pct:7.4, perStudent:1804, teachers:9, support:16 },
+  { name:"SARCOXIE R-II SCHOOL DISTRICT", county:"Jasper", cut:1107544, pct:10.2, perStudent:1618, teachers:20, support:35 },
+  { name:"SAVANNAH R-III SCHOOL DISTRICT", county:"Andrew", cut:3993616, pct:8.6, perStudent:1825, teachers:72, support:126 },
+  { name:"SCHOOL OF THE OSAGE SCHOOL DISTRICT", county:"Miller", cut:711266, pct:2.2, perStudent:411, teachers:13, support:22 },
+  { name:"SCHUYLER COUNTY R-I SCHOOL DISTRICT", county:"Schuyler", cut:841750, pct:6.7, perStudent:1632, teachers:15, support:27 },
+  { name:"SCOTLAND COUNTY R-I SCHOOL DISTRICT", county:"Scotland", cut:503621, pct:5.7, perStudent:1049, teachers:9, support:16 },
+  { name:"SCOTT CITY R-I SCHOOL DISTRICT", county:"Scott", cut:879306, pct:8.2, perStudent:1186, teachers:16, support:28 },
+  { name:"SCOTT COUNTY CENTRAL SCHOOLS", county:"Scott", cut:542924, pct:10.1, perStudent:2206, teachers:10, support:17 },
+  { name:"SCOTT COUNTY R-IV SCHOOL DISTRICT", county:"Scott", cut:1224527, pct:9.4, perStudent:1540, teachers:22, support:39 },
+  { name:"SCUOLA VITA NUOVA", county:"Jackson", cut:1405574, pct:17.0, perStudent:4102, teachers:25, support:44 },
+  { name:"SEDALIA 200 SCHOOL DISTRICT", county:"Pettis", cut:6527616, pct:8.9, perStudent:1461, teachers:118, support:206 },
+  { name:"SENATH-HORNERSVILLE C-8 SCHOOL DISTRICT", county:"Dunklin", cut:892787, pct:9.4, perStudent:1411, teachers:16, support:28 },
+  { name:"SENECA R-VII SCHOOL DISTRICT", county:"Newton", cut:1817515, pct:9.8, perStudent:1377, teachers:33, support:57 },
+  { name:"SEYMOUR R-II SCHOOL DISTRICT", county:"Webster", cut:823909, pct:7.2, perStudent:1179, teachers:15, support:26 },
+  { name:"SHAWNEE R-III SCHOOL DISTRICT", county:"Henry", cut:79715, pct:6.7, perStudent:1149, teachers:1, support:3 },
+  { name:"SHELBY COUNTY R-IV SCHOOL DISTRICT", county:"Shelby", cut:650993, pct:6.0, perStudent:1192, teachers:12, support:21 },
+  { name:"SHELDON R-VIII SCHOOL DISTRICT", county:"Vernon", cut:285741, pct:9.7, perStudent:1551, teachers:5, support:9 },
+  { name:"SHELL KNOB 78 SCHOOL DISTRICT", county:"Barry", cut:170816, pct:3.6, perStudent:1089, teachers:3, support:5 },
+  { name:"SHERWOOD CASS R-VIII SCHOOL DISTRICT", county:"Cass", cut:950414, pct:8.7, perStudent:1447, teachers:17, support:30 },
+  { name:"SIKESTON R-VI SCHOOL DISTRICT", county:"Scott", cut:3869431, pct:8.1, perStudent:1355, teachers:70, support:122 },
+  { name:"SILEX R-I SCHOOL DISTRICT", county:"Lincoln", cut:594422, pct:9.0, perStudent:1482, teachers:11, support:19 },
+  { name:"SKYLINE R-II SCHOOL DISTRICT", county:"Douglas", cut:152169, pct:8.5, perStudent:1441, teachers:3, support:5 },
+  { name:"SLATER SCHOOL DISTRICT", county:"Saline", cut:470659, pct:7.6, perStudent:1656, teachers:9, support:15 },
+  { name:"SMITHTON R-VI SCHOOL DISTRICT", county:"Pettis", cut:530563, pct:8.0, perStudent:1136, teachers:10, support:17 },
+  { name:"SMITHVILLE R-II SCHOOL DISTRICT", county:"Clay", cut:3352843, pct:7.1, perStudent:1415, teachers:61, support:106 },
+  { name:"SOUTH CALLAWAY COUNTY R-II SCHOOL DISTRICT", county:"Callaway", cut:268267, pct:1.8, perStudent:377, teachers:5, support:8 },
+  { name:"SOUTH HARRISON COUNTY R-II SCHOOL DISTRICT", county:"Harrison", cut:862418, pct:7.3, perStudent:1250, teachers:16, support:27 },
+  { name:"SOUTH HOLT COUNTY R-I SCHOOL DISTRICT", county:"Holt", cut:237359, pct:5.3, perStudent:1074, teachers:4, support:7 },
+  { name:"SOUTH IRON COUNTY R-I SCHOOL DISTRICT", county:"Iron", cut:317136, pct:6.9, perStudent:1251, teachers:6, support:10 },
+  { name:"SOUTH NODAWAY COUNTY R-IV SCHOOL DISTRICT", county:"Nodaway", cut:301296, pct:9.3, perStudent:2061, teachers:5, support:10 },
+  { name:"SOUTH PEMISCOT COUNTY R-V SCHOOL DISTRICT", county:"Pemiscot", cut:658671, pct:8.7, perStudent:1247, teachers:12, support:21 },
+  { name:"SOUTHERN BOONE COUNTY R-I SCHOOL DISTRICT", county:"Boone", cut:2896535, pct:9.2, perStudent:1581, teachers:53, support:91 },
+  { name:"SOUTHERN REYNOLDS COUNTY R-II SCHOOL DISTRICT", county:"Reynolds", cut:411927, pct:6.2, perStudent:1058, teachers:7, support:13 },
+  { name:"SOUTHLAND C-9 SCHOOL DISTRICT", county:"Dunklin", cut:323671, pct:9.6, perStudent:1459, teachers:6, support:10 },
+  { name:"SOUTHWEST LIVINGSTON COUNTY R-I SCHOOL DISTRICT", county:"Livingston", cut:267304, pct:9.1, perStudent:1714, teachers:5, support:8 },
+  { name:"SOUTHWEST R-V SCHOOL DISTRICT", county:"Barry", cut:1076560, pct:10.8, perStudent:1556, teachers:20, support:34 },
+  { name:"SPARTA R-III SCHOOL DISTRICT", county:"Christian", cut:1008630, pct:10.7, perStudent:1482, teachers:18, support:32 },
+  { name:"SPICKARD R-II SCHOOL DISTRICT", county:"Grundy", cut:81683, pct:9.4, perStudent:2205, teachers:1, support:3 },
+  { name:"SPOKANE R-VII SCHOOL DISTRICT", county:"Christian", cut:877326, pct:8.0, perStudent:1319, teachers:16, support:28 },
+  { name:"SPRING BLUFF R-XV SCHOOL DISTRICT", county:"Franklin", cut:485734, pct:8.5, perStudent:1726, teachers:9, support:15 },
+  { name:"SPRINGFIELD R-XII SCHOOL DISTRICT", county:"Greene", cut:27547986, pct:5.8, perStudent:1261, teachers:500, support:869 },
+  { name:"ST. CHARLES R-VI SCHOOL DISTRICT", county:"St. Charles", cut:4001470, pct:3.4, perStudent:958, teachers:73, support:126 },
+  { name:"ST. CLAIR R-XIII SCHOOL DISTRICT", county:"Franklin", cut:4528941, pct:9.6, perStudent:2431, teachers:82, support:143 },
+  { name:"ST. ELIZABETH R-IV SCHOOL DISTRICT", county:"Miller", cut:340643, pct:8.5, perStudent:1394, teachers:6, support:11 },
+  { name:"ST. JAMES R-I SCHOOL DISTRICT", county:"Phelps", cut:3599341, pct:10.1, perStudent:2504, teachers:65, support:114 },
+  { name:"ST. JOSEPH SCHOOL DISTRICT", county:"Buchanan", cut:13956509, pct:7.0, perStudent:1480, teachers:253, support:440 },
+  { name:"ST. LOUIS CITY SCHOOL DISTRICT", county:"St. Louis City", cut:6289710, pct:1.2, perStudent:428, teachers:114, support:198 },
+  { name:"ST. LOUIS LANG IMMERSION SCH", county:"St. Louis City", cut:1374931, pct:16.5, perStudent:3266, teachers:25, support:43 },
+  { name:"ST. LOUIS VOICES ACADEMY", county:"St. Louis City", cut:368186, pct:12.5, perStudent:3108, teachers:7, support:12 },
+  { name:"STANBERRY R-II SCHOOL DISTRICT", county:"Gentry", cut:428406, pct:7.9, perStudent:1208, teachers:8, support:14 },
+  { name:"STE. GENEVIEVE COUNTY R-II SCHOOL DISTRICT", county:"Ste. Genevieve", cut:1873133, pct:4.2, perStudent:1091, teachers:34, support:59 },
+  { name:"STEELVILLE R-III SCHOOL DISTRICT", county:"Crawford", cut:1127052, pct:8.5, perStudent:1362, teachers:20, support:36 },
+  { name:"STEWARTSVILLE C-2 SCHOOL DISTRICT", county:"DeKalb", cut:389449, pct:9.3, perStudent:1689, teachers:7, support:12 },
+  { name:"STOCKTON R-I SCHOOL DISTRICT", county:"Cedar", cut:1188012, pct:7.3, perStudent:1341, teachers:22, support:37 },
+  { name:"STOUTLAND R-II SCHOOL DISTRICT", county:"Camden", cut:493091, pct:9.2, perStudent:1409, teachers:9, support:16 },
+  { name:"STRAFFORD R-VI SCHOOL DISTRICT", county:"Greene", cut:1451749, pct:6.0, perStudent:1142, teachers:26, support:46 },
+  { name:"STRAIN-JAPAN R-XVI SCHOOL DISTRICT", county:"Franklin", cut:144960, pct:8.3, perStudent:1408, teachers:3, support:5 },
+  { name:"STRASBURG C-3 SCHOOL DISTRICT", county:"Cass", cut:303886, pct:9.3, perStudent:2051, teachers:6, support:10 },
+  { name:"STURGEON R-V SCHOOL DISTRICT", county:"Boone", cut:3678618, pct:15.7, perStudent:9975, teachers:67, support:116 },
+  { name:"SUCCESS R-VI SCHOOL DISTRICT", county:"Texas", cut:202422, pct:11.0, perStudent:1857, teachers:4, support:6 },
+  { name:"SULLIVAN C-2 SCHOOL DISTRICT", county:"Franklin", cut:3057446, pct:8.1, perStudent:1806, teachers:55, support:96 },
+  { name:"SUMMERSVILLE R-II SCHOOL DISTRICT", county:"Texas", cut:501590, pct:9.4, perStudent:1332, teachers:9, support:16 },
+  { name:"SUNRISE R-IX SCHOOL DISTRICT", county:"Jefferson", cut:736535, pct:8.9, perStudent:1923, teachers:13, support:23 },
+  { name:"SWEDEBORG R-III SCHOOL DISTRICT", county:"Pulaski", cut:109855, pct:11.4, perStudent:2177, teachers:2, support:3 },
+  { name:"SWEET SPRINGS R-VII SCHOOL DISTRICT", county:"Saline", cut:738925, pct:8.8, perStudent:2240, teachers:13, support:23 },
+  { name:"TANEYVILLE R-II SCHOOL DISTRICT", county:"Taney", cut:349501, pct:10.4, perStudent:1967, teachers:6, support:11 },
+  { name:"TARKIO R-I SCHOOL DISTRICT", county:"Atchison", cut:441229, pct:5.6, perStudent:1540, teachers:8, support:14 },
+  { name:"THAYER R-II SCHOOL DISTRICT", county:"Oregon", cut:1086317, pct:11.5, perStudent:1559, teachers:20, support:34 },
+  { name:"THE BIOME", county:"St. Louis City", cut:628152, pct:13.5, perStudent:4082, teachers:11, support:20 },
+  { name:"THE LEADERSHIP SCHOOL", county:"St. Louis", cut:483734, pct:11.8, perStudent:2477, teachers:9, support:15 },
+  { name:"THE SOULARD SCHOOL", county:"St. Louis City", cut:377492, pct:17.1, perStudent:2862, teachers:7, support:12 },
+  { name:"THORNFIELD R-I SCHOOL DISTRICT", county:"Ozark", cut:90787, pct:8.8, perStudent:1389, teachers:2, support:3 },
+  { name:"TINA-AVALON R-II SCHOOL DISTRICT", county:"Carroll", cut:198869, pct:8.3, perStudent:1581, teachers:4, support:6 },
+  { name:"TIPTON R-VI SCHOOL DISTRICT", county:"Moniteau", cut:781446, pct:9.2, perStudent:1521, teachers:14, support:25 },
+  { name:"TRENTON R-IX SCHOOL DISTRICT", county:"Grundy", cut:1268944, pct:7.5, perStudent:1356, teachers:23, support:40 },
+  { name:"TRI-COUNTY R-VII SCHOOL DISTRICT", county:"Daviess", cut:348703, pct:7.0, perStudent:2545, teachers:6, support:11 },
+  { name:"TROY R-III SCHOOL DISTRICT", county:"Lincoln", cut:13363890, pct:9.7, perStudent:2143, teachers:242, support:421 },
+  { name:"TWIN RIVERS R-X SCHOOL DISTRICT", county:"Butler", cut:928480, pct:8.6, perStudent:1287, teachers:17, support:29 },
+  { name:"UNION R-XI SCHOOL DISTRICT", county:"Franklin", cut:4998915, pct:8.7, perStudent:1737, teachers:91, support:158 },
+  { name:"UNION STAR R-II SCHOOL DISTRICT", county:"DeKalb", cut:196798, pct:6.3, perStudent:1296, teachers:4, support:6 },
+  { name:"UNIVERSITY ACADEMY", county:"Jackson", cut:3037321, pct:16.1, perStudent:2819, teachers:55, support:96 },
+  { name:"UNIVERSITY CITY SCHOOL DISTRICT", county:"St. Louis", cut:2111296, pct:3.2, perStudent:853, teachers:38, support:67 },
+  { name:"VALLEY PARK SCHOOL DISTRICT", county:"St. Louis", cut:353078, pct:1.4, perStudent:578, teachers:6, support:11 },
+  { name:"VALLEY R-VI SCHOOL DISTRICT", county:"Washington", cut:620143, pct:10.1, perStudent:1962, teachers:11, support:20 },
+  { name:"VAN BUREN R-I SCHOOL DISTRICT", county:"Carter", cut:660397, pct:7.5, perStudent:1437, teachers:12, support:21 },
+  { name:"VAN-FAR R-I SCHOOL DISTRICT", county:"Audrain", cut:625152, pct:6.2, perStudent:1204, teachers:11, support:20 },
+  { name:"VERONA R-VII SCHOOL DISTRICT", county:"Lawrence", cut:526460, pct:8.9, perStudent:1898, teachers:10, support:17 },
+  { name:"WALNUT GROVE R-V SCHOOL DISTRICT", county:"Greene", cut:328661, pct:7.7, perStudent:1236, teachers:6, support:10 },
+  { name:"WARREN COUNTY R-III SCHOOL DISTRICT", county:"Warren", cut:2508793, pct:5.1, perStudent:934, teachers:46, support:79 },
+  { name:"WARRENSBURG R-VI SCHOOL DISTRICT", county:"Johnson", cut:4865938, pct:7.9, perStudent:1510, teachers:88, support:153 },
+  { name:"WARSAW R-IX SCHOOL DISTRICT", county:"Benton", cut:1491470, pct:6.7, perStudent:1325, teachers:27, support:47 },
+  { name:"WASHINGTON SCHOOL DISTRICT", county:"Franklin", cut:2134267, pct:3.2, perStudent:651, teachers:39, support:67 },
+  { name:"WAYNESVILLE R-VI SCHOOLS", county:"Pulaski", cut:8328941, pct:8.4, perStudent:2007, teachers:151, support:263 },
+  { name:"WEAUBLEAU R-III SCHOOL DISTRICT", county:"Hickory", cut:518440, pct:7.6, perStudent:1620, teachers:9, support:16 },
+  { name:"WEBB CITY R-VII SCHOOL DISTRICT", county:"Jasper", cut:6238464, pct:11.4, perStudent:1459, teachers:113, support:197 },
+  { name:"WEBSTER GROVES SCHOOL DISTRICT", county:"St. Louis", cut:2316590, pct:2.6, perStudent:601, teachers:42, support:73 },
+  { name:"WELLINGTON-NAPOLEON R-IX SCHOOL DISTRICT", county:"Lafayette", cut:638885, pct:9.2, perStudent:1882, teachers:12, support:20 },
+  { name:"WELLSVILLE-MIDDLETOWN R-I SCHOOL DISTRICT", county:"Montgomery", cut:404529, pct:8.3, perStudent:1823, teachers:7, support:13 },
+  { name:"WENTZVILLE R-IV SCHOOL DISTRICT", county:"St. Charles", cut:26482684, pct:7.4, perStudent:1667, teachers:480, support:835 },
+  { name:"WEST NODAWAY COUNTY R-I SCHOOL DISTRICT", county:"Nodaway", cut:388692, pct:7.5, perStudent:1869, teachers:7, support:12 },
+  { name:"WEST PLAINS R-VII SCHOOL DISTRICT", county:"Howell", cut:3285576, pct:9.0, perStudent:1639, teachers:60, support:104 },
+  { name:"WEST PLATTE COUNTY R-II SCHOOL DISTRICT", county:"Platte", cut:466226, pct:3.4, perStudent:711, teachers:8, support:15 },
+  { name:"WEST ST. FRANCOIS COUNTY R-IV SCHOOL DISTRICT", county:"St. Francois", cut:1889470, pct:10.3, perStudent:2041, teachers:34, support:60 },
+  { name:"WESTRAN R-I SCHOOL DISTRICT", county:"Randolph", cut:204095, pct:2.0, perStudent:371, teachers:4, support:6 },
+  { name:"WESTVIEW C-6 SCHOOL DISTRICT", county:"Newton", cut:206194, pct:9.0, perStudent:1539, teachers:4, support:7 },
+  { name:"WHEATLAND R-II SCHOOL DISTRICT", county:"Hickory", cut:318223, pct:7.4, perStudent:1370, teachers:6, support:10 },
+  { name:"WHEATON R-III SCHOOL DISTRICT", county:"Barry", cut:662291, pct:10.7, perStudent:1693, teachers:12, support:21 },
+  { name:"WILLARD R-II SCHOOL DISTRICT", county:"Greene", cut:7017592, pct:9.1, perStudent:1692, teachers:127, support:221 },
+  { name:"WILLOW SPRINGS R-IV SCHOOL DISTRICT", county:"Howell", cut:1932160, pct:10.6, perStudent:1897, teachers:35, support:61 },
+  { name:"WINDSOR C-1 SCHOOL DISTRICT", county:"Jefferson", cut:4795610, pct:9.1, perStudent:1773, teachers:87, support:151 },
+  { name:"WINFIELD R-IV SCHOOL DISTRICT", county:"Lincoln", cut:3546290, pct:10.2, perStudent:2541, teachers:64, support:112 },
+  { name:"WINONA R-III SCHOOL DISTRICT", county:"Shannon", cut:630930, pct:9.6, perStudent:1496, teachers:11, support:20 },
+  { name:"WINSTON R-VI SCHOOL DISTRICT", county:"Daviess", cut:217014, pct:7.1, perStudent:1889, teachers:4, support:7 },
+  { name:"WOODLAND R-IV SCHOOL DISTRICT", county:"Bollinger", cut:1415131, pct:10.3, perStudent:1807, teachers:26, support:45 },
+  { name:"WORTH COUNTY R-III SCHOOL DISTRICT", county:"Worth", cut:432844, pct:8.4, perStudent:1606, teachers:8, support:14 },
+  { name:"WRIGHT CITY R-II OF WARREN COUNTY", county:"Warren", cut:3831722, pct:8.6, perStudent:2283, teachers:70, support:121 },
+  { name:"ZALMA R-V SCHOOL DISTRICT", county:"Bollinger", cut:306782, pct:10.9, perStudent:1919, teachers:6, support:10 }
+];
+
+/* ══════════════════════════════════════════════════════════════
+   RENDER HELPERS
+══════════════════════════════════════════════════════════════ */
+function fmt(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+function fmtB(n) { return '$' + (n >= 10 ? n.toFixed(1) : n.toFixed(2)) + 'B'; }
+function fmtM(n) { return '$' + Math.round(n).toLocaleString() + 'M'; }
+
+function renderCards(spendRaw, containerId) {
+  const computed = RESOURCES.map(r => ({ ...r, units: Math.floor(spendRaw / r.cost) }));
+  const maxUnits = Math.max(...computed.map(r => r.units));
+  const grid = document.getElementById(containerId);
+  grid.innerHTML = '';
+  computed.forEach((r, i) => {
+    const pct = Math.min(100, (r.units / maxUnits) * 100);
+    const card = document.createElement('div');
+    card.className = 'card';
+    card.style.animationDelay = (i * 0.05) + 's';
+    card.innerHTML = `
+      <div class="card-accent" style="background:${r.color}"></div>
+      <span class="card-icon">${r.icon}</span>
+      <div class="card-resource">${r.label}</div>
+      <div class="card-number" style="color:${r.color}">${r.units.toLocaleString('en-US')}</div>
+      <div class="card-unit">${r.unit}</div>
+      <div class="bar-track"><div class="bar-fill" style="background:${r.color};width:0%" data-pct="${pct}"></div></div>
+      <div class="card-cost">Unit cost: ${fmt(r.cost)} · ${r.desc}</div>`;
+    grid.appendChild(card);
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    document.querySelectorAll('#' + containerId + ' .bar-fill').forEach(b => { b.style.width = b.dataset.pct + '%'; });
+  }));
+}
+
+/* ══════════════════════════════════════════════════════════════
+   BILLIONAIRES TAB
+══════════════════════════════════════════════════════════════ */
+let currentBillKey = 'steward';
+let billCombinedMode = false;
+
+const pillGroup = document.getElementById('billPillGroup');
+Object.entries(MO_BILLIONAIRES)
+  .sort((a, b) => b[1].worth - a[1].worth)
+  .forEach(([key, b]) => {
+  const wrap = document.createElement('div');
+  wrap.className = 'pill-wrap';
+  const btn = document.createElement('button');
+  btn.className = 'pill' + (key === 'steward' ? ' active' : '');
+  btn.dataset.billkey = key;
+  btn.textContent = b.name.split(' ').slice(0,2).join(' '); // short name for pill
+  wrap.appendChild(btn);
+  pillGroup.appendChild(wrap);
+});
+
+pillGroup.addEventListener('click', e => {
+  const pill = e.target.closest('[data-billkey]');
+  if (pill) selectBill(pill.dataset.billkey);
+});
+
+function selectBill(key) {
+  currentBillKey = key; billCombinedMode = false;
+  document.getElementById('billCombinedBtn').classList.remove('active');
+  document.querySelectorAll('#billPillGroup .pill').forEach(p => p.classList.toggle('active', p.dataset.billkey === key));
+  renderBill(key);
+}
+
+function toggleBillCombined() {
+  billCombinedMode = !billCombinedMode;
+  const btn = document.getElementById('billCombinedBtn');
+  if (billCombinedMode) {
+    btn.classList.add('active');
+    document.querySelectorAll('#billPillGroup .pill').forEach(p => p.classList.remove('active'));
+    renderBillCombined();
+  } else {
+    btn.classList.remove('active');
+    selectBill(currentBillKey);
+  }
+}
+
+function renderBill(key) {
+  const b = MO_BILLIONAIRES[key];
+  // Estimate income tax savings: approximate investment income as ~5% of wealth per year, then apply MO rate
+  const estIncome = b.worth * 1e9 * 0.05;
+  const taxSaving = estIncome * MO_TAX_RATE;
+  const taxSavingM = taxSaving / 1e6;
+  const teachers = Math.floor(taxSaving / MO_TEACHER_SALARY);
+
+  document.getElementById('billWorth').textContent = fmtB(b.worth);
+  document.getElementById('worthLabel').textContent = 'Estimated Net Worth';
+  document.getElementById('worthSub').textContent = 'Forbes 2026 · ' + b.affil;
+  document.getElementById('billSavings').textContent = fmtM(taxSavingM);
+  document.getElementById('billSavingsSub').textContent = 'estimated annual income tax savings if Amendment 5 passes';
+  document.getElementById('billContext').textContent = b.name + ' holds ' + fmtB(b.worth) + '. At MO\'s 4.95% top rate on est. investment income (~5%/yr of wealth), they\'d save roughly ' + fmtM(taxSavingM) + '/year.';
+  const teachEl = document.getElementById('billTeachers'); if (teachEl) teachEl.textContent = teachers.toLocaleString();
+  const teachSubEl = document.getElementById('billTeacherSub'); if (teachSubEl) teachSubEl.textContent = 'Missouri first-year teacher salaries ($40,386/yr) that could be funded';
+  document.getElementById('gridLabel').textContent = fmtM(taxSavingM);
+
+  // Audit link
+  const link = document.getElementById('billAuditLink');
+  link.href = b.url; link.style.display = 'inline-flex';
+  document.getElementById('billLinkLabel').textContent = 'Forbes profile →';
+
+  // Photo (initials fallback)
+  const photoWrap = document.getElementById('billPhotoWrap');
+  photoWrap.innerHTML = '';
+  const initials = b.name.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+  const a = document.createElement('a');
+  a.href = b.url; a.target = '_blank'; a.rel = 'noopener';
+  a.className = 'bill-photo-single';
+  a.title = b.name + ' — Forbes profile';
+  a.innerHTML = `<span class="bill-photo-fallback">${initials}</span>`;
+  photoWrap.appendChild(a);
+
+  // Banner
+  const combTax = MO_COMBINED_WORTH * 1e9 * 0.05 * MO_TAX_RATE;
+  const combTeachers = Math.floor(combTax / MO_TEACHER_SALARY);
+  document.getElementById('bannerLabel1').textContent = 'All 9 MO billionaires combined';
+  document.getElementById('bannerVal1').textContent = fmtB(MO_COMBINED_WORTH);
+  document.getElementById('bannerText').innerHTML = 'If Amendment 5 passes, Missouri\'s 9 billionaires would save an estimated <strong style="color:var(--mo-gold)">~$2.52 billion/year</strong> in state income taxes. Meanwhile, Missouri public schools lose over <strong style="color:#e88">$1.4 billion</strong> in funding.';
+  document.getElementById('bannerLabel2').textContent = 'Teachers that savings could fund';
+  document.getElementById('bannerVal2').innerHTML = combTeachers.toLocaleString() + '<br><span style="font-size:0.45em;color:#aaa">first-year MO teachers</span>';
+
+  renderCards(taxSaving, 'cardsGrid');
+
+  // Animate billboard
+  const bb = document.getElementById('billboard');
+  bb.style.animation = 'none'; void bb.offsetWidth; bb.style.animation = 'fadeUp 0.35s ease both';
+}
+
+function renderBillCombined() {
+  const taxSaving = MO_COMBINED_WORTH * 1e9 * 0.05 * MO_TAX_RATE;
+  const taxSavingM = taxSaving / 1e6;
+  const teachers = Math.floor(taxSaving / MO_TEACHER_SALARY);
+
+  document.getElementById('billWorth').textContent = fmtB(MO_COMBINED_WORTH);
+  document.getElementById('worthLabel').textContent = 'Combined Net Worth';
+  document.getElementById('worthSub').textContent = 'All 8 MO billionaires · Forbes 2026';
+  document.getElementById('billSavings').textContent = fmtM(taxSavingM);
+  document.getElementById('billSavingsSub').textContent = 'combined estimated annual income tax savings if Amendment 5 passes';
+  document.getElementById('billContext').textContent = 'All 8 Missouri billionaires hold $49.2B combined. If Amendment 5 ends the state income tax, their combined estimated savings would be ~$2.44B/year.';
+  const teachEl = document.getElementById('billTeachers'); if (teachEl) teachEl.textContent = teachers.toLocaleString();
+  const teachSubEl2 = document.getElementById('billTeacherSub'); if (teachSubEl2) teachSubEl2.textContent = 'first-year Missouri teacher salaries that could be funded annually';
+  document.getElementById('gridLabel').textContent = fmtM(taxSavingM);
+
+  document.getElementById('billAuditLink').style.display = 'none';
+
+  // Photo grid
+  const photoWrap = document.getElementById('billPhotoWrap');
+  photoWrap.innerHTML = '';
+  const grid = document.createElement('div');
+  grid.className = 'bill-photo-grid';
+  Object.entries(MO_BILLIONAIRES).forEach(([key, b]) => {
+    const a = document.createElement('a');
+    a.href = b.url; a.target = '_blank'; a.rel = 'noopener';
+    a.className = 'bill-photo-grid-item'; a.title = b.name;
+    const initials = b.name.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
+    a.innerHTML = `<span class="bill-photo-fallback" style="font-size:16px">${initials}</span>`;
+    grid.appendChild(a);
+  });
+  photoWrap.appendChild(grid);
+
+  renderCards(taxSaving, 'cardsGrid');
+  const bb = document.getElementById('billboard');
+  bb.style.animation = 'none'; void bb.offsetWidth; bb.style.animation = 'fadeUp 0.35s ease both';
+}
+
+/* ══════════════════════════════════════════════════════════════
+   DISTRICT TAB — dropdown
+══════════════════════════════════════════════════════════════ */
+
+// Statewide figures (Missouri Budget Project / NCES FY25 baseline)
+const MO_STATEWIDE = {
+  name:       'ALL MISSOURI PUBLIC SCHOOLS',
+  county:     'Statewide · Source: Missouri Budget Project / NCES FY25',
+  cut:        1133748487,   // $1.13B statewide cut from MBP district analysis
+  pct:        18,           // avg ~18% cut per district
+  perStudent: 1960,         // avg cut per pupil
+  teachers:   25000,        // est. teacher positions at risk
+  support:    9000,         // est. support staff at risk
+  isStatewide: true
+};
+
+// Sort districts alphabetically and populate the <select>
+const sortedDistricts = [...DISTRICTS].sort((a,b) => a.name.localeCompare(b.name));
+const selectEl = document.getElementById('districtSelect');
+sortedDistricts.forEach((d, i) => {
+  const opt = document.createElement('option');
+  opt.value = i; // index into sortedDistricts
+  opt.textContent = d.name + ' (' + d.county + ' Co.)';
+  selectEl.appendChild(opt);
+});
+
+function onDistrictSelect(val) {
+  if (val === '') {
+    selectDistrict(MO_STATEWIDE);
+  } else {
+    selectDistrict(sortedDistricts[parseInt(val)]);
+  }
+}
+
+function selectDistrict(d) {
+  const isStatewide = !!d.isStatewide;
+
+  // Update stat labels for statewide vs district view
+  document.querySelector('#districtBillboard .dstat:nth-child(1) .dstat-label').textContent =
+    isStatewide ? 'Total Statewide Cut' : 'Estimated Budget Cut';
+  document.querySelector('#districtBillboard .dstat:nth-child(1) .dstat-sub').textContent =
+    isStatewide ? 'if Amendment 5 passes' : 'if Amendment 5 passes';
+  document.querySelector('#districtBillboard .dstat:nth-child(2) .dstat-label').textContent =
+    isStatewide ? 'Avg Cut per District' : 'Cut as % of Budget';
+  document.querySelector('#districtBillboard .dstat:nth-child(3) .dstat-label').textContent =
+    isStatewide ? 'Avg Cut Per Student' : 'Cut Per Student';
+
+
+  // Update label
+  document.querySelector('.district-search-label').textContent = isStatewide
+    ? 'Showing statewide figures — select a district to drill down'
+    : 'Showing district figures — select another district or clear to see statewide';
+
+  // Populate stats
+  document.getElementById('dName').textContent = d.name;
+  document.getElementById('dCounty').textContent = d.county;
+  document.getElementById('dCut').textContent = isStatewide ? '$1.13B' : fmt(d.cut);
+  document.getElementById('dPct').textContent = isStatewide ? '~18%' : d.pct.toFixed(1) + '%';
+  document.getElementById('dPerStudent').textContent = '$' + d.perStudent.toLocaleString();
+
+  document.getElementById('dGridLabel').textContent = isStatewide
+    ? '$1.4B+ statewide funding loss'
+    : fmt(d.cut) + ' budget cut';
+
+  // Show billboard
+  document.getElementById('districtBillboard').classList.add('visible');
+
+  // Render resource cards
+  renderCards(d.cut, 'districtCardsGrid');
+}
+
+// Show statewide figures immediately on load
+selectDistrict(MO_STATEWIDE);
+
+/* ══════════════════════════════════════════════════════════════
+   TAB SWITCHING
+══════════════════════════════════════════════════════════════ */
+function switchTab(tab) {
+  document.getElementById('panelBill').style.display      = tab === 'billionaires' ? '' : 'none';
+  document.getElementById('panelDistrict').style.display  = tab === 'district'    ? '' : 'none';
+  document.getElementById('panelCombined').style.display  = tab === 'combined'    ? '' : 'none';
+  document.getElementById('tabBill').classList.toggle('active',     tab === 'billionaires');
+  document.getElementById('tabDistrict').classList.toggle('active', tab === 'district');
+  document.getElementById('tabCombined').classList.toggle('active', tab === 'combined');
+}
+
+/* Animate bars in combined panel when it becomes visible */
+document.getElementById('tabCombined').addEventListener('click', () => {
+  setTimeout(() => {
+    document.querySelectorAll('.anim-bar').forEach(b => {
+      const w = b.style.width;
+      b.style.width = '0';
+      void b.offsetWidth;
+      b.style.width = w;
+    });
+  }, 50);
+});
+
+/* ══════════════════════════════════════════════════════════════
+   INIT
+══════════════════════════════════════════════════════════════ */
+renderBill('steward');
+</script>
+</body>
+</html>
