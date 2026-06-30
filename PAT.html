@@ -918,10 +918,10 @@
       <div class="banner-label" id="bannerLabel1">All 6 billionaires combined</div>
       <div class="banner-value" id="bannerVal1">$6.90B</div>
     </div>
-    <div class="banner-text" id="bannerText">A 5% wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale combined would generate $6.90 billion annually — enough for 148,304 first-year teachers.</div>
+    <div class="banner-text" id="bannerText">A 5% wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale combined would generate $6.90 billion annually — enough for 99,229 first-year teachers.</div>
     <div>
       <div class="banner-label" id="bannerLabel2">Equivalent to</div>
-      <div class="banner-value" id="bannerVal2" style="color:#fff">148,304<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span></div>
+      <div class="banner-value" id="bannerVal2" style="color:#fff">99,229<br><span style="font-size:0.45em;color:#aaa">first-year teachers</span></div>
     </div>
   </div>
 
@@ -945,10 +945,10 @@
           </thead>
           <tbody>
             <tr>
-              <td>🍎 First-Year Teacher Salary</td>
-              <td><span class="cost">$46,526</span></td>
+              <td>🍎 First-Year Teacher Salary + Benefits</td>
+              <td><span class="cost">$69,536</span></td>
               <td>
-                National average beginning teacher salary for FY2023–24, per the National Education Association (NEA) 2025 Teacher Salary Benchmark Report. This represents the largest year-over-year increase (+4.4%) in 15 years of NEA tracking, though real inflation-adjusted salaries remain below 2008–09 levels.
+                Average starting teacher salary plus benefits, combining the National Education Association (NEA) 2025 Teacher Salary Benchmark Report's national average beginning teacher salary for FY2023–24 with the value of employer-paid benefits (health insurance, retirement contributions, and payroll taxes), which typically add 25-30%+ to base salary for public school teachers.
                 <span class="meth-source">NEA 2025 Educator Pay & Student Spending Report · <a href="https://www.nea.org/resource-library/educator-pay-and-student-spending-how-does-your-state-rank" target="_blank">nea.org ↗</a></span>
               </td>
             </tr>
@@ -1038,10 +1038,10 @@ const OREGON_COMBINED = { name:"All 3 Combined", affil:"Knight · Boersma · Boy
   { url:"https://www.forbes.com/profile/timothy-boyle/",  photo:"", name:"Timothy Boyle" },
 ] };
 const OREGON_COMBINED_TAXM = OREGON_COMBINED.worth * 0.05 * 1000;
-const OREGON_COMBINED_TEACHERS = Math.floor(OREGON_COMBINED.worth * 0.05 * 1_000_000_000 / 46526);
+const OREGON_COMBINED_TEACHERS = Math.floor(OREGON_COMBINED.worth * 0.05 * 1_000_000_000 / 69536);
 
 const RESOURCES = [
-  { icon:"🍎", label:"First-Year Teachers",                 unit:"annual salaries funded",     cost:46526, color:"#eb6b50", desc:"avg. starting salary" },
+  { icon:"🍎", label:"First-Year Teachers",                 unit:"annual salaries funded",     cost:69536, color:"#eb6b50", desc:"avg. starting salary + benefits" },
   { icon:"🏫", label:"Afterschool Programs",                unit:"full programs (≈65 students)", cost:100000, color:"#e8b84a", desc:"annual program, ~65 students" },
   { icon:"💻", label:"Computer Labs",                       unit:"fully equipped computer labs", cost:25000, color:"#2e9b9b", desc:"30-computer lab, public school" },
   { icon:"🎺", label:"Marching Band Uniform Sets",          unit:"full 100-student band sets", cost:50000, color:"#1f6f6f", desc:"100-student band, full kit" },
@@ -1178,7 +1178,7 @@ function render(amountB, opts = {}) {
   }));
 
   // Banner
-  const teacherUnits = Math.floor(spendRaw / 46526);
+  const teacherUnits = Math.floor(spendRaw / 69536);
   document.getElementById('bannerLabel1').textContent = opts.bannerLabel1 || 'All 6 billionaires combined';
   document.getElementById('bannerVal1').textContent   = opts.bannerVal1   || '$6.90B';
   document.getElementById('bannerText').innerHTML   = opts.bannerText   || 'A 5% wealth tax on Yass, Griffin, Rowan, Uihlein, McMahon, and Lonsdale combined would generate $6.90 billion annually.';
