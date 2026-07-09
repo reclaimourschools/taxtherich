@@ -10,7 +10,7 @@
     /* Parents for MO Public Schools brand palette */
     --mo-red:      #c8102e;   /* Missouri state red */
     --mo-navy:     #1a2744;   /* deep navy / brand dark */
-    --mo-gold:     #f0b429;   /* warm gold accent */
+    --mo-gold:     #c8922a;   /* warm gold accent */
     --mo-blue:     #2b6cb0;   /* brand blue */
     --mo-teal:     #2e9b9b;
     --mo-green:    #276749;
@@ -357,7 +357,7 @@
   .bill-audit-link:hover { color: var(--mo-red); border-color: var(--mo-red); }
   .bill-audit-link svg { width: 11px; height: 11px; flex-shrink: 0; opacity: 0.6; }
   .bill-audit-link:hover svg { opacity: 1; }
-  #billAuditLink { display: none; }
+
 
   /* ── DISTRICT LOOKUP ── */
   .district-search-wrap {
@@ -590,40 +590,7 @@
   .context-band.show { display: block; }
   .context-band strong { color: var(--mo-red); }
 
-  /* ── FOOTER STATEMENT ── */
-  .footer-statement {
-    background: var(--mo-navy);
-    color: #fff;
-    padding: 48px 48px 56px;
-    border-top: 4px solid var(--mo-red);
-  }
-  .footer-statement-inner {
-    max-width: 1100px; margin: 0 auto;
-    display: flex; flex-wrap: wrap;
-    align-items: center; justify-content: center;
-    gap: 18px 14px; text-align: center;
-  }
-  .footer-statement-left, .footer-statement-right {
-    display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: center;
-  }
-  .footer-pill {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(20px, 3vw, 32px);
-    letter-spacing: 0.02em;
-    padding: 6px 18px 2px;
-    border-radius: 999px;
-    line-height: 1.1;
-    white-space: nowrap;
-  }
-  .fp-red    { background: var(--mo-red);  color: #fff; }
-  .fp-blue   { background: var(--mo-blue); color: #fff; }
-  .fp-gold   { background: var(--mo-gold); color: var(--mo-navy); }
-  .fp-navy   { background: #2e3d66; color: #fff; }
-  .footer-sep { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px,3vw,32px); color: rgba(255,255,255,0.35); line-height: 1.1; }
-  .footer-vs  { font-family: 'Bebas Neue', sans-serif; font-size: clamp(30px,4.5vw,52px); color: var(--mo-red); letter-spacing: 0.04em; font-style: italic; padding: 0 8px; }
-  .footer-tag { flex-basis: 100%; font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px,4vw,44px); letter-spacing: 0.05em; color: var(--mo-gold); margin-top: 10px; }
-  .footer-vote { font-size: 14px; color: rgba(255,255,255,0.7); flex-basis: 100%; margin-top: 6px; }
-  .footer-vote a { color: var(--mo-gold); text-decoration: underline; }
+  /* footer-statement CSS removed */
 
   @media (max-width: 900px) {
     main { padding-left: 24px; padding-right: 24px; }
@@ -652,6 +619,87 @@
   }
   .amend5-bar strong { color: #7a3900; }
   @media (max-width: 900px) { .amend5-bar { padding: 12px 24px; } }
+
+  /* ── TOP SUMMARY STRIP — pill style ── */
+  .top-summary-strip {
+    background: var(--mo-navy);
+    border-bottom: 3px solid var(--ink);
+    padding: 20px 48px;
+  }
+  .top-summary-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px 8px;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .ts-pill {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(18px, 2.4vw, 28px);
+    letter-spacing: 0.03em;
+    padding: 6px 20px 3px;
+    border-radius: 999px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+  .ts-pill.red   { background: var(--mo-red);   color: #fff; }
+  .ts-pill.blue  { background: var(--mo-blue);  color: #fff; }
+  .ts-pill.green { background: var(--mo-green); color: #fff; }
+  .ts-pill.navy  { background: #2e3d66;         color: #fff; }
+  .ts-sep {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(18px, 2.4vw, 28px);
+    color: rgba(255,255,255,0.3);
+    line-height: 1.15;
+    padding: 0 2px;
+  }
+  @media (max-width: 700px) {
+    .top-summary-strip { padding: 16px 24px; }
+    .ts-sep { display: none; }
+  }
+
+  /* ── CLOSING STRIP ── */
+  .closing-strip {
+    background: var(--ink);
+    border-top: 3px solid var(--mo-red);
+    padding: 28px 48px;
+  }
+  .closing-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+  }
+  .closing-vote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(22px, 3vw, 32px);
+    color: #fff;
+    letter-spacing: 0.04em;
+  }
+  .closing-vote strong { color: var(--mo-red); }
+  .closing-links {
+    font-size: 13px;
+    color: rgba(255,255,255,0.6);
+  }
+  .closing-links a { color: rgba(255,255,255,0.85); text-decoration: underline; text-underline-offset: 3px; }
+  .closing-links a:hover { color: #fff; }
+  .closing-paid {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 6px;
+  }
+  @media (max-width: 900px) {
+    .closing-strip { padding: 24px; }
+  }
+
 </style>
 </head>
 <body>
@@ -674,7 +722,7 @@
       </a>
     </div>
     <p class="subhead">
-      Missouri's 8 billionaires hold a combined <strong>$49.2 billion</strong>. If Amendment 5 passes and ends the state income tax, they save billions — while public schools lose over <strong>$1.4 billion</strong> statewide.
+      Rex Sinquefield is the architect behind Amendment 5. If it passes, he and Missouri's other billionaires pocket the tax savings — while public schools lose over <strong>$1.4 billion</strong> statewide.
     </p>
     <p class="sanders-note">
       Net worth figures: <a href="https://www.forbes.com/billionaires/" target="_blank" rel="noopener">Forbes 2026 World's Billionaires List ↗</a>. District funding at risk: <a href="https://mobudget.org/schools-face-18-cut-under-tax-scheme/" target="_blank" rel="noopener">Missouri Budget Project analysis ↗</a>. This is an illustrative calculator — figures are estimates.
@@ -685,7 +733,7 @@
 <!-- CTA bar -->
 <div class="cta-bar">
   <div class="cta-text">
-    <svg class="cta-email-icon" style="width:24px;height:24px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14v2.92z"/></svg>Vote <strong style="margin:0 4px 0 0">NO on Amendment 5</strong> — August 4, 2026. Protect Missouri public schools.
+    <svg class="cta-email-icon" style="width:24px;height:24px;flex-shrink:0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>Vote <strong style="margin:0 4px 0 0">NO on Amendment 5</strong> — August 4, 2026. Protect Missouri public schools.
   </div>
   <a class="cta-btn" href="https://parents4mopublicschools.org/remind-me/" target="_blank" rel="noopener">
     Get a Vote Reminder
@@ -693,12 +741,22 @@
   </a>
 </div>
 
+<div class="top-summary-strip">
+  <div class="top-summary-inner">
+    <span class="ts-pill red">Rex Sinquefield Saves ~$49.5M / Year</span>
+    <span class="ts-sep">·</span>
+    <span class="ts-pill blue">Schools Lose $1.4B+</span>
+    <span class="ts-sep">·</span>
+    <span class="ts-pill green">34,000+ Teacher Salaries Eliminated</span>
+  </div>
+</div>
+
 <main>
   <!-- Mode tabs -->
   <div class="mode-tabs">
     <button class="mode-tab active" id="tabBill" onclick="switchTab('billionaires')">
       <span class="tab-dot" style="background:var(--mo-red)"></span>
-      Missouri Billionaire Tax Savings
+      Missouri Billionaire Tax Savings: Rex Sinquefield
     </button>
     <button class="mode-tab" id="tabDistrict" onclick="switchTab('district')">
       <span class="tab-dot" style="background:var(--mo-blue)"></span>
@@ -706,7 +764,7 @@
     </button>
     <button class="mode-tab" id="tabCombined" onclick="switchTab('combined')">
       <span class="tab-dot" style="background:var(--mo-gold)"></span>
-      Side by Side
+      Rex Sinquefield vs. Missouri Schools
     </button>
     <button class="mode-tab" onclick="document.getElementById('methOverlay').classList.add('open')" style="margin-left:auto;opacity:0.7;font-size:10px">
       ⓘ Methodology
@@ -714,53 +772,69 @@
   </div>
 
   <!-- ═══════════════════════════════════════════════ -->
-  <!-- BILLIONAIRES PANEL                              -->
+  <!-- REX SINQUEFIELD PANEL                           -->
   <!-- ═══════════════════════════════════════════════ -->
   <div id="panelBill">
-    <!-- Billionaire selector -->
-    <div class="selector-strip">
-      <div class="selector-label">Select billionaire →</div>
-      <div class="pill-group" id="billPillGroup"></div>
-      <button class="toggle-btn" id="billCombinedBtn" onclick="toggleBillCombined()">All 9 Combined</button>
+
+    <!-- Architect callout -->
+    <div style="background:#fff8f6;border-left:5px solid var(--mo-red);padding:24px 28px;margin-top:28px;margin-bottom:0;display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px">
+        <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--mo-red);margin-bottom:10px">The Architect of Amendment 5</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,44px);color:var(--mo-navy);line-height:1;margin-bottom:14px">Rex Sinquefield<br><span style="color:var(--mo-red)">Same Billionaire.<br>New Scheme.</span></div>
+        <p style="font-size:14px;line-height:1.7;color:#333;max-width:560px;font-weight:300">
+          Eliminating the income tax in favor of sales taxes has been a decades-long goal of Rex Sinquefield — Missouri's most prolific Republican donor and the architect behind Amendment 5. Since 2016 alone, he has poured more than <strong>$28 million</strong> into Missouri politics. This isn't his first swing: he's spent millions reshaping Missouri's tax system, including past campaigns to curb local earnings taxes in St. Louis and Kansas City.
+        </p>
+        <div style="margin-top:16px;display:flex;gap:12px;flex-wrap:wrap">
+          <a href="https://missouriindependent.com/2026/04/16/republicans-squeeze-tax-overhaul-through-missouri-senate-in-late-night-vote/" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mo-blue);text-decoration:underline;text-underline-offset:3px">Missouri Independent ↗</a>
+          <a href="https://www.stlpr.org/government-politics-issues/2026-06-24/missouri-governor-mike-kehoe-dark-money" target="_blank" rel="noopener" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mo-blue);text-decoration:underline;text-underline-offset:3px">St. Louis Public Radio / ProPublica ↗</a>
+        </div>
+      </div>
+      <!-- Key facts column -->
+      <div style="display:flex;flex-direction:column;gap:12px;min-width:220px">
+        <div style="background:var(--mo-navy);color:#fff;padding:18px 20px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:#aaa;margin-bottom:6px">Poured into MO politics since 2016</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;color:var(--mo-gold);line-height:1">$28M+</div>
+        </div>
+        <div style="background:var(--mo-red);color:#fff;padding:18px 20px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.7);margin-bottom:6px">Estimated net worth</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1">$1B+</div>
+          <div style="font-size:10px;color:rgba(255,255,255,0.65);margin-top:6px;line-height:1.5;font-style:italic">Actual net worth not divulged. Estimated minimum of $1B — he is an established billionaire. <a href="https://www.bizjournals.com/stlouis/news/2019/02/13/missouri-billionaire-ranks-on-list-of-americas.html" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.8);text-decoration:underline;text-underline-offset:2px">St. Louis Business Journal ↗</a></div>
+        </div>
+        <div style="background:var(--mo-gold);color:var(--mo-navy);padding:18px 20px">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-navy);opacity:0.7;margin-bottom:6px">His annual income tax savings if Amendment 5 passes</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:40px;line-height:1">~$49.5M</div>
+          <div style="font-size:11px;margin-top:4px;opacity:0.75;font-weight:300">est. per year · if his $1B+ net worth were taxed at MO's 4.95% rate</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Billboard -->
-    <div class="billboard" id="billboard">
+    <!-- Billboard: what his savings could fund -->
+    <div class="billboard" id="billboard" style="grid-template-columns:1fr 1fr;margin-top:0;border-top:none">
       <div class="stat-block">
-        <div class="stat-label" id="worthLabel">Estimated Net Worth</div>
-        <div class="stat-value red" id="billWorth">$12.4B</div>
-        <div class="stat-sub" id="worthSub">Forbes 2026</div>
-        <div class="bill-photo-wrap" id="billPhotoWrap"></div>
-        <a class="bill-audit-link" id="billAuditLink" href="#" target="_blank" rel="noopener">
+        <div class="stat-label">His Annual Income Tax Saved</div>
+        <div class="stat-value gold" id="billSavings">~$49.5M</div>
+        <div class="stat-sub" id="billSavingsSub">est. annual tax savings · MO's 4.95% rate applied to his $1B+ net worth</div>
+        <div style="margin-top:12px;font-size:12px;color:#888;line-height:1.6;font-weight:300;max-width:280px">Sinquefield's actual net worth is not publicly disclosed, but he is an established billionaire with a $1B+ floor. Applying Missouri's 4.95% income tax rate directly to that figure shows what he stands to gain from Amendment 5. <a href="https://www.bizjournals.com/stlouis/news/2019/02/13/missouri-billionaire-ranks-on-list-of-americas.html" target="_blank" rel="noopener" style="color:var(--mo-blue);text-decoration:underline;text-underline-offset:2px">St. Louis Business Journal ↗</a></div>
+        <a class="bill-audit-link" style="display:inline-flex;margin-top:10px" href="https://en.wikipedia.org/wiki/Rex_Sinquefield" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-          <span id="billLinkLabel">Forbes profile →</span>
+          <span>Wikipedia profile →</span>
         </a>
       </div>
       <div class="stat-block">
-        <div class="stat-label">Income Tax Saved / Year</div>
-        <div class="stat-value gold" id="billSavings">$593M</div>
-        <div class="stat-sub" id="billSavingsSub">at MO's top 4.95% income tax rate</div>
-        <div style="margin-top:12px;font-size:12px;color:#888;line-height:1.5;font-weight:300;max-width:240px" id="billContext">Assumes ~4.95% effective tax on income derived from wealth (dividends, capital gains). Illustrative estimate.</div>
+        <div class="stat-label">What That Buys Instead</div>
+        <div class="stat-value blue" id="billTeachersRex" style="font-size:clamp(40px,4vw,56px)">1,225</div>
+        <div class="stat-sub">Missouri first-year teacher salaries ($40,386/yr) — funded by just <em>one year</em> of his tax savings</div>
+        <div style="margin-top:16px;font-size:13px;line-height:1.7;color:#444;font-weight:300;max-width:280px">
+          Every year Amendment 5 is in effect, Sinquefield pockets the equivalent of over <strong>1,225 teacher salaries</strong> — while districts across Missouri lose funding for real classrooms.
+        </div>
       </div>
-
     </div>
 
     <div id="contextBand" class="context-band"></div>
 
-    <div class="grid-label">What <span id="gridLabel">$593M</span> in annual tax savings could fund for Missouri public schools — <span style="color:var(--mo-red);font-style:italic">for 1 year</span></div>
+    <div class="grid-label">What Sinquefield's <span id="gridLabel">~$49.5M</span> annual tax savings could fund for Missouri public schools — <span style="color:var(--mo-red);font-style:italic">every single year</span></div>
     <div class="cards-grid" id="cardsGrid"></div>
 
-    <div class="total-banner" id="totalBanner">
-      <div>
-        <div class="banner-label" id="bannerLabel1">All 8 billionaires combined</div>
-        <div class="banner-value" id="bannerVal1">$49.2B</div>
-      </div>
-      <div class="banner-text" id="bannerText">Missouri's 8 billionaires hold $49.2 billion combined. If Amendment 5 ends the income tax, their tax savings alone could otherwise fund thousands of teachers — every year.</div>
-      <div>
-        <div class="banner-label" id="bannerLabel2">Equivalent to</div>
-        <div class="banner-value" id="bannerVal2" style="color:#fff">—</div>
-      </div>
-    </div>
   </div>
 
   <!-- ═══════════════════════════════════════════════ -->
@@ -812,33 +886,32 @@
   <div id="panelCombined" style="display:none">
     <div style="padding:32px 0 24px">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:3px">
-        <!-- Left: 8 billionaires combined savings -->
+        <!-- Left: Rex Sinquefield -->
         <div style="background:#fff8f6;border:2px solid var(--mo-red);padding:32px">
-          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-red);margin-bottom:12px">9 Missouri Billionaires</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--mo-red);line-height:1">$49.2B</div>
-          <div style="font-size:13px;color:#666;margin-top:6px;font-weight:300">Combined net worth (Forbes 2026)</div>
-          <div style="margin-top:20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);color:var(--mo-gold);line-height:1">~$2.44B</div>
-          <div style="font-size:13px;color:#888;margin-top:4px;font-weight:300">Est. annual income tax saved if Amendment 5 passes</div>
-          <div style="margin-top:20px;font-size:13px;line-height:1.6;color:#333">
-            <div style="margin-bottom:8px">🏆 <strong>David Steward</strong> (World Wide Technology) — $12.4B</div>
-            <div style="margin-bottom:8px">🛒 <strong>Pauline MacMillan Keinath</strong> (Cargill) — $9.7B</div>
-            <div style="margin-bottom:8px">🎣 <strong>John Morris</strong> (Bass Pro Shops) — $8.9B</div>
-            <div style="margin-bottom:8px">💻 <strong>Jim Kavanaugh</strong> (World Wide Technology) — $7.7B</div>
-            <div style="margin-bottom:8px">📈 <strong>Rodger Riney & Family</strong> (Scottrade) — $4.2B</div>
-            <div style="margin-bottom:8px">🏗️ <strong>Robert Clark</strong> (Construction) — $3.7B</div>
-            <div style="margin-bottom:8px">📱 <strong>Jim McKelvey</strong> (Square co-founder) — $1.6B</div>
-            <div style="margin-bottom:8px">♟️ <strong>Rex Sinquefield</strong> (Dimensional Fund Advisors) — ~$1.6B</div>
-            <div>🏠 <strong>David Humphreys & Family</strong> (Roofing) — $1.2B</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);color:var(--mo-blue);line-height:1;margin-bottom:16px">Rex Saves</div>
+          <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-red);margin-bottom:12px">The Architect of Amendment 5</div>
+          <div style="font-size:22px;color:#333;margin-top:16px;line-height:2">
+            <div><span style="color:#888;font-weight:400">Net worth:</span> <strong>$1B+</strong></div>
+            <div><span style="color:#888;font-weight:400">Tax savings:</span> <strong>$49.5M</strong></div>
+          </div>
+          <div style="margin-top:20px;font-size:13px;line-height:1.7;color:#333">
+            <div style="margin-bottom:8px">♟️ Co-founded <strong>Dimensional Fund Advisors</strong>, managing $650B+ in assets</div>
+            <div style="margin-bottom:8px">💰 Poured <strong>$41M+</strong> into Missouri politics over the last decade (<a href="https://missouriindependent.com/briefs/after-quiet-year-rex-sinquefield-donations-start-flowing-in-missouri-again/" target="_blank" rel="noopener" style="color:var(--mo-blue)">Missouri Independent ↗</a>)</div>
+            <div style="margin-bottom:8px">🗳️ <strong>Missouri's single largest political spender</strong> — spent $31.5M between 2006–2014 alone</div>
+            <div style="margin-bottom:8px">📋 Has pushed income tax repeal for <strong>over two decades</strong> — this is the same scheme, new ballot</div>
+            <div style="margin-bottom:8px">🏙️ Previously bankrolled campaigns to kill <strong>local earnings taxes</strong> in St. Louis and Kansas City</div>
+            <div>⚠️ Backed the <strong>Kansas income tax experiment</strong> — which slashed education funding and had to be reversed</div>
           </div>
         </div>
 
         <!-- Right: MO schools statewide loss -->
         <div style="background:#f0f7ff;border:2px solid var(--mo-blue);padding:32px">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(36px,5vw,60px);color:var(--mo-red);line-height:1;margin-bottom:16px">Schools Lose</div>
           <div style="font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--mo-blue);margin-bottom:12px">Missouri Public Schools</div>
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,5vw,64px);color:var(--mo-blue);line-height:1">$1.4B+</div>
-          <div style="font-size:13px;color:#666;margin-top:6px;font-weight:300">Statewide school funding cut (MO Budget Project)</div>
-          <div style="margin-top:20px;font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,3.5vw,44px);color:var(--mo-red);line-height:1">~18%</div>
-          <div style="font-size:13px;color:#888;margin-top:4px;font-weight:300">Avg. budget cut for public school districts</div>
+          <div style="font-size:22px;color:#333;margin-top:16px;line-height:2">
+            <div><span style="color:#888;font-weight:400">School funding cut:</span> <strong>$1.4B</strong></div>
+            <div><span style="color:#888;font-weight:400">Avg. budget cut:</span> <strong>18%</strong></div>
+          </div>
           <div style="margin-top:20px;font-size:13px;line-height:1.6;color:#333">
             <div style="margin-bottom:8px">📚 Missouri already ranks <strong>49th out of 50</strong> in state education funding</div>
             <div style="margin-bottom:8px">📉 State provides only <strong>33%</strong> of school revenue (vs. 47% national avg)</div>
@@ -856,11 +929,11 @@
         <div style="display:flex;flex-direction:column;gap:18px">
           <div>
             <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-              <span style="font-size:13px;color:#ccc">9 billionaires combined income tax savings / year</span>
-              <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--mo-gold)">~$2.44B</span>
+              <span style="font-size:13px;color:#ccc">Rex Sinquefield's est. annual tax savings (4.95% on $1B+)</span>
+              <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--mo-gold)">~$49.5M</span>
             </div>
             <div style="height:24px;background:#2a2a2a;position:relative">
-              <div style="height:100%;width:100%;background:var(--mo-red);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1)" class="anim-bar"></div>
+              <div style="height:100%;width:3.5%;background:var(--mo-red);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1)" class="anim-bar"></div>
             </div>
           </div>
           <div>
@@ -869,7 +942,7 @@
               <span style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--mo-blue)">$1.4B+</span>
             </div>
             <div style="height:24px;background:#2a2a2a">
-              <div style="height:100%;width:57.4%;background:var(--mo-blue);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1) 0.2s" class="anim-bar"></div>
+              <div style="height:100%;width:100%;background:var(--mo-blue);opacity:0.9;transition:width 1s cubic-bezier(0.16,1,0.3,1) 0.2s" class="anim-bar"></div>
             </div>
           </div>
           <div>
@@ -883,7 +956,7 @@
           </div>
         </div>
         <div style="margin-top:20px;font-size:12px;color:#666;font-family:'DM Mono',monospace;letter-spacing:0.06em">
-          Sources: Forbes 2026 · Missouri Budget Project analysis · NEA teacher salary data. Billionaire income tax savings are illustrative estimates based on effective rates on investment income.
+          Sources: St. Louis Business Journal · Missouri Budget Project · NEA teacher salary data · Missouri Independent. Tax savings are illustrative estimates based on a $1B+ net worth floor at ~5% annual return and MO's 4.95% top income tax rate.
         </div>
       </div>
     </div>
@@ -960,7 +1033,7 @@
         </table>
 
         <p class="meth-note">
-          <strong>Billionaire net worth figures</strong> are from the <a href="https://www.forbes.com/billionaires/" target="_blank">Forbes 2026 World's Billionaires List</a>. Missouri's 9 billionaires (David Steward $12.4B, Pauline MacMillan Keinath $9.7B, John Morris $8.9B, Jim Kavanaugh $7.7B, Rodger Riney $4.2B, Robert Clark $3.7B, Jim McKelvey $1.6B, David Humphreys $1.2B, Rex Sinquefield ~$1.6B) hold a combined ~$50.8B. Sinquefield's net worth is an estimate; he does not appear on the Forbes billionaires list but is widely reported at $1.6B based on his DFA stake and investments. <strong>Tax savings estimates</strong> are illustrative: Missouri's top state income tax rate is 4.95% (2024). Applying this to estimated investment income yields approximate annual savings. No Missouri wealth tax currently exists or is proposed — this calculator models Amendment 5's income tax repeal. <strong>District funding at risk</strong> comes from the <a href="https://mobudget.org/schools-face-18-cut-under-tax-scheme/" target="_blank">Missouri Budget Project's district analysis</a> using NCES Education Finance data (FY25 baseline).
+          <strong>Billionaire net worth figures</strong> are from the <a href="https://www.forbes.com/billionaires/" target="_blank">Forbes 2026 World's Billionaires List</a>. Missouri's 9 billionaires (David Steward $12.4B, Pauline MacMillan Keinath $9.7B, John Morris $8.9B, Jim Kavanaugh $7.7B, Rodger Riney $4.2B, Robert Clark $3.7B, Jim McKelvey $1.6B, David Humphreys $1.2B, Rex Sinquefield ~$1.6B) hold a combined ~$50.8B. Sinquefield's net worth is an estimate; he does not appear on the Forbes billionaires list but is widely reported at $1.6B based on his DFA stake and investments. <strong>Tax savings estimates</strong> are illustrative: Missouri's top state income tax rate is 4.95% (2024). For Rex Sinquefield, this rate is applied directly to his $1B+ net worth floor — showing what he stands to gain from Amendment 5's income tax repeal. This is a wealth-tax framing for illustrative purposes. No Missouri wealth tax currently exists or is proposed — this calculator models Amendment 5's income tax repeal. <strong>District funding at risk</strong> comes from the <a href="https://mobudget.org/schools-face-18-cut-under-tax-scheme/" target="_blank">Missouri Budget Project's district analysis</a> using NCES Education Finance data (FY25 baseline).
         </p>
       </div>
     </div>
@@ -968,26 +1041,7 @@
 
 </main>
 
-<div class="footer-statement">
-  <div class="footer-statement-inner">
-    <div class="footer-statement-left">
-      <span class="footer-pill fp-red">Billionaires Save</span>
-      <span class="footer-sep">·</span>
-      <span class="footer-pill fp-navy">$2.4B / Year</span>
-    </div>
-    <div class="footer-vs">vs.</div>
-    <div class="footer-statement-right">
-      <span class="footer-pill fp-gold">Schools Lose</span>
-      <span class="footer-sep">·</span>
-      <span class="footer-pill fp-blue">$1.4B+</span>
-    </div>
-    <div class="footer-tag">Vote NO on Amendment 5 · August 4, 2026</div>
-    <div class="footer-vote">
-      Register to vote by July 8 → <a href="https://www.sos.mo.gov/elections/govotemissouri/default.asp" target="_blank" rel="noopener">sos.mo.gov ↗</a>
-      &nbsp;·&nbsp; More info: <a href="https://parents4mopublicschools.org" target="_blank" rel="noopener">parents4mopublicschools.org ↗</a>
-    </div>
-  </div>
-</div>
+
 
 <script>
 /* ══════════════════════════════════════════════════════════════
@@ -1612,136 +1666,26 @@ function renderCards(spendRaw, containerId) {
 }
 
 /* ══════════════════════════════════════════════════════════════
-   BILLIONAIRES TAB
+   REX SINQUEFIELD TAB — init
 ══════════════════════════════════════════════════════════════ */
-let currentBillKey = 'steward';
-let billCombinedMode = false;
+(function initRex() {
+  // Wealth tax framing: apply MO's 4.95% rate directly to $1B net worth floor
+  // $1,000,000,000 * 4.95% = $49,500,000/year
+  const taxSaving = 1e9 * MO_TAX_RATE; // $49,500,000
+  const teachers  = Math.floor(taxSaving / MO_TEACHER_SALARY);
 
-const pillGroup = document.getElementById('billPillGroup');
-Object.entries(MO_BILLIONAIRES)
-  .sort((a, b) => b[1].worth - a[1].worth)
-  .forEach(([key, b]) => {
-  const wrap = document.createElement('div');
-  wrap.className = 'pill-wrap';
-  const btn = document.createElement('button');
-  btn.className = 'pill' + (key === 'steward' ? ' active' : '');
-  btn.dataset.billkey = key;
-  btn.textContent = b.name.split(' ').slice(0,2).join(' '); // short name for pill
-  wrap.appendChild(btn);
-  pillGroup.appendChild(wrap);
-});
+  // Update teacher count in billboard
+  const teachEl = document.getElementById('billTeachersRex');
+  if (teachEl) teachEl.textContent = teachers.toLocaleString();
 
-pillGroup.addEventListener('click', e => {
-  const pill = e.target.closest('[data-billkey]');
-  if (pill) selectBill(pill.dataset.billkey);
-});
+  // Update grid label
+  const gridLbl = document.getElementById('gridLabel');
+  if (gridLbl) gridLbl.textContent = '~$49.5M';
 
-function selectBill(key) {
-  currentBillKey = key; billCombinedMode = false;
-  document.getElementById('billCombinedBtn').classList.remove('active');
-  document.querySelectorAll('#billPillGroup .pill').forEach(p => p.classList.toggle('active', p.dataset.billkey === key));
-  renderBill(key);
-}
-
-function toggleBillCombined() {
-  billCombinedMode = !billCombinedMode;
-  const btn = document.getElementById('billCombinedBtn');
-  if (billCombinedMode) {
-    btn.classList.add('active');
-    document.querySelectorAll('#billPillGroup .pill').forEach(p => p.classList.remove('active'));
-    renderBillCombined();
-  } else {
-    btn.classList.remove('active');
-    selectBill(currentBillKey);
-  }
-}
-
-function renderBill(key) {
-  const b = MO_BILLIONAIRES[key];
-  // Estimate income tax savings: approximate investment income as ~5% of wealth per year, then apply MO rate
-  const estIncome = b.worth * 1e9 * 0.05;
-  const taxSaving = estIncome * MO_TAX_RATE;
-  const taxSavingM = taxSaving / 1e6;
-  const teachers = Math.floor(taxSaving / MO_TEACHER_SALARY);
-
-  document.getElementById('billWorth').textContent = fmtB(b.worth);
-  document.getElementById('worthLabel').textContent = 'Estimated Net Worth';
-  document.getElementById('worthSub').textContent = 'Forbes 2026 · ' + b.affil;
-  document.getElementById('billSavings').textContent = fmtM(taxSavingM);
-  document.getElementById('billSavingsSub').textContent = 'estimated annual income tax savings if Amendment 5 passes';
-  document.getElementById('billContext').textContent = b.name + ' holds ' + fmtB(b.worth) + '. At MO\'s 4.95% top rate on est. investment income (~5%/yr of wealth), they\'d save roughly ' + fmtM(taxSavingM) + '/year.';
-  const teachEl = document.getElementById('billTeachers'); if (teachEl) teachEl.textContent = teachers.toLocaleString();
-  const teachSubEl = document.getElementById('billTeacherSub'); if (teachSubEl) teachSubEl.textContent = 'Missouri first-year teacher salaries ($40,386/yr) that could be funded';
-  document.getElementById('gridLabel').textContent = fmtM(taxSavingM);
-
-  // Audit link
-  const link = document.getElementById('billAuditLink');
-  link.href = b.url; link.style.display = 'inline-flex';
-  document.getElementById('billLinkLabel').textContent = 'Forbes profile →';
-
-  // Photo (initials fallback)
-  const photoWrap = document.getElementById('billPhotoWrap');
-  photoWrap.innerHTML = '';
-  const initials = b.name.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
-  const a = document.createElement('a');
-  a.href = b.url; a.target = '_blank'; a.rel = 'noopener';
-  a.className = 'bill-photo-single';
-  a.title = b.name + ' — Forbes profile';
-  a.innerHTML = `<span class="bill-photo-fallback">${initials}</span>`;
-  photoWrap.appendChild(a);
-
-  // Banner
-  const combTax = MO_COMBINED_WORTH * 1e9 * 0.05 * MO_TAX_RATE;
-  const combTeachers = Math.floor(combTax / MO_TEACHER_SALARY);
-  document.getElementById('bannerLabel1').textContent = 'All 9 MO billionaires combined';
-  document.getElementById('bannerVal1').textContent = fmtB(MO_COMBINED_WORTH);
-  document.getElementById('bannerText').innerHTML = 'If Amendment 5 passes, Missouri\'s 9 billionaires would save an estimated <strong style="color:var(--mo-gold)">~$2.52 billion/year</strong> in state income taxes. Meanwhile, Missouri public schools lose over <strong style="color:#e88">$1.4 billion</strong> in funding.';
-  document.getElementById('bannerLabel2').textContent = 'Teachers that savings could fund';
-  document.getElementById('bannerVal2').innerHTML = combTeachers.toLocaleString() + '<br><span style="font-size:0.45em;color:#aaa">first-year MO teachers</span>';
-
+  // Render resource cards
   renderCards(taxSaving, 'cardsGrid');
+})();
 
-  // Animate billboard
-  const bb = document.getElementById('billboard');
-  bb.style.animation = 'none'; void bb.offsetWidth; bb.style.animation = 'fadeUp 0.35s ease both';
-}
-
-function renderBillCombined() {
-  const taxSaving = MO_COMBINED_WORTH * 1e9 * 0.05 * MO_TAX_RATE;
-  const taxSavingM = taxSaving / 1e6;
-  const teachers = Math.floor(taxSaving / MO_TEACHER_SALARY);
-
-  document.getElementById('billWorth').textContent = fmtB(MO_COMBINED_WORTH);
-  document.getElementById('worthLabel').textContent = 'Combined Net Worth';
-  document.getElementById('worthSub').textContent = 'All 8 MO billionaires · Forbes 2026';
-  document.getElementById('billSavings').textContent = fmtM(taxSavingM);
-  document.getElementById('billSavingsSub').textContent = 'combined estimated annual income tax savings if Amendment 5 passes';
-  document.getElementById('billContext').textContent = 'All 8 Missouri billionaires hold $49.2B combined. If Amendment 5 ends the state income tax, their combined estimated savings would be ~$2.44B/year.';
-  const teachEl = document.getElementById('billTeachers'); if (teachEl) teachEl.textContent = teachers.toLocaleString();
-  const teachSubEl2 = document.getElementById('billTeacherSub'); if (teachSubEl2) teachSubEl2.textContent = 'first-year Missouri teacher salaries that could be funded annually';
-  document.getElementById('gridLabel').textContent = fmtM(taxSavingM);
-
-  document.getElementById('billAuditLink').style.display = 'none';
-
-  // Photo grid
-  const photoWrap = document.getElementById('billPhotoWrap');
-  photoWrap.innerHTML = '';
-  const grid = document.createElement('div');
-  grid.className = 'bill-photo-grid';
-  Object.entries(MO_BILLIONAIRES).forEach(([key, b]) => {
-    const a = document.createElement('a');
-    a.href = b.url; a.target = '_blank'; a.rel = 'noopener';
-    a.className = 'bill-photo-grid-item'; a.title = b.name;
-    const initials = b.name.split(/\s+/).slice(0,2).map(w=>w[0]).join('').toUpperCase();
-    a.innerHTML = `<span class="bill-photo-fallback" style="font-size:16px">${initials}</span>`;
-    grid.appendChild(a);
-  });
-  photoWrap.appendChild(grid);
-
-  renderCards(taxSaving, 'cardsGrid');
-  const bb = document.getElementById('billboard');
-  bb.style.animation = 'none'; void bb.offsetWidth; bb.style.animation = 'fadeUp 0.35s ease both';
-}
 
 /* ══════════════════════════════════════════════════════════════
    DISTRICT TAB — dropdown
@@ -1751,7 +1695,7 @@ function renderBillCombined() {
 const MO_STATEWIDE = {
   name:       'ALL MISSOURI PUBLIC SCHOOLS',
   county:     'Statewide · Source: Missouri Budget Project / NCES FY25',
-  cut:        1133748487,   // $1.13B statewide cut from MBP district analysis
+  cut:        1400000000,   // $1.4B MBP published statewide figure
   pct:        18,           // avg ~18% cut per district
   perStudent: 1960,         // avg cut per pupil
   teachers:   25000,        // est. teacher positions at risk
@@ -1799,7 +1743,7 @@ function selectDistrict(d) {
   // Populate stats
   document.getElementById('dName').textContent = d.name;
   document.getElementById('dCounty').textContent = d.county;
-  document.getElementById('dCut').textContent = isStatewide ? '$1.13B' : fmt(d.cut);
+  document.getElementById('dCut').textContent = isStatewide ? '$1.4B+' : fmt(d.cut);
   document.getElementById('dPct').textContent = isStatewide ? '~18%' : d.pct.toFixed(1) + '%';
   document.getElementById('dPerStudent').textContent = '$' + d.perStudent.toLocaleString();
 
@@ -1844,7 +1788,19 @@ document.getElementById('tabCombined').addEventListener('click', () => {
 /* ══════════════════════════════════════════════════════════════
    INIT
 ══════════════════════════════════════════════════════════════ */
-renderBill('steward');
+// Rex tab self-initializes above via IIFE
 </script>
+
+<div class="closing-strip">
+  <div class="closing-inner">
+    <div class="closing-vote">Vote <strong>NO on Amendment 5</strong> · August 4, 2026</div>
+    <div class="closing-links">
+      Register to vote → <a href="https://www.sos.mo.gov/elections/govotemissouri/default.asp" target="_blank" rel="noopener">sos.mo.gov ↗</a>
+      &nbsp;·&nbsp;
+      <a href="https://parents4mopublicschools.org" target="_blank" rel="noopener">parents4mopublicschools.org ↗</a>
+    </div>
+    <div class="closing-paid">Paid for by Parents for Missouri Public Schools. Ellen Glover, Treasurer.</div>
+  </div>
+</div>
 </body>
 </html>
